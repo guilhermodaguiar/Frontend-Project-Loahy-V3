@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600&display=swap');
+
+
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+.wishlist-page {
+    position: relative;
+    width: 100%;
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: url('../../../assets/winkel_wagen_background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    padding: 250px 60px 30px 60px;
+    color: white;
+    justify-content: flex-start;
+}
+
+
+.wishlist-h1 {
+    font-size: 72px;
+    padding: 48px 0;
+    color: white;
+}
+
+
+.wishlist-outer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    padding: 60px;
+    background-color: wheat;
+    flex-wrap: wrap;
+    height: fit-content;
+}
+
+.warning-icon {
+    display: flex;
+}
+
+.click-p:hover {
+    font-size: large;
+    color: hotpink;
+}
+
+.wishlist-outer-outer-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 30px 90px;
+    background-color: wheat;
+    flex-wrap: wrap;
+    height: fit-content;
+}

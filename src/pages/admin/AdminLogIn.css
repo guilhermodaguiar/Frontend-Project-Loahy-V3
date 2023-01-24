@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+.admin-page {
+    padding: 100px;
+    color: white;
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: url('../../assets/admin_background.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.admin-sign-in-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 90px;
+    background-color: wheat;
+}
+
+.admin-h1 {
+    font-size: 72px;
+    padding: 48px 0;
+    color: white;
+}
+
+
+.form-container-admin {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-grow: 1;
+    align-items: start;
+    background-size: cover;
+    border-right: groove;
+    flex-wrap: wrap;
+    background-color: chocolate;
+}
+
+.admin-input {
+    width: 70%;
+    padding: 7px 60px;
+    margin: 10px 42px;
+    border: 1px solid #ddd;
+    display: flex;
+    justify-content: start;
+}
+
+.placeholder {
+    justify-content: start;
+}
+
+.form-button-login-admin {
+    display: flex;
+    align-items: center;
+}
+

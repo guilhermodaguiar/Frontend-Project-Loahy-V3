@@ -1,70 +1,89 @@
-# Getting Started with Create React App
+![LoahyTree Logo](src/assets/Loahy_logo_DEF_dark_RGB_Normaal.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Loahy | 2022 | Novi Hogeschool | Eindopdracht Full Stack Developer
 
-## Available Scripts
+|                                               |                                      |
+|-----------------------------------------------|--------------------------------------|
+| ![Novi-Hogeschool](src/assets/logo_novi2.png) | ![React](src/assets/react_klein.png) |
 
-In the project directory, you can run:
+> Dit is de Frontend voor mijn webapplicatie **Loahy**. Loahy zal als een begin versie zijn voor een hobby/project [LoahyTree](https://www.instagram.com/loahytree/).
+> De bedoeling is deze in de toekomst uit te breiden tot een daadwerkelijke running applicatie.
+>
+[Github voor de FRONT-END van Loahy vind je hier]( https://github.com/guilhermodaguiar/Frontend-Project-Loahy-V1)
 
-### `npm start`
+[Github voor de BACK-END van Loahy vind je hier]( https://github.com/guilhermodaguiar/Backend-Project-Loahy-V1)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Applicatie starten
 
-### `npm test`
+Voor het **clonen** van de repository voor Loahy wordt verwezen naar de links in [Github](https://github.com):
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+| Soort | URL                                                                 |
+|-------|---------------------------------------------------------------------|
+| HTTPS | `https://github.com/guilhermodaguiar/Frontend-Project-Loahy-V1.git` |
+| SSH   | `git@github.com:guilhermodaguiar/Frontend-Project-Loahy-V1.git`     |
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+>Voordat de applicatie gebruikt kan worden dient deze eerst op een correcte manier geïnstalleerd te worden.
+>Volg de stappen en run daarna de applicatie.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Als je het project gecloned hebt naar jouw locale machine, installeer je eerst de node_modules door het volgende commando in de terminal te runnen:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+`npm install`
 
-### `npm run eject`
+installeer ook react-icons:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+`npm install react-icons`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+installeer vervolgens react-router-dom:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+`npm install react-router-dom@5.2.0`.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+> React router is __*deprecated*__ en er is geleerd om met deze versie te werken.
+Dit is de reden om de niet te werken met de nieuwe features van ***react-router-dom***.
 
-## Learn More
+Wanneer alle packages geïnstalleerd zijn, kun je de applicatie starten met behulp van:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+`npm start`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+of gebruik de WebStorm knop (npm start). Open http://localhost:3000 om de pagina in de browser te bekijken
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Map Guide
+Hieronder staan de mappen structuur met de kort uitleg waarvoor ze gebruikt worden.
 
-### Analyzing the Bundle Size
+### Assets
+Deze map bevat alle gebruikte afbeeldingen zoals *logo's*, *backgrounds* en *afbeeldingen van de producten* zelf.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Pages
+Pages bevat alle webpagina's voor de applicatie.
+### Context
+Er zijn vier context gemaakt. Deze kunnen hun *informatie* delen met elk component.
+> - UserAuthContext
+> - ShoppingCartContext
+> - WishlistContext
 
-### Making a Progressive Web App
+### Components
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Helpers
+### Routing
+In de routing staan de routes met hun path.
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+# Gebruikers & Rollen
+De volgende gebruikers kunnen worden gebruikt om de applicatie te testen. In de database en **data.sql** bestand in de backend zijn nog andere users toegevoegd, maar één rol voor user is voor nu voldoende.
+Een eigen **account** kan gemaakt worden om producten toe te voegen aan een *wishlist* of aan een *shopping cart*.
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+>#### ADMIN_ROLE
+> - gebruikersnaam: admin@test.nl
+> - wachtwoord: admin123
+>
+> #### USER_ROLE
+> - gebruikersnaam: user@test.nl
+> - wachtwoord: test123
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+###### Eindopdracht Full-Stack Developer NOVI College | Guilhermo d'Aguiar | Copyright © 2022 Loahy | Alle Rechten Voorbehouden.
+ 

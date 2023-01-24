@@ -1,0 +1,36 @@
+.warning-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-basis: auto;
+    font-style: italic;
+    padding-bottom: 20px;
+}
+
+.save-button {
+    align-items: center;
+    display: flex;
+}
+
+.register-customer-container {
+    display: flex;
+    align-items: center;
+    margin: 0 10px;
+    padding: 0 10px;
+}
+
+.register-user-text {
+    display: flex;
+    padding: 0 10px;
+    margin: 0 10px;
+}
+
+.customer-register-inner-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    background-color: wheat;
+}
+
+
+

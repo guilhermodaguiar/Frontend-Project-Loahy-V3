@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+.check-out-page {
+    padding: 250px 60px 30px 60px;
+    color: white;
+    position: relative;
+    width: 100%;
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background: url('../../assets/home_background.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.check-out-h1 {
+    font-size: 72px;
+    padding: 48px 0;
+    color: white;
+}
+
+.checkout-out-outer-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 30px 90px;
+    background-color: wheat;
+    flex-wrap: wrap;
+    height: fit-content;
+}
+
+.update-customer-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 34px;
+}
+
+.shipping-form {
+    display: flex;
+    flex-wrap: wrap;
+    width: 200px;
+    height: fit-content;
+}
+
+.shipping-update-list {
+    display: flex;
+    padding: 10px 0;
+    margin: 0 10px
+}
+
+.shipping-information-container {
+    display: flex;
+    padding: 10px 0;
+    margin: 0 10px;
+    flex-direction: column;
+    border-bottom: solid black;
+}
+
+.go-to-container {
+    display: flex;
+    padding: 10px 0;
+    margin: 0 10px;
+    flex-direction: column;
+}
+
+.input-order {
+    width: 150px;
+    padding: 4px 0;
+}
+
+.first-box-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    border-right: solid black;
+}
+
+.order-header {
+    display: flex;
+    align-items: center;
+}
+
+.second-box-container {
+    display: flex;
+    justify-content: flex-start;
+    height: fit-content;
+    width: 60%;
+    flex-direction: row;
+}
+
+.order-cart-summary {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: wheat;
+    flex-wrap: wrap;
+    height: fit-content;
+}
+
+.price-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: wheat;
+    flex-wrap: wrap;
+    height: fit-content;
+    width: 700px;
+    align-items: center;
+    border-top: solid black;
+
+}
+
+.check-cart-checkout {
+    display: flex;
+    padding: 10px;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.success-updated-shipping {
+    display: flex;
+}
+
+.block-shipping-address-success {
+    padding-right: 10px;
+    border-right: solid black;
+}
+
+.shipping-details-container {
+    display: flex;
+    align-items: center;
+}
+

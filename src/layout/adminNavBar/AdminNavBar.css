@@ -1,0 +1,40 @@
+.admin-nav-bar-outer-container {
+    width: 100%;
+    height: 41px;
+    padding: 0 90px;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: firebrick;
+}
+
+.admin-nav-bar-outer-container a,
+.admin-nav-bar-outer-container a:visited {
+    color: white;
+    text-decoration: none;
+}
+
+.admin-nav-bar-outer-container a:hover {
+    text-decoration: underline;
+}
+
+.admin-nav-bar-inner-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.container-for-padding {
+    display: flex;
+    flex-wrap: wrap;
+    padding-right: 40px;
+}
+
+.container-for-button {
+    display: flex;
+    flex-wrap: wrap;
+}

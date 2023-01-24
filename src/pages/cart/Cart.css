@@ -1,0 +1,39 @@
+.shopping-cart-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 30px 90px;
+    background-color: wheat;
+    flex-wrap: wrap;
+    height: fit-content;
+}
+
+.total-and-price-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px 30px 20px 52px;
+    background-color: wheat;
+    flex-wrap: wrap;
+    height: fit-content;
+    width: 800px;
+    align-items: center;
+    border-top: solid black;
+
+}
+
+.total-price2 {
+    display: flex;
+    justify-content: end;
+    padding: 10px 0px 10px 10px;
+}
+
+.name-price-qty-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 0px 90px;
+    background-color: wheat;
+    flex-wrap: wrap;
+    height: fit-content;
+}

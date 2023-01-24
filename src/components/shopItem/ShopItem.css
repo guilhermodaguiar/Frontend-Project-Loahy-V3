@@ -1,0 +1,121 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.random-robot-container {
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+    padding: 1px;
+}
+
+.product-price{
+    display: flex;
+}
+
+.wishlist-heart {
+    border-radius: 50% !important;
+    color: darkcyan;
+    width: 24px;
+    height: 24px;
+    position: unset;
+    bottom: 64px;
+    right: 260px;
+    transform: translate(16%, 13%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: wheat;
+    border: ridge;
+}
+
+.product-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 10px;
+    width: 300px;
+}
+
+.main-container-product {
+    padding: 10px 30px 10px 30px;
+}
+
+.border-effect-container:hover {
+    border: solid #df7c6d;
+}
+
+
+.add-to-cart-button {
+    background-color: transparent;
+    font-family: 'Poppins', sans-serif;
+    color: transparent;
+    font-size: 20px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+}
+
+button {
+    background-color: #df7c6d;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    padding: 1px 7px;
+    cursor: pointer;
+}
+
+p {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-basis: auto;
+    align-items: baseline;
+}
+
+
+.wishlist-heart :hover {
+    background-color: goldenrod;
+    cursor: pointer;
+}
+
+.add-to-list-heart{
+    border-radius: 50% !important;
+}
+
+.remove-from-list-heart {
+    border-radius: 50% !important;
+}
+
+.click-to-cart {
+    background-color: #df7c6d;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    padding: 1px 7px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.hearts-container {
+    position: absolute;
+}
+
+.product-information {
+    font-weight: 300;
+}
+
+
+
+
+
+

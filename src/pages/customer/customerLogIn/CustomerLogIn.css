@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+.shopping-cart-header-name {
+    font-size: 72px;
+    padding: 48px 0;
+    color: white;
+}
+
+.customer-inlog-page {
+    color: white;
+    position: relative;
+    width: 100%;
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: url('../../../assets/gieter_top_background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    padding: 250px 60px 30px 60px;
+    justify-content: flex-start;
+}
+
+.header-name {
+    flex-direction: row;
+    justify-content: start;
+    font-size: 72px;
+    padding: 48px 0;
+    color: white;
+}
+
+.login-field-note {
+    display: flex;
+    flex-direction: column;
+    padding: 0 30px;
+    font-family: "Poppins", sans-serif;
+    font-style: italic;
+}
+
+input {
+    width: 250px;
+    padding: 7px 4px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    display: block;
+}
+
+.form-footer, p {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-basis: auto;
+}
+
+.login-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    flex-wrap: wrap;
+}
+
+.to-register-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.form-container-login {
+    padding: 51px;
+    display: block;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-grow: 1;
+    align-items: center;
+    background-size: cover;
+    border-right: groove;
+    flex-wrap: wrap;
+    min-width: 500px;
+    background-color:chocolate;
+}
+
+.customer-login-outer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 30px;
+}
+
+.form-button-login {
+    background-color: #df7c6d;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    padding: 1px 7px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.show-hide-password {
+    display: flex;
+    color: white;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.password-container {
+    display: flex;
+    flex-direction: row;
+}
+
+
+

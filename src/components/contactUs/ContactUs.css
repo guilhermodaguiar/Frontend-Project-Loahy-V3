@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+.contact-us-main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 48px;
+}
+
+
+.KvK-icon {
+    width: 25px;
+    height: 25px;
+}
+
+.contact-us-outer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 30px;
+}
+
+.contact-us-outer-container-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.contact-us-outer-container-header, h1 {
+    font-size: 40px;
+    padding: 30px 0;
+    color: black;
+}
+.contact-us-inner-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    padding: 30px;
+    align-items: flex-start;
+}
+
+.contact-us-icons {
+    color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    width: 20px;
+    height: 20px;
+    padding-left: 10px;
+}
+
+.contact-us-feedback {
+
+    padding: 0 30px;
+    font-family: "Poppins", sans-serif;
+    font-style: italic;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-basis: auto;
+}
+
+.contact-us-section-containers {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.section-email {
+    padding-left: 80px;
+}
+
+.section-organisation {
+    padding-left: 80px;
+}
+.contact-us-information-list, p {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-basis: fit-content;
+    padding: 5px 0;
+}
+
+.green-up{
+    display: flex;
+}
+
+.green-up-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.contact-us-information-list {
+    padding-top: 50px;
+}
+
+.contact-us-information {
+    padding-left: 10px;
+}
+
+.contact-us-border-container {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding-right: 10px;
+}
+
+.contact-us-contact-us {
+    display: flex;
+    justify-content: start;
+    padding-right: 10px;
+    border-right: groove;
+}
+
+.just_a-p {
+    display: flex;
+    justify-content: start;
+    flex-basis: auto;
+}
+
+.contact-map {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    padding-left: 10px;
+    border-left: groove;
+    height: 415px;
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow: wrap;
+    padding-right: 10px;
+}
+
+
+.input-containers {
+    width: 100%;
+    padding: 6px 6px;
+    border: 1px solid #ddd;
+    box-sizing: content-box;
+}
+
+textarea {
+    width: 100%;
+    padding: 6px 0;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    font-family: Poppins, sans-serif;
+}
+
+.form-button-send-form {
+    background-color: #df7c6d;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    width: 112px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    padding: 1px 7px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.contact-us-information-list-contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.container-contact-form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: flex-start;
+    padding: 0;
+
+}
+
+
+
