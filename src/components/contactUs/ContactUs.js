@@ -14,10 +14,10 @@ function ContactUs() {
     const [contactPhone, setContactPhone] = useState('');
     const [contactOrg, setContactOrg] = useState('');
 
-    //state voor functionaliteiten
+
     const [loading, toggleLoading] = useState(false);
     const [addSuccess, toggleAddSuccess] = useState(false);
-    const [contactInput, setContactInput] = useState([]);
+    const [setContactInput] = useState([]);
 
 
     async function handleContactSubmit(e) {

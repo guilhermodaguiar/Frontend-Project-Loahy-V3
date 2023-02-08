@@ -1,7 +1,7 @@
 import "./CheckoutComponent.css";
 
 import React from "react";
-import {formatCurrency} from "../../../helpers/formatCurrency/FormatCurrency";
+import {formatCurrency} from "../../helpers/formatCurrency/FormatCurrency";
 
 
 function CheckoutComponentComponent({item}) {

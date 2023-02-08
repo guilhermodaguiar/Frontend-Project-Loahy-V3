@@ -8,7 +8,7 @@ import {NavLink} from "react-router-dom";
 import {BsFillPencilFill} from "react-icons/bs";
 import {MdAccountCircle} from "react-icons/md";
 import {IoMdLogIn} from "react-icons/io";
-import CustomerRegister from "../customerRegister/CustomerRegister";
+import Register from "../register/Register";
 
 
 const PASSWORD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -98,7 +98,7 @@ function CustomerSignUp() {
             {success ? (
                 <section className="block-new-user-created-with-succes">
                     <div>
-                        <CustomerRegister
+                        <Register
                             customer= {email}
                         />
                     </div>

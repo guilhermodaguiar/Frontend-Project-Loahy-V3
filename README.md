@@ -1,6 +1,6 @@
 ![LoahyTree Logo](src/assets/Loahy_logo_DEF_dark_RGB_Normaal.png)
 
-# Loahy | 2022 | Novi Hogeschool | Eindopdracht Full Stack Developer
+# Loahy | 2023 | Novi Hogeschool | Eindopdracht Full Stack Developer
 
 |                                               |                                      |
 |-----------------------------------------------|--------------------------------------|
@@ -9,9 +9,9 @@
 > Dit is de Frontend voor mijn webapplicatie **Loahy**. Loahy zal als een begin versie zijn voor een hobby/project [LoahyTree](https://www.instagram.com/loahytree/).
 > De bedoeling is deze in de toekomst uit te breiden tot een daadwerkelijke running applicatie.
 >
-[Github voor de FRONT-END van Loahy vind je hier]( https://github.com/guilhermodaguiar/Frontend-Project-Loahy-V1)
+[Github voor de FRONT-END van Loahy vind je hier]( https://github.com/guilhermodaguiar/Frontend-Project-Loahy-V3)
 
-[Github voor de BACK-END van Loahy vind je hier]( https://github.com/guilhermodaguiar/Backend-Project-Loahy-V1)
+[Github voor de BACK-END van Loahy vind je hier]( https://github.com/guilhermodaguiar/Backend-Project-Loahy-V3)
 
 
 ## Applicatie starten
@@ -20,7 +20,7 @@ Voor het **clonen** van de repository voor Loahy wordt verwezen naar de links in
 
 | Soort | URL                                                                 |
 |-------|---------------------------------------------------------------------|
-| HTTPS | `https://github.com/guilhermodaguiar/Frontend-Project-Loahy-V1.git` |
+| HTTPS | `https://github.com/guilhermodaguiar/Frontend-Project-Loahy-V3.git` |
 | SSH   | `git@github.com:guilhermodaguiar/Frontend-Project-Loahy-V1.git`     |
 
 

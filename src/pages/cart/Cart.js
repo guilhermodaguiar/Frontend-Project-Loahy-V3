@@ -1,4 +1,4 @@
-import React, {useContext, useState} from "react";
+import React, {useContext} from "react";
 import './Cart.css';
 import {NavLink, useHistory} from "react-router-dom";
 import {useCart, useDispatchCart} from "../../context/CartContext";

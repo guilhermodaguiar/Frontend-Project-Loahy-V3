@@ -74,12 +74,19 @@ function AdminOrder() {
                         <table>
                             <thead>
                             <tr>
-                                <th className="delete-container">Verwijder</th>
-                                <th className="client_name">Voornaam</th>
-                                <th className="client-last-name">Achternaam</th>
-                                <th className="order_number">order#</th>
-                                <th className="order_field">Order</th>
-                                <th className="order_field">datum</th>
+                                <th>Verwijder</th>
+                                <th>Voornaam</th>
+                                <th>Achternaam</th>
+                                <th>order#</th>
+                                <th>Order</th>
+
+                                <th>datum</th>
+                                <th>Straatnaam</th>
+                                <th>Huisnummer</th>
+                                <th>toev.</th>
+                                <th>Postcode</th>
+                                <th>Stad</th>
+                                <th>Mobiel</th>
                             </tr>
                             </thead>
                             <tbody className="order_tbody">
@@ -95,12 +102,19 @@ function AdminOrder() {
                                         </button>
                                         {addSuccess === true && <p><BsFillPatchCheckFill size={25}/> Gelukt met het verwijderen, refresh pagina</p>}
                                     </td>
-                                    <td className="client_first-name">{order.customer.customerFirstName}</td>
-                                    <td className="client-last-name">{order.customer.customerLastName}</td>
-                                    <td className="order_number">{order.id}</td>
-                                    <td className="order_field">{JSON.stringify(order.productList)}
-                                    </td>
+                                    <td>{order.customer.customerFirstName}</td>
+                                    <td>{order.customer.customerLastName}</td>
+                                    <td>{order.id}</td>
+                                    <td>{JSON.stringify(order.productList)}</td>
                                     <td className="order-datum">{order.orderDate}</td>
+
+                                    <th>datum</th>
+                                    <th>Straatnaam</th>
+                                    <th>Huisnummer</th>
+                                    <th>toev.</th>
+                                    <th>Postcode</th>
+                                    <th>Stad</th>
+                                    <th>Mobiel</th>
                                 </tr>
                             })}
                             </tbody>
