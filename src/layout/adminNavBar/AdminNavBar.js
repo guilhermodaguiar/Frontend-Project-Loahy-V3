@@ -5,42 +5,37 @@ import {HashLink as Link} from "react-router-hash-link";
 import {AuthContext} from "../../context/AuthContext";
 
 function AdminNavBar() {
-const {logout} = useContext(AuthContext);
+    const {logout} = useContext(AuthContext);
 
     return(
         <>
             <section className="admin-nav-bar-outer-container">
                 <div className="admin-nav-bar-inner-container">
-                    <div className="container-for-padding">
-                        <Link to="/admin/profile/#admin_product_overview">
-                            Mijn producten
-                        </Link>
-                    </div>
-                    <div className="container-for-padding">
-                        <Link to="/admin/profile/#admin_add_new_product">
-                            Product toevoegen
-                        </Link>
-                    </div>
-                    <div className="container-for-padding">
-                        <Link to="/admin/profile/#admin_update_product">
-                            Product aanpassen
-                        </Link>
-                    </div>
-                    <div className="container-for-padding">
-                        <Link to="/admin/profile/#all_customers">
-                            Klanten
-                        </Link>
-                    </div>
-                    <div className="container-for-padding">
-                        <Link to="/admin/profile/#all_orders">
-                            Orders
-                        </Link>
-                    </div>
-                    <div className="container-for-padding">
-                        <Link to="/admin/profile/#all_contact_remarks">
-                            Contact
-                        </Link>
-                    </div>
+                    <Link to="/admin/profile/#company_overview">
+                        Mijn Info
+                    </Link>
+                    <Link to="/admin/profile/#product_overview">
+                        Mijn producten
+                    </Link>
+
+                    <Link to="/admin/profile/#add_new_product">
+                        Product toevoegen
+                    </Link>
+
+                    <Link to="/admin/profile/#update_product">
+                        Product aanpassen
+                    </Link>
+
+                    <Link to="/admin/profile/#customers">
+                        Klanten
+                    </Link>
+
+                    <Link to="/admin/profile/#orders">
+                        Orders
+                    </Link>
+                    <Link to="/admin/profile/#contact_remarks">
+                        Contact
+                    </Link>
                 </div>
                 <div className="container-for-button">
                     <button className="logout-button"

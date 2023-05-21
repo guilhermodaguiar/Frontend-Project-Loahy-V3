@@ -37,3 +37,14 @@
     flex-wrap: wrap;
     height: fit-content;
 }
+
+.cart_empty {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 90px;
+    background-color: wheat;
+    flex-wrap: wrap;
+    height: 200px;
+    align-items: center;
+}

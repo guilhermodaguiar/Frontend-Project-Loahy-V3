@@ -1,48 +1,46 @@
-import React, {createContext, useContext, useReducer} from "react";
+import {createContext, useContext, useEffect, useReducer} from "react";
+import axios from "axios";
+import {cartReducer} from "../helpers/reducers/Reducers";
 
-const CartStateContext = createContext();
-const CartDispatchContext = createContext();
 
-const cartReducer = (state, action) => {
-    switch (action.type) {
-        case "ADD_TO_CART":
-            return [...state, action.item];
-        case "REMOVE_FROM_CART":
-            const newArr = [...state];
-            newArr.splice(action.index, 1);
-            return newArr;
-        case "CHANGE_CART_QTY":
-            const newArr3 = [...state];
-            newArr3.map((c) =>
-                c.item === action.item ? (c.qty = action.qty) : c.qty, 1)
-            return newArr3;
-        case "CHANGE_CART_QTY2":
-            return {
-                ...state,
-                cart: state.cart.filter((c) =>
-                    c.id === action.payload.id ? (c.qty = action.payload.qty) : c.qty
-                ),
-            };
-        default:
-            throw new Error(`unknown action ${action.type}`);
-    }
+export const CartContext = createContext({});
+
+const initialState = {
+    initialized: false,
+    items: [],
+    cart: []
 };
 
+export const CartProvider = ({children}) => {
+    const [state, dispatch] = useReducer(cartReducer, initialState);
 
+    useEffect(() => {
+        async function getItemData() {
+            try {
+                const itemData = await axios.get(`http://localhost:8080/products/`);
+                console.log(itemData.data);
+                dispatch({type: 'FETCH_DATA', payload: {
+                        ...initialState, items: itemData.data}});
+            } catch (e) {
+                console.error('er is iets misgegaan het halen van items voor context3', e);
+            }
+        }
 
+        getItemData();
+    }, []);
 
-export const CartProvider = ({ children }) => {
-    const [state, dispatch] = useReducer(cartReducer, []
-    );
 
     return (
-        <CartDispatchContext.Provider value={dispatch}>
-            <CartStateContext.Provider value={state}>
-                {children}
-            </CartStateContext.Provider>
-        </CartDispatchContext.Provider>
-    );
+        <CartContext.Provider value={{state, dispatch,}}>
+            {children}
+        </CartContext.Provider>
+    )
 };
 
-export const useCart = () => useContext(CartStateContext);
-export const useDispatchCart = () => useContext(CartDispatchContext);
+export const CartState = () => {
+    return useContext(CartContext);
+}
+
+
+
+

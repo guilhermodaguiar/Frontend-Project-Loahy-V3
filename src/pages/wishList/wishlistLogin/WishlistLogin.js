@@ -6,7 +6,7 @@ import {NavLink} from "react-router-dom";
 import {HashLink as Link} from "react-router-hash-link";
 import {FcShop} from "react-icons/fc";
 import {AuthContext} from "../../../context/AuthContext";
-import WishList from "../wishList/WishList";
+import WishList from "../WishList";
 
 function WishlistLogin() {
     const {isAuth} = useContext(AuthContext);
@@ -14,7 +14,7 @@ function WishlistLogin() {
 
     return (
         <>
-            {!isAuth ? (
+            {!isAuth ?
                 <>
                     <div className="wishlist-page">
                         <h1 className="wishlist-h1">Verlanglijst</h1>
@@ -27,20 +27,14 @@ function WishlistLogin() {
                                     <p>Je moet ingelogd zijn om je Wishlist te zien en te
                                         updaten</p>
                                 </div>
-                                <div className="click-to-shop"> Klik&nbsp;
-                                    <NavLink to="/customer/register">
-                                        <div className="click-p">hier</div>
-                                    </NavLink>
-                                    &nbsp;om te registreren
-                                </div>
-
-                                <div className="click-to-shop"> Klik&nbsp;
-                                    <NavLink to="/customer/login">
+                                <div className="click-to-shop">
+                                    Klik&nbsp;
+                                    <NavLink to="/user">
                                         <div
                                             className="click-p">hier
                                         </div>
                                     </NavLink>
-                                    &nbsp;om in te loggen
+                                    &nbsp;om in te loggen of om te registreren
                                 </div>
 
                                 <div className="to-shop-link-container">
@@ -59,11 +53,11 @@ function WishlistLogin() {
                     </div>
                 </>
 
-            ) : (
-                <div>
+             :
+                <>
                     <WishList/>
-                </div>
-            )}
+                </>
+            }
 
         </>
     )

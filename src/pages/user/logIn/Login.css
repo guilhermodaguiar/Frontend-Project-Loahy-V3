@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+
+.header-name {
+    flex-direction: row;
+    justify-content: start;
+    font-size: 72px;
+    padding: 48px 0;
+    color: white;
+}
+
+.login-field-note {
+    display: flex;
+    flex-direction: column;
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+    padding: 0 25px;
+    color: white
+}
+
+input {
+    width: 250px;
+    padding: 7px 4px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    display: block;
+}
+
+.form-footer, p {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-basis: auto;
+}
+
+.form-container-login {
+    padding: 25px;
+    display: block;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-grow: 1;
+    align-items: center;
+    background-size: cover;
+    border-right: groove;
+    flex-wrap: wrap;
+    min-width: 375px;
+    background-color:chocolate;
+}
+
+.form-button-login {
+    background-color: #df7c6d;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    padding: 1px 7px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.show-hide-password {
+    display: flex;
+    color: white;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.password-container {
+    display: flex;
+    flex-direction: column;
+}
+
+
+

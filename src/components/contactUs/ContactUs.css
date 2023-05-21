@@ -23,7 +23,7 @@ body {
     height: 25px;
 }
 
-.contact-us-outer-container {
+.outer-container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -41,13 +41,23 @@ body {
     padding: 30px 0;
     color: black;
 }
-.contact-us-inner-container {
+
+.contact-container {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     flex-wrap: wrap;
-    padding: 30px;
     align-items: flex-start;
+    padding: 0px 30px;
+}
+
+.contact-map {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    padding-left: 10px;
+    border-left: groove;
+    height: 415px;
 }
 
 .contact-us-icons {
@@ -77,13 +87,11 @@ body {
     justify-content: flex-start;
 }
 
-.section-email {
-    padding-left: 80px;
-}
 
 .section-organisation {
     padding-left: 80px;
 }
+
 .contact-us-information-list, p {
     display: flex;
     flex-direction: column;
@@ -92,11 +100,11 @@ body {
     padding: 5px 0;
 }
 
-.green-up{
+.green-up {
     display: flex;
 }
 
-.green-up-container{
+.green-up-container {
     display: flex;
     flex-direction: row;
 }
@@ -107,45 +115,19 @@ body {
 
 .contact-us-information {
     padding-left: 10px;
-}
-
-.contact-us-border-container {
     display: flex;
-    justify-content: flex-start;
     flex-wrap: wrap;
+    justify-content: flex-start;
     flex-direction: column;
-    padding-right: 10px;
+    align-items: baseline;
 }
 
-.contact-us-contact-us {
+.remark-container {
     display: flex;
     justify-content: start;
     padding-right: 10px;
     border-right: groove;
 }
-
-.just_a-p {
-    display: flex;
-    justify-content: start;
-    flex-basis: auto;
-}
-
-.contact-map {
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    padding-left: 10px;
-    border-left: groove;
-    height: 415px;
-}
-
-.flex-container {
-    display: flex;
-    flex-wrap: wrap;
-    flex-flow: wrap;
-    padding-right: 10px;
-}
-
 
 .input-containers {
     width: 100%;
@@ -177,21 +159,24 @@ textarea {
     align-items: center;
 }
 
-.contact-us-information-list-contact {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-}
-
 .container-contact-form {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     align-content: flex-start;
     padding: 0;
-
 }
+
+input {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 170px;
+    padding: 7px 4px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+}
+
 
 
 

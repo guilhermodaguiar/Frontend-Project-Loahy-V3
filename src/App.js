@@ -1,53 +1,48 @@
-import React from "react";
 import './App.css';
+
+import React from "react";
 import Footer from "./layout/footer/Footer";
 import NavBar from "./layout/navBar/NavBar";
 import {Route, Switch} from "react-router-dom";
-import LogIn from "./pages/customer/logIn/LogIn";
-import CustomerSignUp from "./pages/customer/customerSignUp/CustomerSignUp";
-import Register from "./pages/customer/register/Register";
-import PrivateRoute from "./routing/PrivateRoute";
-import CustomerPage from "./pages/customer/CustomerPage";
-import WishList from "./pages/wishList/wishList/WishList";
+import PrivateRoute from "./helpers/routing/PrivateRoute";
+import UserPage from "./pages/user/userPage/UserPage";
 import Cart from "./pages/cart/Cart";
-import CheckOut from "./pages/checkout/CheckOut";
-import WishlistLogin from "./pages/wishList/wishlistLogin/WishlistLogin";
+import Checkout from "./pages/checkout/Checkout";
 import AdminLogIn from "./pages/admin/AdminLogIn";
 import AdminPage from "./pages/admin/AdminPage";
-import AdminUploadImage from "./components/adminComponents/adminUploadImage/AdminUploadImage";
+import UploadImage from "./components/adminComponents/uploadImage/UploadImage";
 import Home from "./pages/home/Home";
+import UserLogin from "./pages/user/userLogin/UserLogin";
+import ItemInfo from "./components/itemComponents/itemInfo/ItemInfo";
+import WishList from "./pages/wishList/WishList";
 
 
 function App() {
+
     return (
         <>
             <NavBar/>
             <div className="inner-container">
                 <Switch>
-                    <Route exact path="/customer/login">
-                        <LogIn/>
+                    <Route exact path="/user">
+                        <UserLogin/>
                     </Route>
-                    <Route exact path="/customer/register">
-                        <CustomerSignUp/>
-                    </Route>
-                    <Route exact path="/customer/register/step2">
-                        <Register/>
-                    </Route>
-                    <PrivateRoute path="/customer/profile">
-                        <CustomerPage/>
+                    <PrivateRoute path="/user/profile">
+                        <UserPage/>
                     </PrivateRoute>
-                    <PrivateRoute path="/customer/wishlist">
+                    {/*<PrivateRoute path="/user/wishlist">*/}
+                    {/*    <WishList/>*/}
+                    {/*</PrivateRoute>*/}
+                    <Route path="/wishlist">
                         <WishList/>
-                    </PrivateRoute>
+                    </Route>
                     <Route path="/shopping-cart">
                         <Cart/>
                     </Route>
-                    <Route exact path="/customer/checkout">
-                        <CheckOut/>
+                    <Route exact path="/user/checkout">
+                        <Checkout/>
                     </Route>
-                    <Route path="/wishlist">
-                        <WishlistLogin/>
-                    </Route>
+
                     <Route exact path="/admin">
                         <AdminLogIn/>
                     </Route>
@@ -55,10 +50,13 @@ function App() {
                         <AdminPage/>
                     </PrivateRoute>
                     <PrivateRoute path="/admin/products/images">
-                        <AdminUploadImage/>
+                        <UploadImage/>
                     </PrivateRoute>
                     <Route exact path="/">
                         <Home/>
+                    </Route>
+                    <Route exact path="/items/:item_id">
+                        <ItemInfo/>
                     </Route>
                 </Switch>
             </div>

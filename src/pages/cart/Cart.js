@@ -1,32 +1,31 @@
-import React, {useContext} from "react";
 import './Cart.css';
+
+import React, {useContext, useEffect, useState} from "react";
 import {NavLink, useHistory} from "react-router-dom";
-import {useCart, useDispatchCart} from "../../context/CartContext";
-import CartComponent from "./CartComponent";
 import {FcShop} from "react-icons/fc";
 import {BiMessageError} from "react-icons/bi";
-import {AuthContext} from "../../context/AuthContext";
 import {IoBagCheckOutline} from "react-icons/io5";
-import {formatCurrency} from "../../helpers/formatCurrency/FormatCurrency";
+import {AuthContext} from "../../context/AuthContext";
+import {CartState} from "../../context/CartContext";
+import CartComponent from "./CartComponent";
+
 
 
 function Cart() {
-    const history = useHistory();
-    const cartItems = useCart();
     const {isAuth} = useContext(AuthContext);
-    const dispatch = useDispatchCart();
+    const history = useHistory();
+    const {state: { cart }, dispatch} = CartState();
+    const [total, setTotal] = useState();
+
+    useEffect(() => {
+        setTotal(
+            cart.reduce((acc, curr) => acc + Number(curr.productPrice) * curr.qty, 0)
+        );
+    }, [cart]);
 
     function checkout() {
-        history.push('customer/checkout');
+        history.push('test/checkout');
     }
-
-    function handleRemove(index) {
-        dispatch({type: "REMOVE_FROM_CART", index});
-    }
-
-    const totalPrice = cartItems.reduce((acc, cartItems) => acc + cartItems.productPrice, 0);
-
-
 
 
     return (
@@ -35,77 +34,96 @@ function Cart() {
                 <div className="shopping-cart-page">
                     <h1 className="shopping-cart-h1">Winkelwagen</h1>
                 </div>
-                <div className="name-price-qty-container">
-                    <div className="cart-container-inner"></div>
-                    <div className="cart-container-inner"></div>
-                    <div className="cart-container-inner">Naam</div>
-                    <div className="cart-container-inner">Prijs</div>
-                </div>
-
-                <div className="shopping-cart-container">
-                    {cartItems.map((item, index) => {
-                        return (
-                            <CartComponent
-                                key={index}
-                                item={item}
-                                handleRemove={handleRemove}
-                            />
-                        )
-                    })}
-                    <div className="total-and-price-container">
-                        <div className="aantal-producten">
-                            Totaal aantal: {cartItems.length} producten
-                        </div>
-                        <div className="total-price2">
-                            <strong>Totaal prijs: {formatCurrency(totalPrice.toFixed(2))}</strong>
-                        </div>
+                {cart.length === 0 ?
+                    <div className="cart_empty">
+                        Winkelwagen is leeg
+                        <p>
+                            Klik&nbsp;
+                            <span>
+                                <NavLink to="/#shop">
+                                    <FcShop className="shop-icon"
+                                            size={25}/>
+                                </NavLink>
+                            </span>
+                            &nbsp;om verder te winkelen
+                        </p>
                     </div>
-                </div>
-                <div className={"shopping-cart-container"}>
+                    :
+                    <div>
+                        <div className="name-price-qty-container">
+                            <div className="cart-container-inner"></div>
+                            <div className="cart-container-inner"></div>
+                            <div className="cart-container-inner">Naam</div>
+                            <div className="cart-container-inner">Prijs</div>
+                            <div className="cart-container-inner">Aantal</div>
+                            <div className="cart-container-inner">Subtotaal</div>
+                        </div>
 
-                    {!isAuth ? (
-                        <div>
-                            <div>
-                                <div className="warning-icon"><BiMessageError size={40}/></div>
-                                <div className="click-to-shop"> Je moet ingelogd zijn om bestellen</div>
-                                <div className="click-to-shop"> Klik&nbsp;
-                                    <NavLink to="/customer/register">
-                                        <div className="click-p">hier</div>
-                                    </NavLink>
-                                    &nbsp;om te registreren
+                        <div className="shopping-cart-container">
+                            {cart.map((item) => {
+                                return (
+                                    <div className="shopping-cart-outer-container">
+                                        <CartComponent
+                                            key={item.productId}
+                                            item={item}
+                                        />
+                                    </div>
+                                )
+                            })}
+                            <div className="total-and-price">
+                                <div className="aantal-producten">
+                                    Totaal aantal: {cart.length} producten
                                 </div>
-                                <div className="click-to-shop"> Klik&nbsp;
-                                    <NavLink to="/customer/login">
-                                        <div
-                                            className="click-p">hier
-                                        </div>
-                                    </NavLink>
-                                    &nbsp;om in te loggen
-                                </div>
-
-                                <div className="to-shop-link-container">
-                                    <p className="click-to-shop">
-                                        Klik&nbsp;
-                                        <span>
-                                        <NavLink to="/shop">
-                                            <FcShop className="shop-icon"
-                                                    size={25}/>
-                                        </NavLink>
-                                </span>&nbsp;om verder te winkelen
-                                    </p>
+                                <div>
+                                    <button onClick={dispatch({type: "CLEAR_CART"})}>
+                                        verwijder lijst
+                                    </button>
                                 </div>
                             </div>
                         </div>
-                    ) : (
-                        <div className="button-size">
-                            <button className="cart-checkout-button"
-                                    onClick={checkout}>
-                                <IoBagCheckOutline size={22}/>&nbsp;Bestellen
-                            </button>
-                            &nbsp;In de volgende pagina kan je de aantal aanpassen
+                        <div>
+                            <strong>
+                                totaal: {total}
+                            </strong>
                         </div>
-                    )}
-                </div>
+                        <div className="shopping-cart-container">
+
+                            {!isAuth ?
+                                <div>
+                                    <div><BiMessageError size={40}/></div>
+                                    <div> Je moet ingelogd zijn om bestellen</div>
+                                    <div> Klik&nbsp;
+                                        <NavLink to="/user">
+                                            hier
+                                        </NavLink>
+                                        &nbsp;om in te loggen of om te registreren
+                                    </div>
+
+                                    <div className="to-shop">
+                                        <p>Klik&nbsp;
+                                            <span>
+                                                <NavLink to="/#shop">
+                                                    <FcShop size={25}/>
+                                                </NavLink>
+                                            </span>
+                                            &nbsp;om verder te winkelen
+                                        </p>
+                                    </div>
+                                </div>
+                                :
+                                <>
+                                    <div className="button-size">
+                                        <button className="cart-checkout-button"
+                                                onClick={checkout}>
+                                            <IoBagCheckOutline size={22}/>&nbsp;Bestellen
+                                        </button>
+                                        &nbsp;In de volgende pagina kan je de aantal aanpassen
+                                    </div>
+                                </>
+                            }
+                        </div>
+                    </div>
+                }
             </div>
         </>
     )

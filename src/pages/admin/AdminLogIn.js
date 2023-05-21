@@ -26,7 +26,7 @@ function AdminLogIn() {
                 userEmail: email,
                 password: password,
             });
-
+            toggleLoading(true);
             console.log(response.data);
             login(response.data.jwt);
 

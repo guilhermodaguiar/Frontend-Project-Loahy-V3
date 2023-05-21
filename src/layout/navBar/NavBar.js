@@ -5,13 +5,14 @@ import {NavLink} from "react-router-dom";
 import {HashLink as Link} from "react-router-hash-link";
 import {HiOutlineHeart, HiOutlineShoppingCart, HiOutlineUser} from "react-icons/hi";
 import CartDropDown from "../../components/cartDropDownMenu/CartDropDown";
-import {useWishlist} from "../../context/WishlistContext";
-import {useCart} from "../../context/CartContext";
+import {WishlistState} from "../../context/WishlistContext";
+import {CartState} from "../../context/CartContext";
 
 
 function NavBar() {
-    const wishlistItems = useWishlist();
-    const cartItems = useCart();
+    const {state: { wishlist }} = WishlistState();
+    const {state: { cart }} = CartState();
+
 
 
     return (
@@ -55,8 +56,8 @@ function NavBar() {
                                 </div>
                             </div>
                             <div>
-                                {cartItems.length > 0 && (<div className="rounded-circle">
-                                    {cartItems.length}
+                                {cart.length > 0 && (<div className="rounded-circle">
+                                    {cart.length}
                                 </div>)}
                             </div>
                         </NavLink>
@@ -67,8 +68,8 @@ function NavBar() {
                                 size={22}
                                 className="wishlist-icon"
                             />
-                            {wishlistItems.length > 0 && (<div className="rounded-circle-2">
-                                {wishlistItems.length}
+                            {wishlist.length > 0 && (<div className="rounded-circle-2">
+                                {wishlist.length}
                             </div>)}
                         </NavLink>
                     </li>

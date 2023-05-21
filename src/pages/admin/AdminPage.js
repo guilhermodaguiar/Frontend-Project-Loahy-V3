@@ -1,16 +1,17 @@
 import './AdminPage.css';
 
 import React, {useContext} from "react";
-import AdminUpdateProduct from "../../components/adminComponents/adminUpdateProduct/AdminUpdateProduct";
+import UpdateProduct from "../../components/adminComponents/updateProduct/UpdateProduct";
 import ScrollIndicator from "../../helpers/scrollIndicator/ScrollIndicator";
 import ScrollToTop from "../../helpers/scrollToTop/ScrollToTop";
 import {AuthContext} from "../../context/AuthContext";
 import AdminNavBar from "../../layout/adminNavBar/AdminNavBar";
-import AdminProductOverview from "../../components/adminComponents/adminProductOverview/AdminProductOverview";
-import AdminUser from "../../components/adminComponents/adminUser/AdminUser";
-import AdminContactUs from "../../components/adminComponents/adminContactUs/AdminContactUs";
-import AdminCreateProduct from "../../components/adminComponents/adminCreateProduct/AdminCreateProduct";
-import AdminOrder from "../../components/adminComponents/adminOrder/AdminOrder";
+import ProductOverview from "../../components/adminComponents/productOverview/ProductOverview";
+import UserOverview from "../../components/adminComponents/userOverview/UserOverview";
+import ContactUs from "../../components/adminComponents/contactUs/ContactUs";
+import CreateProduct from "../../components/adminComponents/createProduct/CreateProduct";
+import OrderOverview from "../../components/adminComponents/orderOverview/OrderOverview";
+import AboutCompany from "../../components/adminComponents/aboutCompany/AboutCompany";
 
 
 function AdminPage() {
@@ -44,23 +45,26 @@ function AdminPage() {
                     <div className="admin-main">
                         <ScrollIndicator/>
                         <ScrollToTop/>
-                        <section id="admin-product-overview">
-                            <AdminProductOverview/>
+                        <section>
+                            <AboutCompany/>
                         </section>
                         <section>
-                            <AdminCreateProduct/>
+                            <ProductOverview/>
                         </section>
-                        <section id="admin-new-products-update">
-                            <AdminUpdateProduct/>
+                        <section>
+                            <CreateProduct/>
                         </section>
-                        <section id="all-costumers">
-                            <AdminUser/>
+                        <section>
+                            <UpdateProduct/>
                         </section>
-                        <section id="all-orders">
-                            <AdminOrder/>
+                        <section>
+                            <UserOverview/>
                         </section>
-                        <section id="all-contact-remarks">
-                            <AdminContactUs/>
+                        <section>
+                            <OrderOverview/>
+                        </section>
+                        <section>
+                            <ContactUs/>
                         </section>
                         <div>
                             <button
