@@ -4,7 +4,7 @@ import React, {useContext} from "react";
 import GreetUser from "../greetUser/GreetUser";
 import {AuthContext} from "../../../context/AuthContext";
 import UserInformation from "../userInformation/UserInformation";
-import WishList from "../../../pages/wishList/WishList";
+import WishList from "../../../pages/wishList/Wishlist";
 import UserUpdate from "../userUpdate/UserUpdate";
 import UserNavBar from "../../../layout/userNavBar/UserNavBar";
 import UserChangePassword from "../userChangePassword/UserChangePassword";

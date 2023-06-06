@@ -14,7 +14,7 @@ import UploadImage from "./components/adminComponents/uploadImage/UploadImage";
 import Home from "./pages/home/Home";
 import UserLogin from "./pages/user/userLogin/UserLogin";
 import ItemInfo from "./components/itemComponents/itemInfo/ItemInfo";
-import WishList from "./pages/wishList/WishList";
+import WishList from "./pages/wishList/Wishlist";
 
 
 function App() {

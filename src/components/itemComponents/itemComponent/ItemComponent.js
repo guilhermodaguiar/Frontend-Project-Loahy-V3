@@ -6,11 +6,15 @@ import {useHistory} from "react-router-dom";
 import {FaInfoCircle} from "react-icons/fa";
 import {CartState} from "../../../context/CartContext";
 import {formatCurrency} from "../../../helpers/formatCurrency/FormatCurrency";
+import {WishlistState} from "../../../context/WishlistContext";
+import {GiHeartMinus} from "react-icons/gi";
+import {HiHeart} from "react-icons/hi";
 
 
 function ItemComponent({item}) {
     const history = useHistory();
-    const {state: { cart }, dispatch} = CartState();
+    const {state: {cart}, dispatch} = CartState();
+    const {state: {wishlist}, dispatch2} = WishlistState();
 
 
     function redirectToItemInform(item) {
@@ -21,9 +25,33 @@ function ItemComponent({item}) {
         <div className="main-container-product">
             <div className="border-effect-container">
                 <div className="random-robot-container">
-                    <div className="info-item-marker" onClick={() =>redirectToItemInform(item)}>
+                    <div className="info-item-marker" onClick={() => redirectToItemInform(item)}>
                         <FaInfoCircle/>
                     </div>
+                    <div className="hearts-container">
+                        <div>
+                            {wishlist.some((p) => p.productId === item.productId) ?
+                                <div className="wishlist-heart">
+                                    <GiHeartMinus size={19}
+                                                  className="add-to-list-heart"
+                                                  onClick={() => dispatch2({
+                                                      type: "REMOVE_FROM_WISHLIST",
+                                                      payload: item
+                                                  })}/>
+                                </div>
+                                :
+                                <div className="wishlist-heart">
+                                    <HiHeart size={22}
+                                             className="remove-from-list-heart"
+                                             onClick={() => dispatch2({
+                                                 type: "ADD_TO_WISHLIST",
+                                                 payload: item
+                                             })}/>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
                     <div>
                         <img alt={item.image.fileName}
                              src={item.image.url}

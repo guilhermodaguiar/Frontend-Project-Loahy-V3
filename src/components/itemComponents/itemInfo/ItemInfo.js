@@ -6,11 +6,15 @@ import axios from "axios";
 import {BsFillCartDashFill, BsFillCartPlusFill} from "react-icons/bs";
 import {CartState} from "../../../context/CartContext";
 import {formatCurrency} from "../../../helpers/formatCurrency/FormatCurrency";
+import {GiHeartMinus} from "react-icons/gi";
+import {HiHeart} from "react-icons/hi";
+import {WishlistState} from "../../../context/WishlistContext";
 
 
 function ItemInfo({item}) {
     const [itemInfo, setItemInfo] = useState([]);
     const {state: {cart}, dispatch} = CartState();
+    const {state: {wishlist}, dispatch2} = WishlistState();
 
     const {item_id} = useParams();
 
@@ -36,6 +40,29 @@ function ItemInfo({item}) {
                 {itemInfo.image ?
                     <section>
                         <div className="item-info-container">
+                            <div className="hearts-container">
+                                <div>
+                                    {wishlist.some((p) => p.productId === itemInfo.productId) ?
+                                        <div className="wishlist-heart">
+                                            <GiHeartMinus size={19}
+                                                          className="add-to-list-heart"
+                                                          onClick={() => dispatch2({
+                                                              type: "REMOVE_FROM_WISHLIST",
+                                                              payload: itemInfo
+                                                          })}/>
+                                        </div>
+                                        :
+                                        <div className="wishlist-heart">
+                                            <HiHeart size={22}
+                                                     className="remove-from-list-heart"
+                                                     onClick={() => dispatch2({
+                                                         type: "ADD_TO_WISHLIST",
+                                                         payload: itemInfo
+                                                     })}/>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
                             <div>
                                 <img alt={itemInfo.image.fileName}
                                      src={itemInfo.image.url}
@@ -54,15 +81,15 @@ function ItemInfo({item}) {
                                 </div>
                                 {cart.some((p) => p.productId === itemInfo.productId) ?
                                     <button onClick={() => dispatch({
-                                        type: "REMOVE_FROM_CART3",
-                                        payload: item
+                                        type: "REMOVE_FROM_CART",
+                                        payload: itemInfo
                                     })}>
                                         <p><BsFillCartDashFill/> &nbsp;Uit winkelwagen</p>
                                     </button>
                                     :
                                     <button onClick={() => dispatch({
-                                        type: "ADD_TO_CART3",
-                                        payload: item
+                                        type: "ADD_TO_CART",
+                                        payload: itemInfo
                                     })}>
                                         <p><BsFillCartPlusFill/> &nbsp;In winkelwagen</p>
                                     </button>

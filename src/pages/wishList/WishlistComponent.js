@@ -9,16 +9,13 @@ import {WishlistState} from "../../context/WishlistContext";
 
 
 function WishlistComponent({item}) {
-    const {state4: {wishlistItems}, dispatch4} = WishlistState();
-
-    //hier moet een get request komen voor het fetchen van wishlist data
-
+    const {state: {wishlist}, dispatch2} = WishlistState();
 
     return (
         <>
             <div className="wishlist-outer-outer-container">
                 <div>
-                    {wishlistItems.length > 0 ? <div className="notice-wrapper">
+                    {wishlist.length > 0 ? <div className="notice-wrapper">
                             <div className="shopping-cart-outer-container">
                                 <div className="shopping-cart-new-container">
                                     <div className="cart-container-outer">
@@ -27,8 +24,8 @@ function WishlistComponent({item}) {
                                             <button className="remove-from-cart-button">
                                                 <IoCloseSharp
                                                     size={20}
-                                                    onClick={() => dispatch4({
-                                                        type: "REMOVE_FROM_CART4",
+                                                    onClick={() => dispatch2({
+                                                        type: "REMOVE_FROM_WISHLIST",
                                                         payload: item
                                                     })} />
                                             </button>

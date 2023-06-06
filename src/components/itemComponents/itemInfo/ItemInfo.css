@@ -32,7 +32,6 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     align-content: center;
-    justify-content: space-evenly;
     background-color: wheat;
     padding: 60px;
 

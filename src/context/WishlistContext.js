@@ -16,14 +16,14 @@ const initialState = {
 export const WishlistProvider = ({children}) => {
     const {user} = useContext(AuthContext);
     const token =  localStorage.getItem('token');
-    const [state, dispatch] = useReducer(wishlistReducer, initialState);
+    const [state, dispatch2] = useReducer(wishlistReducer, initialState);
 
     useEffect(() => {
         async function fetchItemData() {
             try {
                 const itemData = await axios.get(`http://localhost:8080/products/`);
                 console.log(itemData.data);
-                dispatch({type: 'FETCH_DATA', payload: {
+                dispatch2({type: 'FETCH_DATA', payload: {
                         ...initialState, wishlistItems: itemData.data}});
             } catch (e) {
                 console.error('er is iets misgegaan het halen van itemsdata voor wishlist', e);
@@ -43,7 +43,7 @@ export const WishlistProvider = ({children}) => {
                     }
                 });
                 console.log(fetchWishlistData);
-                dispatch({type: 'FETCH_WISHLIST_DATA', payload: {
+                dispatch2({type: 'FETCH_WISHLIST_DATA', payload: {
                         ...initialState, wishlist: fetchWishlistData.data
                     }});
             } catch (e) {
@@ -56,7 +56,7 @@ export const WishlistProvider = ({children}) => {
 
 
     return (
-        <WishlistContext.Provider value={{state, dispatch}}>
+        <WishlistContext.Provider value={{state, dispatch2}}>
             {children}
         </WishlistContext.Provider>
     )

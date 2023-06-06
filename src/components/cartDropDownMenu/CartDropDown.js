@@ -23,7 +23,8 @@ function CartDropDown() {
                             :
                             <div>
                                 {cart.map((item) => (
-                                    <span className="cart-item" key={item.productId}>
+                                    <span className="cart-item"
+                                          key={item.productId}>
                                             <img src={item.image.url}
                                                  className="cartItemImg"
                                                  alt={item.image.fileName}/>

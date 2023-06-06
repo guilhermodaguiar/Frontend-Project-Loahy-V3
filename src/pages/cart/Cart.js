@@ -24,7 +24,7 @@ function Cart() {
     }, [cart]);
 
     function checkout() {
-        history.push('test/checkout');
+        history.push('user/checkout');
     }
 
 
@@ -75,7 +75,7 @@ function Cart() {
                                     Totaal aantal: {cart.length} producten
                                 </div>
                                 <div>
-                                    <button onClick={dispatch({type: "CLEAR_CART"})}>
+                                    <button onClick={() => dispatch({type: "CLEAR_CART"})}>
                                         verwijder lijst
                                     </button>
                                 </div>
@@ -114,7 +114,7 @@ function Cart() {
                                 <>
                                     <div className="button-size">
                                         <button className="cart-checkout-button"
-                                                onClick={checkout}>
+                                                onClick={() => checkout}>
                                             <IoBagCheckOutline size={22}/>&nbsp;Bestellen
                                         </button>
                                         &nbsp;In de volgende pagina kan je de aantal aanpassen

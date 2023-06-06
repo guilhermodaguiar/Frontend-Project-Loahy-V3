@@ -14,9 +14,9 @@ import WishlistComponent from "./WishlistComponent";
 function Wishlist() {
     const token =  localStorage.getItem('token');
     const {isAuth, user} = useContext(AuthContext);
-    const {state4:{wishlist4}, dispatch4} = WishlistState();
+    const {state: {wishlist}, dispatch2} = WishlistState();
 
-    console.log(wishlist4);
+    console.log(wishlist);
 
     function handleSaveWishlist() {
         return null;
@@ -25,27 +25,6 @@ function Wishlist() {
     //GET request
     //wanneer er ingelogd wordt EN er bestaat een created wishlist --> dan fetch deze wishlist id met data.
     // data is dan JSON objecten / product_id(s)
-
-
-    useEffect(() => {
-        async function fetchWishlist(id) {
-            try {
-                const response= await axios.get(`http://localhost:8080/wishlists/${id}`, {
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Authorization": `Bearer ${token}`,
-                    }
-                });
-                console.log(response);
-                // set je data items uit de backend in een array of  object om zo te mappen.
-                // setProductItems(response.data.wishlistId[0].data) <-- something like this.
-
-            } catch (e) {
-                console.error(e, 'er is iets misgegaan met het fetchen van wishlist data')
-            }
-        }
-        fetchWishlist();
-    }, [token]);
 
 
 
@@ -113,7 +92,7 @@ function Wishlist() {
                     :
                     <div className="wishlist-outer-outer-container">
                         <div className="wishlist-outer-outer-container">
-                            {wishlist4.map((item) => {
+                            {wishlist.map((item) => {
                                 return <WishlistComponent
                                     key={item.productId}
                                     item={item}
@@ -121,14 +100,14 @@ function Wishlist() {
                             })}
                             <div className="wishlist-outer-outer-container">
                                 <div>
-                                    {wishlist4.length > 0 &&
+                                    {wishlist.length > 0 &&
                                         <button className="cart-checkout-button"
-                                                onClick={handleSaveWishlist}
+                                                onClick={() => handleSaveWishlist}
                                         >
                                             <BsBookmarkHeart size={22}/>&nbsp;<p>Opslaan</p>
                                         </button>}
                                 </div>
-                                <button onClick={dispatch4({type: "CLEAR_WISHLIST4"})}>
+                                <button onClick={() => dispatch2({type: "CLEAR_WISHLIST"})}>
                                     verwijder lijst
                                 </button>
                             </div>

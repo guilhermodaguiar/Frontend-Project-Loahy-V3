@@ -74,7 +74,7 @@ function NavBar() {
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/customer/login" className="navbar-icon">
+                        <NavLink to="/user" className="navbar-icon">
                             <HiOutlineUser
                                 size={22}
                                 className="customer-icon"
