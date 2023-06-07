@@ -30,9 +30,6 @@ function App() {
                     <PrivateRoute path="/user/profile">
                         <UserPage/>
                     </PrivateRoute>
-                    {/*<PrivateRoute path="/user/wishlist">*/}
-                    {/*    <WishList/>*/}
-                    {/*</PrivateRoute>*/}
                     <Route path="/wishlist">
                         <WishList/>
                     </Route>
@@ -42,7 +39,6 @@ function App() {
                     <Route exact path="/user/checkout">
                         <Checkout/>
                     </Route>
-
                     <Route exact path="/admin">
                         <AdminLogIn/>
                     </Route>
