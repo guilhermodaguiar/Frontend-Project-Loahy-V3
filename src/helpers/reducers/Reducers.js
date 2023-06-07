@@ -18,7 +18,10 @@ export const cartReducer = (state, action) => {
                 ),
             };
         case "CLEAR_CART":
-            return []
+            return {
+                cart: []
+            }
+
         default:
             return state;
     }
@@ -39,7 +42,9 @@ export const wishlistReducer = (state, action) => {
                 wishlist: state.wishlist.filter((c) => c.productId !== action.payload.productId),
             };
         case "CLEAR_WISHLIST":
-            return []
+            return {
+                wishlist: []
+            }
         default:
             return state;
     }

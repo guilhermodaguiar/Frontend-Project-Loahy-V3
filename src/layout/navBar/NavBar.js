@@ -56,9 +56,9 @@ function NavBar() {
                                 </div>
                             </div>
                             <div>
-                                {cart.length > 0 && (<div className="rounded-circle">
+                                {cart.length > 0 && <div className="rounded-circle">
                                     {cart.length}
-                                </div>)}
+                                </div>}
                             </div>
                         </NavLink>
                     </li>

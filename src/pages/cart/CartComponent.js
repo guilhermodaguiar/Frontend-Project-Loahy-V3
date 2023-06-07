@@ -8,7 +8,7 @@ import {BiMessageError} from "react-icons/bi";
 
 function CartComponent({item}) {
     const {state: {cart}, dispatch} = CartState();
-    const itemSubtotal = formatCurrency((item.productPrice) * item.qty);
+    const itemSubtotal = formatCurrency((item.productPrice.toFixed(2)) * item.qty);
 
     return (
         <>
@@ -49,7 +49,7 @@ function CartComponent({item}) {
                                         </div>
                                         <div className="cart-container-outer">
                                             <div className="cart-container-inner">
-                                                <p>{formatCurrency(item.productPrice)}</p></div>
+                                                <p>{formatCurrency(item.productPrice.toFixed(2))}</p></div>
                                         </div>
                                         <div className="cart-container-outer">
                                             <div className="cart-container-inner">
