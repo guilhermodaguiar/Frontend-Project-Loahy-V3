@@ -17,12 +17,12 @@ export const CartProvider = ({children}) => {
     useEffect(() => {
         async function getItemData() {
             try {
-                const itemData = await axios.get(`http://localhost:8080/products/`);
+                const itemData = await axios.get(`http://localhost:8080/products/all`);
                 console.log(itemData.data);
                 dispatch({type: 'FETCH_DATA', payload: {
                         ...initialState, items: itemData.data}});
             } catch (e) {
-                console.error('er is iets misgegaan het halen van items voor context3', e);
+                console.error('er is iets misgegaan het halen van items voor cartcontext', e);
             }
         }
 
@@ -31,7 +31,7 @@ export const CartProvider = ({children}) => {
 
 
     return (
-        <CartContext.Provider value={{state, dispatch,}}>
+        <CartContext.Provider value={{state, dispatch}}>
             {children}
         </CartContext.Provider>
     )

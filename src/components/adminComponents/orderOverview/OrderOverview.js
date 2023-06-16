@@ -97,8 +97,8 @@ function OrderOverview() {
                                             <p><BsFillPatchCheckFill size={25}/> Gelukt met het verwijderen, refresh
                                                 pagina</p>}
                                     </td>
-                                    <td>{order.customer.customerFirstName}</td>
-                                    <td>{order.customer.customerLastName}</td>
+                                    <td>{order.user_first_name}</td>
+                                    <td>{order.user_last_name}</td>
                                     <td>{order.id}</td>
                                     <td>{JSON.stringify(order.productList)}</td>
                                     <td className="order-datum">{order.orderDate}</td>

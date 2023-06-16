@@ -103,7 +103,7 @@ function ProductOverview() {
                                         }
                                     </td>
                                     <td>{product.productName}</td>
-                                    <td>{product.productInformation}</td>
+                                    <td>{product.productDescription}</td>
                                     <td>{product.productPrice}</td>
                                 </tr>
                             })}

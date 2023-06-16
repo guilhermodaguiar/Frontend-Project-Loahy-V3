@@ -30,7 +30,7 @@ function UpdateProduct() {
                 {
                     productId: data.product_id,
                     productName: data.product_name,
-                    productInformation: data.product_description,
+                    productDescription: data.product_description,
                     productPrice: data.product_price
                 },
                 {

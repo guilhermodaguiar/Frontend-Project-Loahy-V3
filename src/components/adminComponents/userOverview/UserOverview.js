@@ -60,7 +60,7 @@ function UserOverview() {
                 <h3>Moet ingelogd zijn als Admin</h3>
                 :
                 <>
-                    <div className="users-page-admin-element" id="all_customers">
+                    <div className="users-page-admin-element" id="all_users">
                         <h2 className="my-products-container">
                             Klanten&nbsp;<FaUserCircle/>
                         </h2>
@@ -91,14 +91,14 @@ function UserOverview() {
                                         </button>
                                     </td>
                                     <td>{user.userEmail}</td>
-                                    <td>{user.customer.customerFirstName}</td>
-                                    <td>{user.customer.customerLastName}</td>
-                                    <td>{user.customer.customerStreetName}</td>
-                                    <td>{user.customer.customerHouseNumber}</td>
-                                    <td>{user.customer.customerHouseNumberAddition}</td>
-                                    <td>{user.customer.customerCity}</td>
-                                    <td>{user.customer.customerZipcode}</td>
-                                    <td>{user.customer.customerPhone}</td>
+                                    <td>{user.firstName}</td>
+                                    <td>{user.lastName}</td>
+                                    <td>{user.address.streetName}</td>
+                                    <td>{user.address.houseNumber}</td>
+                                    <td>{user.address.houseNumberAddition}</td>
+                                    <td>{user.address.city}</td>
+                                    <td>{user.address.zipcode}</td>
+                                    <td>{user.address.phoneNumber}</td>
                                 </tr>
                             })}
                             </tbody>

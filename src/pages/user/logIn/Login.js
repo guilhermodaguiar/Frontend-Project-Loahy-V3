@@ -15,8 +15,7 @@ function Login() {
     const {login, isAuth} = useContext(AuthContext);
     const {handleSubmit, formState: {errors}, register, setFocus} = useForm({
         defaultValues: {
-            email: "",
-            password: ""
+            userEmail: '', password: ''
         }
     });
 
@@ -36,23 +35,24 @@ function Login() {
     }
 
 
-    async function logIn(data) {
+    async function logIn(data, e) {
+        e.preventDefault();
         toggleLoading(false);
 
         try {
             const response = await axios.post('http://localhost:8080/authenticate', {
-                data
+                userEmail: data.userEmail, password: data.password
             });
 
             console.log(response.data);
             login(response.data.jwt);
 
             setTimeout(() => {
-                history.push("/userOverview/profile");
+                history.push("/user/profile");
             }, 1500)
 
         } catch (error) {
-            console.error("E~r is iets misgegaan met inloggen", error);
+            console.error("Er is iets misgegaan met inloggen", error);
         }
     }
 
@@ -61,75 +61,70 @@ function Login() {
     }, [setFocus]);
 
 
-    return (
-        <>
-            {!isAuth ?
-                <div className="login-field-note">
-                    <h3 className="login-field-note">
-                        Inloggen
-                    </h3>
-                    <form
-                        className="form-container-login"
-                        onSubmit={handleSubmit(logIn)}>
+    return (<>
+        {!isAuth ? <div className="login-field-note">
+                <h3 className="login-field-note">
+                    Inloggen
+                </h3>
+                <form
+                    className="form-container-login"
+                    onSubmit={handleSubmit(logIn)}>
 
+                    <input
+                        ref={userRef}
+                        type="email"
+                        autoComplete="off"
+                        {...register("userEmail", {
+                            required: "email is verplicht",
+                            pattern: /^(([^<>()\]\\.,;:\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+                        })}
+                        placeholder="E-mailadres"
+                    />
+                    <p> {errors.userEmail?.message} </p>
+
+
+                    <div className="password-container">
                         <input
-                            ref={userRef}
-                            type="email"
+                            type={type}
                             autoComplete="off"
-                            {...register("email", {
-                                required: "email is verplicht",
-                                pattern: /^(([^<>()\]\\.,;:\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+                            {...register("password", {
+                                required: 'wachtwoord is verplicht',
+                                minLength: {value: 8, message: 'Minimaal 8 karakters nodig'},
+                                maxLength: {value: 15, message: "Maximaal 15 karakters nodig"},
+                                pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,15}$/
                             })}
-                            placeholder="E-mailadres"
+                            placeholder="Wachtwoord"
                         />
-                        <p> {errors.email?.message} </p>
+                        <p> {errors.password?.message} </p>
 
-
-                        <div className="password-container">
-                            <input
-                                type={type}
-                                autoComplete="off"
-                                {...register("password", {
-                                    required: 'wachtwoord is verplicht',
-                                    minLength: {value: 8, message: 'Minimaal 8 karakters nodig'},
-                                    maxLength: {value: 15, message: "Maximaal 15 karakters nodig"},
-                                    pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,15}$/
-                                })}
-                                placeholder="Wachtwoord"
-                            />
-                            <p> {errors.password?.message} </p>
-
-                        </div>
-                        <span className="show-hide-password" onClick={handleToggle}>
+                    </div>
+                    <span className="show-hide-password" onClick={handleToggle}>
                             <Icon
                                 icon={icon} size={20}/>
                             </span>
 
 
-                        <button
-                            disabled={loading}
-                            type="submit"
-                            className="form-button-login"
-                        >
-                            <RiLoginCircleFill/>&nbsp;Inloggen
-                        </button>
-                    </form>
-                </div>
-                :
-                <span className="inlog-customer-successful">
-                <h3>Inloggen succesvol!</h3>
+                    <button
+                        disabled={loading}
+                        type="submit"
+                        className="form-button-login"
+                    >
+                        <RiLoginCircleFill/>&nbsp;Inloggen
+                    </button>
+                </form>
+            </div> :
+            <span>
+                    <h3>Inloggen succesvol!</h3>
                 <div className="dot-pulse">
-                loading
+                    loading
                 </div>
                 <h5>U bent succesvol ingelogd<br/> en wordt automatisch doorgestuurd..</h5>
                 <p>Mocht u niet automatisch doorgestuurd worden<br/>
-                <NavLink to="/user/profile" className="active-link">klik dan hier!</NavLink>
+                    <NavLink to="/user/profile" className="active-link">klik dan hier!</NavLink>
                 </p>
-                </span>
-            }
-
-        </>
-    )
+            </span>
+        }
+    </>)
 }
 
 

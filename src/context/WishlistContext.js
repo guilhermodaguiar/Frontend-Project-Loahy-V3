@@ -4,7 +4,6 @@ import {wishlistReducer} from "../helpers/reducers/Reducers";
 import {AuthContext} from "./AuthContext";
 
 
-
 export const WishlistContext = createContext({});
 
 const initialState = {
@@ -14,17 +13,19 @@ const initialState = {
 };
 
 export const WishlistProvider = ({children}) => {
-    const {user} = useContext(AuthContext);
-    const token =  localStorage.getItem('token');
-    const [state, dispatch2] = useReducer(wishlistReducer, initialState);
+    const {user, isAuth} = useContext(AuthContext);
+    const [state2, dispatch2] = useReducer(wishlistReducer, initialState);
 
     useEffect(() => {
         async function fetchItemData() {
             try {
-                const itemData = await axios.get(`http://localhost:8080/products/`);
+                const itemData = await axios.get(`http://localhost:8080/products/all`);
                 console.log(itemData.data);
-                dispatch2({type: 'FETCH_DATA', payload: {
-                        ...initialState, wishlistItems: itemData.data}});
+                dispatch2({
+                    type: 'FETCH_DATA', payload: {
+                        ...initialState, wishlistItems: itemData.data
+                    }
+                });
             } catch (e) {
                 console.error('er is iets misgegaan het halen van itemsdata voor wishlist', e);
             }
@@ -33,30 +34,29 @@ export const WishlistProvider = ({children}) => {
         fetchItemData();
     }, []);
 
-    useEffect(() => {
-        async function fetchWishlistData() {
-            try {
-                const fetchWishlistData= await axios.get(`http://localhost:8080/wishlists/products/${user.wishlist_id}`, {
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Authorization": `Bearer ${token}`,
-                    }
-                });
-                console.log(fetchWishlistData);
-                dispatch2({type: 'FETCH_WISHLIST_DATA', payload: {
-                        ...initialState, wishlist: fetchWishlistData.data
-                    }});
-            } catch (e) {
-                console.error('er is iets misgegaan met het halen van wishlist data voor wishlist', e);
-            }
-        }
 
-        fetchWishlistData();
-    }, [token, user.wishlist_id]);
+    useEffect(() => {
+            async function fetchWishlistData() {
+                try {
+                    const fetchWishlistData = await axios.get(`http://localhost:8080/wishlists/products/${user.wishlist_id}`, {
+                    });
+                    console.log(fetchWishlistData);
+                    dispatch2({
+                        type: 'FETCH_WISHLIST_DATA', payload: {
+                            ...initialState, wishlist: fetchWishlistData.data.products
+                        }
+                    });
+
+                } catch (e) {
+                    console.error('er is iets misgegaan met het halen van wishlist data lijst voor wishlist_id', e);
+                }
+            }
+            fetchWishlistData();
+    }, [user.wishlist_id]);
 
 
     return (
-        <WishlistContext.Provider value={{state, dispatch2}}>
+        <WishlistContext.Provider value={{state2, dispatch2}}>
             {children}
         </WishlistContext.Provider>
     )

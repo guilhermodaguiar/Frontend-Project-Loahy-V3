@@ -14,7 +14,7 @@ function UserPage() {
         <>
             {(user.roles !== "ROLE_USER")  ?
                 <h3>
-                    U moet ingelogd zijn als CUSTOMER om deze content te mogen zien..
+                    U moet ingelogd zijn om deze content te mogen zien..
                 </h3>
              :
                 <>

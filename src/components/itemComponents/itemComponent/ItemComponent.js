@@ -14,7 +14,7 @@ import {HiHeart} from "react-icons/hi";
 function ItemComponent({item}) {
     const history = useHistory();
     const {state: {cart}, dispatch} = CartState();
-    const {state: {wishlist}, dispatch2} = WishlistState();
+    const {state2: {wishlist}, dispatch2} = WishlistState();
 
 
     function redirectToItemInform(item) {
@@ -63,7 +63,7 @@ function ItemComponent({item}) {
                         {item.productName}
                     </strong>
                     <div className="product-information">
-                        {item.productInformation}
+                        {item.productDescription}
                     </div>
                     <div>
                         <p>{formatCurrency(item.productPrice)}</p>

@@ -19,27 +19,34 @@ function UserUpdate() {
             houseNumberAddition: "",
             zipcode: "",
             city: "",
-            phone: "",
+            phoneNumber: "",
         }
     });
 
 
-    async function handleUpdateCustomer(id) {
+    async function handleUpdateUser(data, id) {
         try {
             await axios.put(`http://localhost:8080/users/${id}`,
                 {
+                    streetName: data.streetName,
+                    houseNumber: data.houseNumber,
+                    houseNumberAddition: data.houseNumberAddition,
+                    zipcode: data.zipcode,
+                    city: data.city,
+                    phoneNumber: data.phoneNumber,
+                },{
                     headers: {
                         "Content-Type": "application/json",
                         Authorization: `Bearer ${token}`,
                     },
-                }).then(toggleAddSuccess(true)).then(updatedCustomer);
+                }).then(toggleAddSuccess(true)).then(updatedUser);
         } catch (e) {
             console.error(e);
         }
     }
 
-    function updatedCustomer() {
-        history.push('/userOverview/profile/#customer_user_profile')
+    function updatedUser() {
+        history.push('/user/profile/#profile')
     }
 
 
@@ -48,7 +55,7 @@ function UserUpdate() {
             <div>
                 <form
                     className="form-container-register"
-                    onSubmit={handleSubmit(handleUpdateCustomer)}>
+                    onSubmit={handleSubmit(handleUpdateUser)}>
 
                     <section className="street-name">
                         <input
@@ -57,7 +64,8 @@ function UserUpdate() {
                             {...register("streetName", {
                                 required: "straat is verplicht"
                             })}
-
+                            autoComplete="off"
+                            placeholder="Straatnaam"
                         />
                         <p>{errors.streetName?.message}</p>
                     </section>
@@ -71,6 +79,7 @@ function UserUpdate() {
                                 required: "huisnummer is verplicht",
                                 pattern: /^\d+$/,
                             })}
+                            placeholder="Huisnr"
                         />
                         <p>{errors.houseNumber?.message}</p>
                     </section>
@@ -83,6 +92,7 @@ function UserUpdate() {
                             {...register("houseNumberAddition", {
                                 required: false,
                             })}
+                            placeholder="Toevoeging"
                         />
                         <p>{errors.houseNumberAddition?.message}</p>
                     </section>
@@ -96,6 +106,7 @@ function UserUpdate() {
                                 required: "Postcode is verplicht",
                                 pattern: /^[1-9][0-9]{3} ?(?!sa|sd|ss)[a-z]{2}$/i
                             })}
+                            placeholder="Postcode"
                         />
                         <p>{errors.zipcode?.message}</p>
                     </section>
@@ -108,11 +119,12 @@ function UserUpdate() {
                             {...register("city", {
                                 required: "stad is verplicht"
                             })}
+                            placeholder="Stad"
                         />
                         <p>{errors.city?.message}</p>
                     </section>
 
-                    <section className="phone">
+                    <section className="phoneNumber">
                         <input
                             type="tel"
                             id="phone-number"
@@ -121,8 +133,9 @@ function UserUpdate() {
                                 required: "mobiel nummer is verplicht",
                                 pattern: /^\(?([+]31|0031|0)-?6(\s?|-)([0-9]\s{0,3}){8}$/
                             })}
+                            placeholder="Telefoonnummer"
                         />
-                        <p>{errors.phone?.message}</p>
+                        <p>{errors.phoneNumber?.message}</p>
                     </section>
 
                     <button

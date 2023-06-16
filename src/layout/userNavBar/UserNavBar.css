@@ -1,4 +1,4 @@
-.customer-nav-bar-outer-container {
+.user-nav-bar-outer-container {
     width: 100%;
     height: 41px;
     padding: 5px 90px;
@@ -10,17 +10,17 @@
     background-color: #e9b716;
 }
 
-.customer-nav-bar-outer-container a,
-.customer-nav-bar-outer-container a:visited {
+.user-nav-bar-outer-container a,
+.user-nav-bar-outer-container a:visited {
     color: white;
     text-decoration: none;
 }
 
-.customer-nav-bar-outer-container a:hover {
+.user-nav-bar-outer-container a:hover {
     text-decoration: underline;
 }
 
-.customer-nav-bar-inner-container {
+.user-nav-bar-inner-container {
     width: 100%;
     display: flex;
     flex-direction: row;

@@ -9,7 +9,7 @@ function AuthContextProvider({children}) {
     const history = useHistory();
     const [isAuth, toggleIsAuth] = useState({
         isAuth: false,
-        user: null,
+        user: {},
         status: 'pending',
     });
 
@@ -21,7 +21,7 @@ function AuthContextProvider({children}) {
         } else {
             toggleIsAuth({
                 isAuth: false,
-                user: null,
+                user: {},
                 status: 'done',
             });
         }
@@ -39,7 +39,7 @@ function AuthContextProvider({children}) {
         e.preventDefault();
         toggleIsAuth({
             isAuth: false,
-            user: null,
+            user: {},
             status: 'done',
         });
 
@@ -65,25 +65,24 @@ function AuthContextProvider({children}) {
                     user_email: response.data.userEmail,
                     user_password: response.data.password,
                     user_id: response.data.userId,
+                    user_first_name: response.data.firstName,
+                    user_last_name: response.data.lastName,
                     roles: response.data.authorities[0].authority,
-                    customer_id: response.data.customer.customerId,
-                    customer_firstname: response.data.customer.customerFirstName,
-                    customer_lastname: response.data.customer.customerLastName,
-                    customer_street_name: response.data.customer.customerStreetName,
-                    customer_house_number: response.data.customer.customerHouseNumber,
-                    customer_house_number_add: response.data.customer.customerHouseNumberAddition,
-                    customer_city: response.data.customer.customerCity,
-                    customer_zipcode: response.data.customer.customerZipcode,
-                    customer_phone: response.data.customer.customerPhone,
+                    address_id: response.data.address.addressId,
+                    address_street_name: response.data.address.streetName,
+                    address_house_number: response.data.address.houseNumber,
+                    address_house_number_add: response.data.address.houseNumberAddition,
+                    address_city: response.data.address.city,
+                    address_zipcode: response.data.address.zipcode,
+                    address_phone: response.data.address.phoneNumber,
                     wish_list: response.data.wishlist,
-                    wishlist_id: response.data.wishlist.wishlistId,
-                    wish_list_name: response.data.wishlist.wishlistName,
+                    wishlist_id: response.data.wishlist.wishlistId
                 },
                 status: 'done',
             });
 
         } catch (e) {
-            console.error('Er is iets misgegaan', e);
+            console.error('Er is iets misgegaan met het ophalen van user data', e);
             localStorage.clear();
         }
     }

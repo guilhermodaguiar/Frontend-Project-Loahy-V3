@@ -34,7 +34,7 @@ function UserChangePassword() {
     }
 
     function savedPassword() {
-        history.push('/userOverview/profile/#customer_user_profile')
+        history.push('/user/profile/#profile')
     }
 
     return (

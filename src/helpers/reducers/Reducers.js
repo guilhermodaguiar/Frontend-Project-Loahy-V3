@@ -28,25 +28,25 @@ export const cartReducer = (state, action) => {
 };
 
 
-export const wishlistReducer = (state, action) => {
+export const wishlistReducer = (state2, action) => {
     switch (action.type) {
         case "FETCH_DATA":
             return {...action.payload, initialized: true};
         case "FETCH_WISHLIST_DATA":
             return {...action.payload, initialized: true};
         case "ADD_TO_WISHLIST":
-            return {...state, wishlist: [...state.wishlist, {...action.payload, qty: 1}]};
+            return {...state2, wishlist: [...state2.wishlist, {...action.payload, qty: 1}]};
         case "REMOVE_FROM_WISHLIST":
             return {
-                ...state,
-                wishlist: state.wishlist.filter((c) => c.productId !== action.payload.productId),
+                ...state2,
+                wishlist: state2.wishlist.filter((c) => c.productId !== action.payload.productId),
             };
         case "CLEAR_WISHLIST":
             return {
                 wishlist: []
             }
         default:
-            return state;
+            return state2;
     }
 }
 

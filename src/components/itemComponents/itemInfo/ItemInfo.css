@@ -43,6 +43,8 @@ body {
     object-fit: contain;
 }
 
-.item-details {
-    
+.item-to-shop {
+    display: flex;
+    align-items: stretch;
+    padding: 0 60px;
 }

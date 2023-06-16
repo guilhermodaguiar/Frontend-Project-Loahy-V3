@@ -10,7 +10,7 @@ import {CartState} from "../../context/CartContext";
 
 
 function NavBar() {
-    const {state: { wishlist }} = WishlistState();
+    const {state2: { wishlist }} = WishlistState();
     const {state: { cart }} = CartState();
 
 
@@ -77,7 +77,7 @@ function NavBar() {
                         <NavLink to="/user" className="navbar-icon">
                             <HiOutlineUser
                                 size={22}
-                                className="customer-icon"
+                                className="user-icon"
                             />
                         </NavLink>
                     </li>

@@ -26,7 +26,7 @@ function AdminNavBar() {
                         Product aanpassen
                     </Link>
 
-                    <Link to="/admin/profile/#customers">
+                    <Link to="/admin/profile/#all_users">
                         Klanten
                     </Link>
 

@@ -13,7 +13,7 @@ function Register() {
             defaultValues: {
                 firstName: "",
                 lastName: "",
-                email: "",
+                userEmail: "",
                 password: "",
                 confirmPassword: "",
             }
@@ -27,9 +27,8 @@ function Register() {
             await axios.post(`http://localhost:8080/users/create`, {
                 firstName: data.firstName,
                 lastName: data.lastName,
-                email: data.email,
-                password: data.confirmPassword,
-                confirmPassword: data.confirmPassword
+                userEmail: data.userEmail,
+                password: data.password,
             });
             toggleSuccess(true);
 
@@ -46,7 +45,7 @@ function Register() {
                     <h3>
                         gelukt! je kan nu inloggen
                     </h3>
-                    <NavLink to="/user">klik dan hier!</NavLink>
+                    <NavLink to="/user/">klik dan hier!</NavLink>
                 </section>
                 :
                 <>
@@ -84,13 +83,13 @@ function Register() {
                                 name="email"
                                 type="email"
                                 autoComplete="off"
-                                {...register("email", {
+                                {...register("userEmail", {
                                     required:"email is verplicht",
                                     pattern: /^(([^<>()\]\\.,;:\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
                                 })}
                                 placeholder="E-mailadres"
                             />
-                            <p> {errors.email?.message} </p>
+                            <p> {errors.userEmail?.message} </p>
 
                             <input
                                 name="password"

@@ -12,7 +12,7 @@
     display: flex;
 }
 
-.register-customer-container {
+.register-user-container {
     display: flex;
     align-items: center;
     margin: 0 10px;
@@ -25,7 +25,7 @@
     margin: 0 10px;
 }
 
-.customer-register-inner-container {
+.user-register-inner-container {
     display: flex;
     flex-direction: column;
     justify-content: start;

@@ -22,7 +22,7 @@ function UserProfile() {
             {user.roles !== "ROLE_USER" ?
                 <div>
                     <h3>
-                        U moet ingelogd zijn als CUSTOMER om deze content te mogen zien..
+                        U moet ingelogd zijn om deze content te mogen zien..
                     </h3>
                 </div>
                 :
@@ -31,10 +31,10 @@ function UserProfile() {
                         <GreetUser/>
                     </section>
                     <UserNavBar/>
-                    <div className="customer-outer-container">
+                    <div className="user-outer-container">
                         <div className="first-box-container">
 
-                            <section id="customer_user_profile">
+                            <section id="profile">
                                 <section className="userprofile-page">
                                     <h1 className="profile-header-container"><MdAccountCircle size={40}/>Profiel</h1>
                                     <div className="userprofile-container">
@@ -43,7 +43,7 @@ function UserProfile() {
                                 </section>
                             </section>
 
-                            <section id="customer_change_password">
+                            <section id="change_password">
                                 <div>
                                     <h1 className="password-change-container"><RiLockPasswordFill size={40}/>Wachtwoord
                                     </h1>
@@ -57,11 +57,11 @@ function UserProfile() {
 
                         </div>
                         <div className="second-box-container">
-                            <section id="customer_user_update">
-                                <div className="customer-page-outer-container">
-                                    <h1 className="register-customer-container"><BsFillPenFill size={30}/>Profiel
+                            <section id="update">
+                                <div className="user-page-outer-container">
+                                    <h1 className="register-user-container"><BsFillPenFill size={30}/>Profiel
                                         aanpassen</h1>
-                                    <div className="customer-register-inner-container">
+                                    <div className="user-register-inner-container">
                                         <div>
                                             <h3 className="register-user-text">Loahy account aanpassen
                                             </h3>
@@ -72,7 +72,7 @@ function UserProfile() {
                             </section>
                         </div>
                     </div>
-                    <section id="customer_wishlist">
+                    <section id="wishlist">
                         <WishList/>
                     </section>
                     <section>

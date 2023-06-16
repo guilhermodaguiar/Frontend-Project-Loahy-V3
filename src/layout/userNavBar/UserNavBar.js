@@ -10,30 +10,30 @@ function UserNavBar() {
 
     return (
         <>
-            <section className="customer-nav-bar-outer-container">
-                <div className="customer-nav-bar-inner-container">
+            <section className="user-nav-bar-outer-container">
+                <div className="user-nav-bar-inner-container">
                     <div className="container-for-padding">
-                        <Link to="/user/profile/#customer_user_profile">
+                        <Link to="/user/profile/#profile">
                             Profiel
                         </Link>
                     </div>
                     <div className="container-for-padding">
-                        <Link to="/user/profile/#customer_change_password">
+                        <Link to="/user/profile/#change_password">
                             Wachtwoord
                         </Link>
                     </div>
                     <div className="container-for-padding">
-                        <Link to="/user/profile/#customer_user_update">
+                        <Link to="/user/profile/#_user_update">
                             Profiel aanpassen
                         </Link>
                     </div>
                     <div className="container-for-padding">
-                        <Link to="/user/profile/#customer_order_history">
+                        <Link to="/user/profile/#order_history">
                             Orders
                         </Link>
                     </div>
                     <div className="container-for-padding">
-                        <Link to="/user/profile/#customer_wishlist">
+                        <Link to="/user/profile/#wishlist">
                             verlanglijstje
                         </Link>
                     </div>

@@ -9,7 +9,7 @@ import {WishlistState} from "../../context/WishlistContext";
 
 
 function WishlistComponent({item}) {
-    const {state: {wishlist}, dispatch2} = WishlistState();
+    const {state2: {wishlist}, dispatch2} = WishlistState();
 
     return (
         <>
@@ -27,7 +27,7 @@ function WishlistComponent({item}) {
                                                     onClick={() => dispatch2({
                                                         type: "REMOVE_FROM_WISHLIST",
                                                         payload: item
-                                                    })} />
+                                                    })}/>
                                             </button>
                                         </div>
                                     </div>
@@ -53,7 +53,7 @@ function WishlistComponent({item}) {
                                     <p className="click-to-shop">
                                         Klik&nbsp;
                                         <span>
-                                            <NavLink to="/shop">
+                                            <NavLink to="/#shop">
                                                 <FcShop
                                                     className="shop-icon"
                                                     size={25}/>

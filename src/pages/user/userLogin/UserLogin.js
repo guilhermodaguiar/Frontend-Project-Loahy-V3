@@ -10,7 +10,7 @@ function UserLogin() {
 
     return (
         <>
-            <div className="customer-login-page">
+            <div className="user-login-page">
                 <h1 className="header-name">Inloggen</h1>
                 <div className="login-outer-container">
                     <Login/>

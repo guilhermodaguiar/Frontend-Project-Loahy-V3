@@ -62,9 +62,8 @@ function Cart() {
                         <div className="shopping-cart-container">
                             {cart.map((item) => {
                                 return (
-                                    <div className="shopping-cart-outer-container">
+                                    <div className="shopping-cart-outer-container" key={item.productId}>
                                         <CartComponent
-                                            key={item.productId}
                                             item={item}
                                         />
                                     </div>
@@ -114,7 +113,7 @@ function Cart() {
                                 <>
                                     <div className="button-size">
                                         <button className="cart-checkout-button"
-                                                onClick={() => checkout}>
+                                                onClick={checkout}>
                                             <IoBagCheckOutline size={22}/>&nbsp;Bestellen
                                         </button>
                                         &nbsp;In de volgende pagina kan je de aantal aanpassen
