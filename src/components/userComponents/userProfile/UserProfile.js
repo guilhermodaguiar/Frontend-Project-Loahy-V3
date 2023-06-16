@@ -20,11 +20,9 @@ function UserProfile() {
     return (
         <>
             {user.roles !== "ROLE_USER" ?
-                <div>
                     <h3>
                         U moet ingelogd zijn om deze content te mogen zien..
                     </h3>
-                </div>
                 :
                 <div>
                     <section>
