@@ -10,6 +10,7 @@ import {GiHeartMinus} from "react-icons/gi";
 import {HiHeart} from "react-icons/hi";
 import {WishlistState} from "../../../context/WishlistContext";
 import {FcShop} from "react-icons/fc";
+import ClickToShop from "../../../helpers/ClickComponents/ClickToShop";
 
 
 function ItemInfo({item}) {
@@ -97,17 +98,7 @@ function ItemInfo({item}) {
                                 }
                             </div>
                         </div>
-                        <div>
-                            <p className="item-to-shop">
-                                Klik&nbsp;
-                                <span>
-                                    <NavLink to="/#shop">
-                                        <FcShop size={25}/>
-                                    </NavLink>
-                                </span>
-                                &nbsp;om verder te winkelen
-                            </p>
-                        </div>
+                        <ClickToShop/>
                     </section>
                     :
                     <section className="product-info-container">

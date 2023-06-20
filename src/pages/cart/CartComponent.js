@@ -24,7 +24,7 @@ function CartComponent({item}) {
                                 <div>
                                     <div className="shopping-cart-new-container">
                                         <div className="cart-container-outer">
-                                            <div className="cart-container-inner">
+                                            <div className="cart-container-inner-x">
                                                 <button className="remove-from-cart-button">
                                                     <IoCloseSharp
                                                         size={20}

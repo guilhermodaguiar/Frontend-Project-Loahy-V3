@@ -15,6 +15,8 @@ import Home from "./pages/home/Home";
 import UserLogin from "./pages/user/userLogin/UserLogin";
 import ItemInfo from "./components/itemComponents/itemInfo/ItemInfo";
 import WishList from "./pages/wishList/Wishlist";
+import CartBackground from "./pages/cart/CartBackground";
+import WishlistBackground from "./pages/wishList/WishlistBackground";
 
 
 function App() {
@@ -31,10 +33,10 @@ function App() {
                         <UserPage/>
                     </PrivateRoute>
                     <Route path="/wishlist">
-                        <WishList/>
+                        <WishlistBackground/>
                     </Route>
                     <Route path="/shopping-cart">
-                        <Cart/>
+                        <CartBackground/>
                     </Route>
                     <Route exact path="/user/checkout">
                         <Checkout/>

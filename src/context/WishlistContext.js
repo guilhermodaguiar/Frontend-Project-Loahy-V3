@@ -13,7 +13,7 @@ const initialState = {
 };
 
 export const WishlistProvider = ({children}) => {
-    const {user, isAuth} = useContext(AuthContext);
+    const {user} = useContext(AuthContext);
     const [state2, dispatch2] = useReducer(wishlistReducer, initialState);
 
     useEffect(() => {

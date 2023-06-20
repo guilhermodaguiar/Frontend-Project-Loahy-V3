@@ -65,10 +65,6 @@ body {
     flex-wrap: wrap;
 }
 
-.product-name-name {
-    height: content-box;
-    width: content-box;
-}
 
 .product-price {
     display: flex;
@@ -85,19 +81,6 @@ body {
 
 .product-quantity {
     display: flex;
-}
-
-.cart-checkout-button {
-    background-color: #df7c6d;
-    font-family: 'Poppins', sans-serif;
-    color: white;
-    font-size: 16px;
-    font-weight: 600;
-    border: none;
-    padding: 1px 7px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
 }
 
 
@@ -143,12 +126,7 @@ form {
     flex-direction: column;
 }
 
-.button-size {
-    padding: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-}
+
 
 .shop-table-responsive-cart {
     padding-left: 10px;
@@ -173,8 +151,6 @@ form {
 .shopping-cart-new-container {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
 }
 
 .cart-container-outer {
@@ -204,7 +180,6 @@ form {
     object-fit: cover;
 }
 
-.remove-button {
-
+.cart-container-inner-x {
+    width: 70px;
 }
-

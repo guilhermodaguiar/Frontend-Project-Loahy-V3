@@ -8,12 +8,12 @@ import {BsBookmarkHeart} from "react-icons/bs";
 import {AuthContext} from "../../context/AuthContext";
 import {WishlistState} from "../../context/WishlistContext";
 import WishlistComponent from "./WishlistComponent";
+import ClickToShop from "../../helpers/ClickComponents/ClickToShop";
 
 
 function Wishlist() {
-    const token =  localStorage.getItem('token');
-    const {isAuth, user} = useContext(AuthContext);
     const {state2: {wishlist}, dispatch2} = WishlistState();
+    const {isAuth} = useContext(AuthContext);
 
     console.log(wishlist);
 
@@ -23,13 +23,7 @@ function Wishlist() {
 
     return (
         <>
-            <div className="wishlist-page">
-                {!isAuth ?
-                    <h1 className="wishlist-h1">Verlanglijst</h1> :
-                    <h1 className="wishlist-h1"> {user.user_first_name}'s Verlanglijst</h1>
-                }
-            </div>
-            <div className="wishlist-outer-outer-container">
+            <div>
                 {!isAuth ?
                     <div>
                         <div><BiMessageError size={40}/></div>
@@ -40,17 +34,7 @@ function Wishlist() {
                             </NavLink>
                             &nbsp;om in te loggen of om te registreren
                         </div>
-
-                        <div className="to-shop">
-                            <p>Klik&nbsp;
-                                <span>
-                                    <NavLink to="/#shop">
-                                        <FcShop size={25}/>
-                                    </NavLink>
-                                </span>
-                                &nbsp;om verder te winkelen
-                            </p>
-                        </div>
+                        <ClickToShop/>
                     </div>
                     :
                     <div className="wishlist-outer-outer-container">

@@ -6,6 +6,7 @@ import {NavLink} from "react-router-dom";
 import {IoCloseSharp} from "react-icons/io5";
 import {FcShop} from "react-icons/fc";
 import {WishlistState} from "../../context/WishlistContext";
+import ClickToShop from "../../helpers/ClickComponents/ClickToShop";
 
 
 function WishlistComponent({item}) {
@@ -49,19 +50,7 @@ function WishlistComponent({item}) {
                             <div>
                                 <div className="warning-icon"><BiMessageError size={40}/></div>
                                 <p className="click-to-shop">Je wishlist is leeg</p>
-                                <div className="to-shop-link-container">
-                                    <p className="click-to-shop">
-                                        Klik&nbsp;
-                                        <span>
-                                            <NavLink to="/#shop">
-                                                <FcShop
-                                                    className="shop-icon"
-                                                    size={25}/>
-                                                </NavLink>
-                                            </span>
-                                        &nbsp;om verder te winkelen
-                                    </p>
-                                </div>
+                                <ClickToShop/>
                             </div>
                     </span>
                     }

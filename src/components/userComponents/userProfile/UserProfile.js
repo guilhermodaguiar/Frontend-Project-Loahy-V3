@@ -20,9 +20,7 @@ function UserProfile() {
     return (
         <>
             {user.roles !== "ROLE_USER" ?
-                    <h3>
-                        U moet ingelogd zijn om deze content te mogen zien..
-                    </h3>
+                <h3>U moet ingelogd zijn om deze content te mogen zien..</h3>
                 :
                 <div>
                     <section>
@@ -31,7 +29,6 @@ function UserProfile() {
                     <UserNavBar/>
                     <div className="user-outer-container">
                         <div className="first-box-container">
-
                             <section id="profile">
                                 <section className="userprofile-page">
                                     <h1 className="profile-header-container"><MdAccountCircle size={40}/>Profiel</h1>
@@ -69,11 +66,15 @@ function UserProfile() {
                                 </div>
                             </section>
                         </div>
+                        <section id="wishlist">
+                            <div>
+                                <h1 className="password-change-container"><MdAccountCircle size={40}/>Verlanglijstje</h1>
+                                <WishList/>
+                            </div>
+                        </section>
                     </div>
-                    <section id="wishlist">
-                        <WishList/>
-                    </section>
-                    <section>
+
+                    <section className="logout">
                         <button type="button" onClick={logout}>
                             Uitloggen
                         </button>

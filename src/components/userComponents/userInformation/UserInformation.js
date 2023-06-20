@@ -15,7 +15,7 @@ function UserInformation() {
 
     return (
         <>
-            <div className="info-container">
+            <div>
                 <div><strong>Voornaam:</strong> {user_first_name}</div>
                 <div><strong>Achternaam:</strong> {user_last_name}</div>
                 <div><strong>Straat:</strong> {address_street_name}</div>

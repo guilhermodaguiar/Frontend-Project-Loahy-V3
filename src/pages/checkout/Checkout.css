@@ -55,11 +55,6 @@ body {
     height: fit-content;
 }
 
-.shipping-update-list {
-    display: flex;
-    padding: 10px 0;
-    margin: 0 10px
-}
 
 .shipping-information-container {
     display: flex;
@@ -79,13 +74,6 @@ body {
 .input-order {
     width: 150px;
     padding: 4px 0;
-}
-
-.first-box-container {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    border-right: solid black;
 }
 
 .order-header {
@@ -125,7 +113,7 @@ body {
 
 .check-cart-checkout {
     display: flex;
-    padding: 10px;
+    padding: 20px 0;
     flex-wrap: wrap;
     flex-direction: column;
 }
@@ -142,5 +130,20 @@ body {
 .shipping-details-container {
     display: flex;
     align-items: center;
+}
+
+.upper-checkout-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.left-box {
+    padding-right: 10px;
+    border-right: solid black;
+}
+
+.right-box {
+    padding-left: 15px;
 }
 
