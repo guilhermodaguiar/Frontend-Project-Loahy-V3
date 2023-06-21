@@ -43,7 +43,7 @@ function CartDropDown() {
                                                 }/>
                                         </span>))
                                 }
-                                <Link to="/shopping-cart">
+                                <Link id="CartDropDown" to="/shopping-cart">
                                     <button
                                         type="button"
                                         className="button-to-shopping-cart"

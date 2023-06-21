@@ -1,6 +1,6 @@
 import "./Checkout.css";
 
-import React, {useContext, useState} from "react";
+import React, {useCallback, useContext, useState} from "react";
 import {NavLink} from "react-router-dom";
 import {FaAngellist, FaShoppingCart} from "react-icons/fa";
 import {AuthContext} from "../../context/AuthContext";
@@ -19,9 +19,6 @@ function Checkout() {
     const {user} = useContext(AuthContext);
     const [comment, setComment] = useState('');
     const [productList, setProductList] = useState([]);
-
-
-    console.log(productList);
 
 
     async function sendOrder(e) {
@@ -99,7 +96,8 @@ function Checkout() {
                             </div>
                             <div className="right-box">
                                 <h3 className="order-header"><IoListCircle size={25}/>&nbsp;Bestelling</h3>
-                                <Cart {...{setProductList}}/>
+                                <Cart
+                                />
                             </div>
                         </div>
                         <div>

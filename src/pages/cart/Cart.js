@@ -1,6 +1,6 @@
 import './Cart.css';
 
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useMemo, useState} from "react";
 import {NavLink} from "react-router-dom";
 import {FcShop} from "react-icons/fc";
 import {CartState} from "../../context/CartContext";
@@ -8,10 +8,11 @@ import CartComponent from "./CartComponent";
 import {formatCurrency} from "../../helpers/formatCurrency/FormatCurrency";
 
 
-function Cart({setProductList}) {
+function Cart({ setProductList, productList }) {
     const {state: {cart}, dispatch} = CartState();
     const [total, setTotal] = useState();
     const [itemList, setItemList] = useState([]);
+
 
     useEffect(() => {
         setTotal(
@@ -25,6 +26,7 @@ function Cart({setProductList}) {
             return [item.productId, item.productName, item.productPrice, parseInt(item.qty)]
         }))
     }, [cart])
+
 
     console.log(itemList);
 
