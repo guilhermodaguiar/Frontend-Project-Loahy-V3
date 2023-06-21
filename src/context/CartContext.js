@@ -18,7 +18,6 @@ export const CartProvider = ({children}) => {
         async function getItemData() {
             try {
                 const itemData = await axios.get(`http://localhost:8080/products/all`);
-                console.log(itemData.data);
                 dispatch({type: 'FETCH_DATA', payload: {
                         ...initialState, items: itemData.data}});
             } catch (e) {

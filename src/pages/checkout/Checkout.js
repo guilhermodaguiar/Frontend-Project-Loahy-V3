@@ -1,6 +1,6 @@
 import "./Checkout.css";
 
-import React, {useCallback, useContext, useState} from "react";
+import React, {useContext, useState} from "react";
 import {NavLink} from "react-router-dom";
 import {FaAngellist, FaShoppingCart} from "react-icons/fa";
 import {AuthContext} from "../../context/AuthContext";
@@ -11,6 +11,7 @@ import {HiEmojiHappy} from "react-icons/hi";
 import UserInformation from "../../components/userComponents/userInformation/UserInformation";
 import Cart from "../cart/Cart";
 import ClickToShop from "../../helpers/ClickComponents/ClickToShop";
+import {ItemListState} from "../../context/ItemListContext";
 
 
 function Checkout() {
@@ -18,14 +19,15 @@ function Checkout() {
     const [addSuccess, toggleAddSuccess] = useState(false);
     const {user} = useContext(AuthContext);
     const [comment, setComment] = useState('');
-    const [productList, setProductList] = useState([]);
+    const {state: {itemList}} = ItemListState();
 
+    console.log(itemList);
 
     async function sendOrder(e) {
         e.preventDefault();
         try {
             await axios.post(`http://localhost:8080/orders/create`, {
-                productList: [],
+                productList: [itemList],
                 comment: comment,
                 userId: user.user_email,
                 orderDate: Date().toLocaleString(),
@@ -40,9 +42,6 @@ function Checkout() {
             console.error(e, 'er is iets misgegaan met het verzenden van je order');
         }
     }
-
-    console.log(Date().toLocaleString());
-
 
     return (
         <>
@@ -96,8 +95,7 @@ function Checkout() {
                             </div>
                             <div className="right-box">
                                 <h3 className="order-header"><IoListCircle size={25}/>&nbsp;Bestelling</h3>
-                                <Cart
-                                />
+                                <Cart/>
                             </div>
                         </div>
                         <div>

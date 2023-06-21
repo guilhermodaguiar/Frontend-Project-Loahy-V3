@@ -8,8 +8,6 @@ import ItemComponent from "../itemComponent/ItemComponent";
 
 function ItemOverview() {
     const {state: {items}} = CartState();
-    console.log(items);
-
 
     return (
         <>

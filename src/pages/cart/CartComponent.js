@@ -16,7 +16,7 @@ function CartComponent({item}) {
                 <div className="inner-container">
                     <div className="container-shopping-cart">
                         {cart.length === 0 ?
-                            <div className="content-for-shopping-cart" id="shopping-cart">
+                            <div className="content-for-shopping-cart">
                                 <p className="click-to-shop">Je winkelwagen is
                                     momenteel leeg&nbsp;<BiMessageError size={30}/></p>
                             </div>

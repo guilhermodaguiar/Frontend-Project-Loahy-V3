@@ -20,7 +20,6 @@ export const WishlistProvider = ({children}) => {
         async function fetchItemData() {
             try {
                 const itemData = await axios.get(`http://localhost:8080/products/all`);
-                console.log(itemData.data);
                 dispatch2({
                     type: 'FETCH_DATA', payload: {
                         ...initialState, wishlistItems: itemData.data

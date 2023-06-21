@@ -15,16 +15,18 @@ function CartDropDown() {
             <div>
                 <div className="inner-container">
                     <div className="container-shopping-cart">
-                        {cart.length === 0 ?
-                            <div className="content-for-shopping-cart" id="shopping-cart">
-                                <p className="click-to-shop">Je winkelwagen is
-                                    momenteel leeg&nbsp;<BiMessageError size={30}/></p>
-                            </div>
-                            :
-                            <div>
-                                {cart.map((item) => (
-                                    <span className="cart-item"
-                                          key={item.productId}>
+                        <>
+                            {cart.length === 0 ?
+                                <div className="content-for-shopping-cart" id="shopping-cart">
+                                    <p className="click-to-shop">
+                                        Je winkelwagen is momenteel leeg&nbsp;<BiMessageError size={30}/>
+                                    </p>
+                                </div>
+                                :
+                                <div>
+                                    {cart.map((item) => (
+                                        <span className="cart-item"
+                                              key={item.productId}>
                                             <img src={item.image.url}
                                                  className="cartItemImg"
                                                  alt={item.image.fileName}/>
@@ -42,17 +44,18 @@ function CartDropDown() {
                                                     })
                                                 }/>
                                         </span>))
-                                }
-                                <Link id="CartDropDown" to="/shopping-cart">
-                                    <button
-                                        type="button"
-                                        className="button-to-shopping-cart"
-                                        onClick={() => console.log("jij gaat naar shopping cart!")}>
-                                        Naar winkelwagen!
-                                    </button>
-                                </Link>
-                            </div>
-                        }
+                                    }
+                                    <Link id="CartDropDown" to="/shopping-cart">
+                                        <button
+                                            type="button"
+                                            className="button-to-shopping-cart"
+                                            onClick={() => console.log("jij gaat naar shopping cart!")}>
+                                            Naar winkelwagen!
+                                        </button>
+                                    </Link>
+                                </div>
+                            }
+                        </>
                     </div>
                 </div>
             </div>

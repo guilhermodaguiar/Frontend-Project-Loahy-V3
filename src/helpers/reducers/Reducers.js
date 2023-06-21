@@ -50,6 +50,14 @@ export const wishlistReducer = (state2, action) => {
     }
 }
 
+export const itemListReducer = (state3, action) => {
+    switch (action.type) {
+        case "FETCH_DATA":
+            return {...action.payload, initialized: true};
+        default:
+            return state3;
+    }
+}
 
 
 
