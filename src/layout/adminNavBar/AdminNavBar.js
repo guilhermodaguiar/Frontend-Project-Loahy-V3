@@ -11,9 +11,6 @@ function AdminNavBar() {
         <>
             <section className="admin-nav-bar-outer-container">
                 <div className="admin-nav-bar-inner-container">
-                    <Link to="/admin/profile/#company_overview">
-                        Mijn Info
-                    </Link>
                     <Link to="/admin/profile/#product_overview">
                         Mijn producten
                     </Link>

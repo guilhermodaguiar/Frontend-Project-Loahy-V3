@@ -39,9 +39,8 @@ function UserNavBar() {
                     </div>
                 </div>
                 <div className="container-for-button">
-                    <button
-                            type="button"
-                            onClick={logout} >
+                    <button type="button"
+                            onClick={logout}>
                         Uitloggen
                     </button>
                 </div>

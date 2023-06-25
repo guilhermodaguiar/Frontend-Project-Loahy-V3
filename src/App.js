@@ -6,7 +6,6 @@ import NavBar from "./layout/navBar/NavBar";
 import {Route, Switch} from "react-router-dom";
 import PrivateRoute from "./helpers/routing/PrivateRoute";
 import UserPage from "./pages/user/userPage/UserPage";
-import Cart from "./pages/cart/Cart";
 import Checkout from "./pages/checkout/Checkout";
 import AdminLogIn from "./pages/admin/AdminLogIn";
 import AdminPage from "./pages/admin/AdminPage";
@@ -14,7 +13,6 @@ import UploadImage from "./components/adminComponents/uploadImage/UploadImage";
 import Home from "./pages/home/Home";
 import UserLogin from "./pages/user/userLogin/UserLogin";
 import ItemInfo from "./components/itemComponents/itemInfo/ItemInfo";
-import WishList from "./pages/wishList/Wishlist";
 import CartBackground from "./pages/cart/CartBackground";
 import WishlistBackground from "./pages/wishList/WishlistBackground";
 

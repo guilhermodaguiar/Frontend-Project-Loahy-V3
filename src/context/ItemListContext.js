@@ -10,12 +10,11 @@ const initialState = {
 }
 export const ItemListProvider = ({children}) => {
     const {state: {cart}} = CartState();
-    // const [itemList, setItemList] = useState([]);
     const [state, dispatch3] = useReducer(itemListReducer, initialState);
 
     useEffect(() => {
         const itemListData = cart.map(item => {
-            return [item.productId, item.productName, item.productPrice, parseInt(item.qty)]
+            return [(item.productId), item.productName, (item.productPrice), parseInt(item.qty)]
         })
         console.log(itemListData);
         dispatch3({

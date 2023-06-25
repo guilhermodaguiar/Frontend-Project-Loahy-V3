@@ -73,13 +73,8 @@ function OrderOverview() {
                                 <th>order#</th>
                                 <th>Order</th>
 
-                                <th>datum</th>
-                                <th>Straatnaam</th>
-                                <th>Huisnummer</th>
-                                <th>toev.</th>
-                                <th>Postcode</th>
-                                <th>Stad</th>
-                                <th>Mobiel</th>
+                                <th>Datum</th>
+                                <th>AddressId</th>
                             </tr>
                             </thead>
                             <tbody className="order_tbody">
@@ -102,14 +97,7 @@ function OrderOverview() {
                                     <td>{order.id}</td>
                                     <td>{JSON.stringify(order.productList)}</td>
                                     <td className="order-datum">{order.orderDate}</td>
-
-                                    <th>datum</th>
-                                    <th>Straatnaam</th>
-                                    <th>Huisnummer</th>
-                                    <th>toev.</th>
-                                    <th>Postcode</th>
-                                    <th>Stad</th>
-                                    <th>Mobiel</th>
+                                    <td>{user.address_id}</td>
                                 </tr>
                             })}
                             </tbody>

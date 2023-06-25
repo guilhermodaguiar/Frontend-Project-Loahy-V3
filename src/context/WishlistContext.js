@@ -2,6 +2,7 @@ import {createContext, useContext, useEffect, useReducer} from "react";
 import axios from "axios";
 import {wishlistReducer} from "../helpers/reducers/Reducers";
 import {AuthContext} from "./AuthContext";
+import wishlist from "../pages/wishList/Wishlist";
 
 
 export const WishlistContext = createContext({});
@@ -13,7 +14,7 @@ const initialState = {
 };
 
 export const WishlistProvider = ({children}) => {
-    const {user} = useContext(AuthContext);
+    const {user, isAuth} = useContext(AuthContext);
     const [state2, dispatch2] = useReducer(wishlistReducer, initialState);
 
     useEffect(() => {
@@ -35,6 +36,10 @@ export const WishlistProvider = ({children}) => {
 
 
     useEffect(() => {
+        if (!isAuth) {
+            console.log("hallo user");
+            dispatch2({type: "CLEAR_WISHLIST"});
+        } else {
             async function fetchWishlistData() {
                 try {
                     const fetchWishlistData = await axios.get(`http://localhost:8080/wishlists/products/${user.wishlist_id}`, {
@@ -51,7 +56,8 @@ export const WishlistProvider = ({children}) => {
                 }
             }
             fetchWishlistData();
-    }, [user.wishlist_id]);
+        }
+    }, [isAuth, user.wishlist_id]);
 
 
     return (

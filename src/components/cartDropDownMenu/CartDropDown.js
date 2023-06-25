@@ -45,14 +45,15 @@ function CartDropDown() {
                                                 }/>
                                         </span>))
                                     }
-                                    <Link id="CartDropDown" to="/shopping-cart">
+                                    <div>
                                         <button
                                             type="button"
                                             className="button-to-shopping-cart"
                                             onClick={() => console.log("jij gaat naar shopping cart!")}>
                                             Naar winkelwagen!
                                         </button>
-                                    </Link>
+                                    </div>
+
                                 </div>
                             }
                         </>

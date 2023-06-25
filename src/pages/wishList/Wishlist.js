@@ -3,7 +3,6 @@ import "./Wishlist.css";
 import React, {useContext} from "react";
 import {BiMessageError} from "react-icons/bi";
 import {NavLink} from "react-router-dom";
-import {FcShop} from "react-icons/fc";
 import {BsBookmarkHeart} from "react-icons/bs";
 import {AuthContext} from "../../context/AuthContext";
 import {WishlistState} from "../../context/WishlistContext";

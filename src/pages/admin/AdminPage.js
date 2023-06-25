@@ -11,7 +11,6 @@ import UserOverview from "../../components/adminComponents/userOverview/UserOver
 import ContactUs from "../../components/adminComponents/contactUs/ContactUs";
 import CreateProduct from "../../components/adminComponents/createProduct/CreateProduct";
 import OrderOverview from "../../components/adminComponents/orderOverview/OrderOverview";
-import AboutCompany from "../../components/adminComponents/aboutCompany/AboutCompany";
 
 
 function AdminPage() {
@@ -25,16 +24,11 @@ function AdminPage() {
 
     return (
         <>
-            {user.roles !== "ROLE_ADMIN" ? (
-                <div className="admin-route-container">
-                    <div className="admin-route">
-                        <h1>U moet ingelogd zijn als
-                            <br/> ADMINISTRATOR
-                            <br/>om deze content te mogen zien..
-                        </h1>
-                    </div>
+            {user.roles !== "ROLE_ADMIN" ?
+                <div>
+                    U moet ingelogd zijn als ADMINISTRATOR om deze content te mogen zien..
                 </div>
-            ) : (
+                :
                 <>
                     <div className="admin-header">
                         <h1>Welcome Admin</h1>
@@ -45,9 +39,6 @@ function AdminPage() {
                     <div className="admin-main">
                         <ScrollIndicator/>
                         <ScrollToTop/>
-                        <section>
-                            <AboutCompany/>
-                        </section>
                         <section>
                             <ProductOverview/>
                         </section>
@@ -76,7 +67,6 @@ function AdminPage() {
                         </div>
                     </div>
                 </>
-            )
             }
         </>
     )

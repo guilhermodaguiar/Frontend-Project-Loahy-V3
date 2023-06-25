@@ -18,7 +18,6 @@ function Login() {
             userEmail: '', password: ''
         }
     });
-
     const [loading, toggleLoading] = useState(false);
     const [type, setType] = useState('password');
     const [icon, setIcon] = useState(eyeOff);
@@ -43,16 +42,12 @@ function Login() {
             const response = await axios.post('http://localhost:8080/authenticate', {
                 userEmail: data.userEmail, password: data.password
             });
-
-            console.log(response.data);
             login(response.data.jwt);
-
-            setTimeout(() => {
+            setTimeout(()=> {
                 history.push("/user/profile");
-            }, 1500)
-
-        } catch (error) {
-            console.error("Er is iets misgegaan met inloggen", error);
+            }, 500)
+        } catch (e) {
+            console.error("Er is iets misgegaan met inloggen van user!!", e);
         }
     }
 
@@ -114,11 +109,8 @@ function Login() {
                 </form>
             </div> :
             <span>
-                    <h3>Inloggen succesvol!</h3>
-                <div className="dot-pulse">
-                    loading
-                </div>
-                <h5>U bent succesvol ingelogd<br/> en wordt automatisch doorgestuurd..</h5>
+                <h3>Inloggen succesvol!</h3>
+                <h5>Loading...<br/> U bent succesvol ingelogd<br/> en wordt automatisch doorgestuurd..</h5>
                 <p>Mocht u niet automatisch doorgestuurd worden<br/>
                     <NavLink to="/user/profile" className="active-link">klik dan hier!</NavLink>
                 </p>

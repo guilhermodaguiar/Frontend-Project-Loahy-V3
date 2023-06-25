@@ -42,9 +42,3 @@ body {
     height: 450px;
     object-fit: contain;
 }
-
-.item-to-shop {
-    display: flex;
-    align-items: stretch;
-    padding: 0 60px;
-}

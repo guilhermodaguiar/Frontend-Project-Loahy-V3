@@ -4,7 +4,7 @@
 }
 
 .button-size {
-    padding: 10px 90px;
+    padding: 10px 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
@@ -21,4 +21,14 @@
     cursor: pointer;
     display: flex;
     align-items: center;
+}
+
+.ref-container {
+    padding: 0 90px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: wheat;
+    flex-wrap: wrap;
+    height: fit-content;
 }

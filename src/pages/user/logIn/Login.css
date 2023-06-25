@@ -76,6 +76,7 @@ input {
     color: white;
     align-items: center;
     padding-left: 10px;
+    padding-bottom: 10px;
 }
 
 .password-container {

@@ -7,11 +7,13 @@ import {NavLink, useHistory} from "react-router-dom";
 import {IoBagCheckOutline} from "react-icons/io5";
 import {AuthContext} from "../../context/AuthContext";
 import ClickToShop from "../../helpers/ClickComponents/ClickToShop";
+import {CartState} from "../../context/CartContext";
 
 
 function CartBackground() {
     const {isAuth} = useContext(AuthContext);
     const history = useHistory();
+    const {state: {cart}} = CartState();
 
     function checkout() {
         history.push('user/checkout');
@@ -26,7 +28,7 @@ function CartBackground() {
                 <div className="cart-container">
                     <Cart/>
                 </div>
-                <div className="shopping-cart-container">
+                <div className="ref-container">
                     {!isAuth ?
                         <div>
                             <div><BiMessageError size={40}/></div>
@@ -41,13 +43,13 @@ function CartBackground() {
                         </div>
                         :
                         <>
-                            <div className="button-size">
+                        {cart.length > 0 && <div className="button-size">
                                 <button className="cart-checkout-button"
                                         onClick={checkout}>
                                     <IoBagCheckOutline size={22}/>&nbsp;Bestellen
                                 </button>
-                                &nbsp;In de volgende pagina kan je de aantal aanpassen
                             </div>
+                        }
                         </>
                     }
                 </div>

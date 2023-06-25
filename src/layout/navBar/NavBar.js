@@ -13,8 +13,6 @@ function NavBar() {
     const {state2: { wishlist }} = WishlistState();
     const {state: { cart }} = CartState();
 
-
-
     return (
         <div className="inner-container">
             <nav>

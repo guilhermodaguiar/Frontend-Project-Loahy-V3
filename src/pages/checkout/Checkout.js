@@ -12,6 +12,7 @@ import UserInformation from "../../components/userComponents/userInformation/Use
 import Cart from "../cart/Cart";
 import ClickToShop from "../../helpers/ClickComponents/ClickToShop";
 import {ItemListState} from "../../context/ItemListContext";
+import {CartContext, CartState} from "../../context/CartContext";
 
 
 function Checkout() {
@@ -20,6 +21,7 @@ function Checkout() {
     const {user} = useContext(AuthContext);
     const [comment, setComment] = useState('');
     const {state: {itemList}} = ItemListState();
+    const {dispatch} = CartState();
 
     console.log(itemList);
 
@@ -29,19 +31,25 @@ function Checkout() {
             await axios.post(`http://localhost:8080/orders/create`, {
                 productList: [itemList],
                 comment: comment,
-                userId: user.user_email,
+                userEmail: user.user_email,
+                addressId: user.address_id,
                 orderDate: Date().toLocaleString(),
             }, {
                 headers: {
                     'Content-Type': 'application/json',
                     "Authorization": `Bearer ${token}`
                 }
-            });
+            }).then(clearCart)
             toggleAddSuccess(true);
         } catch (e) {
             console.error(e, 'er is iets misgegaan met het verzenden van je order');
         }
     }
+
+    function clearCart() {
+        dispatch({type: "CLEAR_CART"})
+    }
+
 
     return (
         <>

@@ -11,10 +11,13 @@ import UserChangePassword from "../userChangePassword/UserChangePassword";
 import {BsFillPenFill} from "react-icons/bs";
 import {RiLockPasswordFill} from "react-icons/ri";
 import {MdAccountCircle} from "react-icons/md";
+import {WishlistState} from "../../../context/WishlistContext";
 
 
 function UserProfile() {
     const {user, logout} = useContext(AuthContext);
+    const {state2: dispatch2} = WishlistState();
+
 
 
     return (
@@ -75,7 +78,8 @@ function UserProfile() {
                     </div>
 
                     <section className="logout">
-                        <button type="button" onClick={logout}>
+                        <button type="button"
+                                onClick={logout}>
                             Uitloggen
                         </button>
                     </section>
