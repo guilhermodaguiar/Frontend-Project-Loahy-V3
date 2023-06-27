@@ -2,7 +2,6 @@ import {createContext, useContext, useEffect, useReducer} from "react";
 import axios from "axios";
 import {wishlistReducer} from "../helpers/reducers/Reducers";
 import {AuthContext} from "./AuthContext";
-import wishlist from "../pages/wishList/Wishlist";
 
 
 export const WishlistContext = createContext({});
@@ -27,7 +26,7 @@ export const WishlistProvider = ({children}) => {
                     }
                 });
             } catch (e) {
-                console.error('er is iets misgegaan het halen van itemsdata voor wishlist', e);
+                console.error('er is iets misgegaan het halen van itemsdata voor wishlist-context', e);
             }
         }
 

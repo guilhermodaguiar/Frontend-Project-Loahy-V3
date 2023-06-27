@@ -1,32 +1,36 @@
 import './UserUpdate.css';
 
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import axios from "axios";
 import {useHistory} from "react-router-dom";
 import {BsFillPencilFill} from "react-icons/bs";
 import {useForm} from "react-hook-form";
+import {AuthContext} from "../../../context/AuthContext";
 
 
 function UserUpdate() {
     const history = useHistory();
     const token = localStorage.getItem('token');
     const [addSuccess, toggleAddSuccess] = useState(false);
+    const [loading, toggleLoading] = useState(false);
+    const {user:{address_id}} = useContext(AuthContext);
 
     const {handleSubmit, formState: {errors}, register} = useForm({
         defaultValues: {
-            streetName: "",
-            houseNumber: "",
-            houseNumberAddition: "",
-            zipcode: "",
-            city: "",
-            phoneNumber: "",
+            street_Name: '',
+            houseNumber: '',
+            houseNumberAddition: '',
+            zipcode: '',
+            city: '',
+            phoneNumber: '',
         }
     });
 
 
-    async function handleUpdateUser(data, id) {
+    async function handleUpdateUser(data) {
+        toggleLoading(true);
         try {
-            await axios.put(`http://localhost:8080/users/${id}`,
+            await axios.put(`http://localhost:8080/address/update/${address_id}`,
                 {
                     streetName: data.streetName,
                     houseNumber: data.houseNumber,
@@ -43,16 +47,18 @@ function UserUpdate() {
         } catch (e) {
             console.error(e);
         }
+        toggleLoading(false);
     }
 
-    function updatedUser() {
-        history.push('/user/profile/#profile')
+    function updatedUser(e) {
+        e.preventDefault();
+        history.push('/user/profile')
     }
 
 
     return (
         <>
-            <div>
+            <div id="user_update">
                 <form
                     className="form-container-register"
                     onSubmit={handleSubmit(handleUpdateUser)}>
@@ -129,20 +135,21 @@ function UserUpdate() {
                             type="tel"
                             id="phone-number"
                             autoComplete="off"
-                            {...register("phone", {
+                            {...register("phoneNumber", {
                                 required: "mobiel nummer is verplicht",
                                 pattern: /^\(?([+]31|0031|0)-?6(\s?|-)([0-9]\s{0,3}){8}$/
                             })}
-                            placeholder="Telefoonnummer"
+                            placeholder="mobiel"
                         />
                         <p>{errors.phoneNumber?.message}</p>
                     </section>
 
                     <button
                         type="submit"
+                        disabled={loading}
                         className="form-button"
                     >
-                        <BsFillPencilFill/>&nbsp; Wijzigen
+                        <BsFillPencilFill/> Wijzigen
                     </button>
                     {addSuccess === true &&
                         <p>Update is gelukt!</p>

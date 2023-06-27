@@ -1,7 +1,7 @@
 import './ItemInfo.css';
 
 import React, {useEffect, useState} from 'react';
-import {NavLink, useParams} from "react-router-dom";
+import {useParams} from "react-router-dom";
 import axios from "axios";
 import {BsFillCartDashFill, BsFillCartPlusFill} from "react-icons/bs";
 import {CartState} from "../../../context/CartContext";
@@ -9,7 +9,6 @@ import {formatCurrency} from "../../../helpers/formatCurrency/FormatCurrency";
 import {GiHeartMinus} from "react-icons/gi";
 import {HiHeart} from "react-icons/hi";
 import {WishlistState} from "../../../context/WishlistContext";
-import {FcShop} from "react-icons/fc";
 import ClickToShop from "../../../helpers/ClickComponents/ClickToShop";
 
 

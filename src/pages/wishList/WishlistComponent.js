@@ -2,9 +2,7 @@ import "./WishlistComponent.css"
 
 import React from "react";
 import {BiMessageError} from "react-icons/bi";
-import {NavLink} from "react-router-dom";
 import {IoCloseSharp} from "react-icons/io5";
-import {FcShop} from "react-icons/fc";
 import {WishlistState} from "../../context/WishlistContext";
 import ClickToShop from "../../helpers/ClickComponents/ClickToShop";
 

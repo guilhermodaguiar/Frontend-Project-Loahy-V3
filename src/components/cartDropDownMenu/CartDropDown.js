@@ -4,7 +4,6 @@ import React from "react";
 import {BiMessageError} from "react-icons/bi";
 import {AiFillDelete} from "react-icons/ai";
 import {formatCurrency} from "../../helpers/formatCurrency/FormatCurrency";
-import {Link} from "react-router-dom";
 import {CartState} from "../../context/CartContext";
 
 function CartDropDown() {

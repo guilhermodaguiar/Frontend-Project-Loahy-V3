@@ -1,6 +1,6 @@
 import './AboutCompany.css';
 
-import React, {useEffect, useState} from "react";
+import React from "react";
 import Video from "../video/Video";
 import kid_image from "./../../assets/Felipe_playing_Klein.png";
 import kid_pirate from "./../../assets/Kid_playing_pirate Klein.png";
@@ -8,25 +8,9 @@ import owner_profile_pic from "./../../assets/me2_Klein.png";
 import {FaRocket} from "react-icons/fa";
 import {GiPirateFlag} from "react-icons/gi";
 import {MdOutlineToys} from 'react-icons/md'
-import axios from "axios";
 
 
 function AboutCompany() {
-    // const [aboutCompany, setAboutCompany] = useState('');
-    //
-    // useEffect(() => {
-    //     async function fetchData() {
-    //         try {
-    //             const response = await axios.get(`http://localhost:8080/about-company/loahy`);
-    //             setAboutCompany(response.data.information);
-    //         } catch (e) {
-    //             console.error('er is iets misgegaan', e);
-    //         }
-    //     }
-    //
-    //     fetchData();
-    // }, []);
-
 
     return (
         <>
@@ -34,13 +18,13 @@ function AboutCompany() {
                 <div className="outer-container">
                     <div id="our-story">
                         <h1 className="title-about-us">Ons Verhaal</h1>
-                    </div>
-                        {/*<article>*/}
-                        {/*    {aboutCompany}*/}
-                        {/*</article>*/}
-                    <div>
                         <article className="about-us-container">
-                            <p>Loahy staat voor duurzaam en creatieve producten voor kinderen van alle leeftijden. Speelgoed om kinderen te stimuleren hun fantasie te gebruiken en hun vaardigheden te ontwikkelen.Na de geboorte van zijn zoon Felipe in 2017, besloot oprichter Guilhermo om op zoek te gaan naar de leukste kinderproducten die er zijn. Zo ontstond Loahy. De producten zijn met zorg geselecteerd en worden internationaal ingekocht. Mis je nog iets op de website? Laat het ons weten!</p>
+                            <p>Loahy staat voor duurzaam en creatieve producten voor kinderen van alle leeftijden.
+                                Speelgoed om kinderen te stimuleren hun fantasie te gebruiken en hun vaardigheden te
+                                ontwikkelen.Na de geboorte van zijn zoon Felipe in 2017, besloot oprichter Guilhermo om
+                                op zoek te gaan naar de leukste kinderproducten die er zijn. Zo ontstond Loahy. De
+                                producten zijn met zorg geselecteerd en worden internationaal ingekocht. Mis je nog iets
+                                op de website? Laat het ons weten!</p>
                         </article>
                     </div>
                     <div className="inner-container-about-us">

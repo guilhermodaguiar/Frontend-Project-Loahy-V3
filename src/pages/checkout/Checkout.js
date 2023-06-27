@@ -1,7 +1,7 @@
 import "./Checkout.css";
 
 import React, {useContext, useState} from "react";
-import {NavLink} from "react-router-dom";
+import {NavLink, useHistory} from "react-router-dom";
 import {FaAngellist, FaShoppingCart} from "react-icons/fa";
 import {AuthContext} from "../../context/AuthContext";
 import axios from "axios";
@@ -12,7 +12,8 @@ import UserInformation from "../../components/userComponents/userInformation/Use
 import Cart from "../cart/Cart";
 import ClickToShop from "../../helpers/ClickComponents/ClickToShop";
 import {ItemListState} from "../../context/ItemListContext";
-import {CartContext, CartState} from "../../context/CartContext";
+import {CartState} from "../../context/CartContext";
+import {cleanup} from "@testing-library/react";
 
 
 function Checkout() {
@@ -20,16 +21,17 @@ function Checkout() {
     const [addSuccess, toggleAddSuccess] = useState(false);
     const {user} = useContext(AuthContext);
     const [comment, setComment] = useState('');
-    const {state: {itemList}} = ItemListState();
+    const {state3: {itemList}} = ItemListState();
     const {dispatch} = CartState();
+    const history = useHistory();
 
-    console.log(itemList);
+
 
     async function sendOrder(e) {
         e.preventDefault();
         try {
             await axios.post(`http://localhost:8080/orders/create`, {
-                productList: [itemList],
+                productList: itemList,
                 comment: comment,
                 userEmail: user.user_email,
                 addressId: user.address_id,
@@ -39,17 +41,13 @@ function Checkout() {
                     'Content-Type': 'application/json',
                     "Authorization": `Bearer ${token}`
                 }
-            }).then(clearCart)
+            }
+            )
             toggleAddSuccess(true);
         } catch (e) {
             console.error(e, 'er is iets misgegaan met het verzenden van je order');
         }
     }
-
-    function clearCart() {
-        dispatch({type: "CLEAR_CART"})
-    }
-
 
     return (
         <>
@@ -89,14 +87,16 @@ function Checkout() {
                                             <button
                                                 type="submit"
                                                 className="form-button"
-                                            >
+                                                onClick= {() => dispatch({type: "CLEAR_CART"})}>
                                                 Order
                                             </button>
-                                            {addSuccess === true && <div>
-                                                <h3><HiEmojiHappy size={30}/>Bedankt voor je bestelling </h3>
-                                                <p> Je bestelling wordt zo snel verwerkt. Je krijgt van ons een e-mail
-                                                    bericht</p>
-                                            </div>}
+                                            {addSuccess === true &&
+                                                <div>
+                                                    <h3><HiEmojiHappy size={30}/>Bedankt voor je bestelling </h3>
+                                                    <p> Je bestelling wordt zo snel verwerkt. Je krijgt van ons een
+                                                        e-mail
+                                                        bericht</p>
+                                                </div>}
                                         </form>
                                     </div>
                                 </div>

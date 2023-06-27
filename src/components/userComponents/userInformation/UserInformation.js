@@ -23,7 +23,7 @@ function UserInformation() {
                 <div><strong>Toevoeging:</strong> {address_house_number_add}</div>
                 <div><strong>Postcode:</strong> {address_zipcode} </div>
                 <div><strong>Stad:</strong> {address_city}</div>
-                <div><strong>Mobiel nummer:</strong> {address_phone}</div>
+                <div><strong>Mobiel nummer:</strong> 0{address_phone}</div>
             </div>
         </>
     )

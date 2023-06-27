@@ -35,3 +35,13 @@ input {
     justify-content: flex-start;
     flex-basis: auto;
 }
+
+.register-success {
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+    color: cornsilk;
+    padding: 0 40px 0 10px;
+}
+
+

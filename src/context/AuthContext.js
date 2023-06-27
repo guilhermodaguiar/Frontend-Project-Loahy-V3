@@ -2,8 +2,6 @@ import React, {createContext, useEffect, useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 import axios from 'axios';
-import {WishlistState} from "./WishlistContext";
-import {set} from "react-hook-form";
 
 export const AuthContext = createContext({});
 
@@ -14,7 +12,6 @@ function AuthContextProvider({children}) {
         user: {},
         status: 'pending',
     });
-    const {wishlist} = WishlistState();
 
     useEffect(() => {
         const token = localStorage.getItem('token');

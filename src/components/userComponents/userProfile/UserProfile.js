@@ -7,18 +7,14 @@ import UserInformation from "../userInformation/UserInformation";
 import WishList from "../../../pages/wishList/Wishlist";
 import UserUpdate from "../userUpdate/UserUpdate";
 import UserNavBar from "../../../layout/userNavBar/UserNavBar";
-import UserChangePassword from "../userChangePassword/UserChangePassword";
+import UserChangePassword from "../changePassword/UserChangePassword";
 import {BsFillPenFill} from "react-icons/bs";
 import {RiLockPasswordFill} from "react-icons/ri";
 import {MdAccountCircle} from "react-icons/md";
-import {WishlistState} from "../../../context/WishlistContext";
 
 
 function UserProfile() {
     const {user, logout} = useContext(AuthContext);
-    const {state2: dispatch2} = WishlistState();
-
-
 
     return (
         <>

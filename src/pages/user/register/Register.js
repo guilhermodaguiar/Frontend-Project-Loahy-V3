@@ -1,10 +1,10 @@
 import "./Register.css";
 
 import React, {useState} from "react";
-import {NavLink} from "react-router-dom";
 import {useForm} from "react-hook-form";
 import {RiLoginCircleFill} from "react-icons/ri";
 import axios from "axios";
+import {SiProbot} from "react-icons/si";
 
 
 function Register() {
@@ -41,11 +41,10 @@ function Register() {
     return (
         <>
             {success ?
-                <section>
+                <section className="register-success">
                     <h3>
-                        gelukt! je kan nu inloggen
+                        <SiProbot size={25}/> gelukt! je kan nu inloggen
                     </h3>
-                    <NavLink to="/user/">klik dan hier!</NavLink>
                 </section>
                 :
                 <>

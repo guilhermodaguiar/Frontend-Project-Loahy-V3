@@ -19,9 +19,9 @@ export const cartReducer = (state, action) => {
             };
         case "CLEAR_CART":
             return {
-                cart: []
+                ...state,
+                cart: [],
             }
-
         default:
             return state;
     }
@@ -43,6 +43,7 @@ export const wishlistReducer = (state2, action) => {
             };
         case "CLEAR_WISHLIST":
             return {
+                ...state2,
                 wishlist: []
             }
         default:
@@ -54,6 +55,11 @@ export const itemListReducer = (state3, action) => {
     switch (action.type) {
         case "FETCH_DATA":
             return {...action.payload, initialized: true};
+        case "CLEAR_ITEM_LIST":
+            return {
+                ...state3,
+                itemList: []
+            }
         default:
             return state3;
     }

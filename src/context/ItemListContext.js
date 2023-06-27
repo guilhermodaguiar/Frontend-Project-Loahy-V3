@@ -10,11 +10,11 @@ const initialState = {
 }
 export const ItemListProvider = ({children}) => {
     const {state: {cart}} = CartState();
-    const [state, dispatch3] = useReducer(itemListReducer, initialState);
+    const [state3, dispatch3] = useReducer(itemListReducer, initialState);
 
     useEffect(() => {
         const itemListData = cart.map(item => {
-            return [(item.productId), item.productName, (item.productPrice), parseInt(item.qty)]
+            return ["id: " + (item.productId), item.productName, "€ " + (item.productPrice), "qty: " + parseInt(item.qty)]
         })
         console.log(itemListData);
         dispatch3({
@@ -25,7 +25,7 @@ export const ItemListProvider = ({children}) => {
 
 
     return (
-        <ItemListContext.Provider value={{state, dispatch3}}>
+        <ItemListContext.Provider value={{state3, dispatch3}}>
             {children}
         </ItemListContext.Provider>
     )

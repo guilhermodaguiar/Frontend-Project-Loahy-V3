@@ -4,10 +4,10 @@ import React from "react";
 import {CartState} from "../../../context/CartContext";
 import ItemComponent from "../itemComponent/ItemComponent";
 
-
-
 function ItemOverview() {
     const {state: {items}} = CartState();
+
+    console.log(items);
 
     return (
         <>
@@ -17,12 +17,10 @@ function ItemOverview() {
                     <div className="product-overview-inner-container">
                         <div className="product-list">
                             <div className="photo-wrapper">
-                                {items.map((item) => {
-                                    return (
-                                        <ItemComponent key={item.productId}
-                                                           item={item}
-                                        />
-                                    )
+                                {items && items.map((item) => {
+                                    return <ItemComponent key={item.productId}
+                                                          item={item}
+                                    />
                                 })}
                             </div>
                         </div>

@@ -11,6 +11,7 @@ const initialState = {
     cart: []
 };
 
+
 export const CartProvider = ({children}) => {
     const [state, dispatch] = useReducer(cartReducer, initialState);
 
@@ -19,14 +20,15 @@ export const CartProvider = ({children}) => {
             try {
                 const itemData = await axios.get(`http://localhost:8080/products/all`);
                 dispatch({type: 'FETCH_DATA', payload: {
-                        ...initialState, items: itemData.data}});
+                        ...initialState, items: itemData.data}}
+                );
+                console.log(itemData.data);
             } catch (e) {
-                console.error('er is iets misgegaan het halen van items voor cartcontext', e);
+                console.error('er is iets misgegaan het halen van items voor cart-context', e);
             }
         }
-
-        getItemData();
-    }, []);
+        getItemData()
+    } , []);
 
 
     return (

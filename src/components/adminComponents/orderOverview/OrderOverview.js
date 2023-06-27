@@ -29,16 +29,16 @@ function OrderOverview() {
                 setOrders(response.data);
                 console.log(response.data);
             } catch (e) {
-                console.error('Error: Er is iets misgegaan!', e);
+                console.error('Error: Er is iets misgegaan met het ophalen van order data!', e);
             }
         }
 
         fetchOrders();
     }, [token]);
 
-    async function deleteOrder(id) {
+    async function deleteOrder(orderId) {
         try {
-            await axios.delete(`http://localhost:8080/orders/delete/${id}`,
+            await axios.delete(`http://localhost:8080/orders/delete/${orderId}`,
                 {
                     headers: {
                         "Content-Type": "application/json",
@@ -68,8 +68,7 @@ function OrderOverview() {
                             <thead>
                             <tr>
                                 <th></th>
-                                <th>Naam</th>
-                                <th>Achternaam</th>
+                                <th>Email</th>
                                 <th>order#</th>
                                 <th>Order</th>
 
@@ -80,7 +79,7 @@ function OrderOverview() {
                             <tbody className="order_tbody">
 
                             {orders.map((order) => {
-                                return <tr key={order.id}>
+                                return <tr key={order.orderId}>
                                     <td>
                                         <button>
                                             <IoCloseSharp
@@ -92,9 +91,8 @@ function OrderOverview() {
                                             <p><BsFillPatchCheckFill size={25}/> Gelukt met het verwijderen, refresh
                                                 pagina</p>}
                                     </td>
-                                    <td>{order.user_first_name}</td>
-                                    <td>{order.user_last_name}</td>
-                                    <td>{order.id}</td>
+                                    <td>{order.userEmail}</td>
+                                    <td>{order.orderId}</td>
                                     <td>{JSON.stringify(order.productList)}</td>
                                     <td className="order-datum">{order.orderDate}</td>
                                     <td>{user.address_id}</td>
