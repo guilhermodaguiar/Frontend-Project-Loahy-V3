@@ -1,6 +1,6 @@
 import './ItemComponent.css';
 
-import React from "react";
+import React, {useContext} from "react";
 import {BsFillCartDashFill, BsFillCartPlusFill} from "react-icons/bs";
 import {useHistory} from "react-router-dom";
 import {FaInfoCircle} from "react-icons/fa";
@@ -9,13 +9,15 @@ import {formatCurrency} from "../../../helpers/formatCurrency/FormatCurrency";
 import {WishlistState} from "../../../context/WishlistContext";
 import {GiHeartMinus} from "react-icons/gi";
 import {HiHeart} from "react-icons/hi";
+import {AuthContext} from "../../../context/AuthContext";
 
 
 function ItemComponent({item}) {
     const history = useHistory();
     const {state: {cart}, dispatch} = CartState();
     const {state2: {wishlist}, dispatch2} = WishlistState();
-
+    const {user} = useContext(AuthContext);
+;
 
     function redirectToItemInform(item) {
         history.push(`items/${item.productId}`)
@@ -34,10 +36,12 @@ function ItemComponent({item}) {
                                 <div className="wishlist-heart">
                                     <GiHeartMinus size={19}
                                                   className="add-to-list-heart"
-                                                  onClick={() => dispatch2({
+                                                  onClick={() =>
+                                                      dispatch2({
                                                       type: "REMOVE_FROM_WISHLIST",
-                                                      payload: item
-                                                  })}/>
+                                                      payload: {item: item, wishlist_id: user.wishlist_id}
+                                                  })
+                                    }/>
                                 </div>
                                 :
                                 <div className="wishlist-heart">
@@ -45,7 +49,7 @@ function ItemComponent({item}) {
                                              className="remove-from-list-heart"
                                              onClick={() => dispatch2({
                                                  type: "ADD_TO_WISHLIST",
-                                                 payload: item
+                                                 payload: {item: item, wishlist_id: user.wishlist_id}
                                              })}/>
                                 </div>
                             }
@@ -74,10 +78,13 @@ function ItemComponent({item}) {
                                     onClick={() => dispatch({
                                         type: "REMOVE_FROM_CART",
                                         payload: item
-                                    })}>
+                                    })}
+                            >
                                 <p><BsFillCartDashFill/> &nbsp;Uit winkelwagen</p>
                             </button>
                             :
+                            // Hier wil ik een DEL naar backend endpoint:
+                            // wishlists/wishlistId/productId
                             <button className="click-to-cart"
                                     onClick={() => dispatch({
                                         type: "ADD_TO_CART",

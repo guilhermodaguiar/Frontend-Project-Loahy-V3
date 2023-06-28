@@ -44,19 +44,6 @@ function Wishlist() {
                                     item={item}
                                 />
                             })}
-                            <div className="wishlist-outer-outer-container">
-                                <div>
-                                    {wishlist.length > 0 &&
-                                        <button className="cart-checkout-button"
-                                                onClick={() => handleSaveWishlist}
-                                        >
-                                            <BsBookmarkHeart size={22}/>&nbsp;<p>Opslaan</p>
-                                        </button>}
-                                </div>
-                                <button onClick={() => dispatch2({type: "CLEAR_WISHLIST"})}>
-                                    verwijder lijst
-                                </button>
-                            </div>
                         </div>
                     </div>
                 }

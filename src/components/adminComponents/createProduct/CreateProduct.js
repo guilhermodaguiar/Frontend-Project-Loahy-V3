@@ -34,7 +34,7 @@ function CreateProduct() {
             console.log(response.data);
             toggleAddSuccess(true);
         } catch (e) {
-            console.error(e, "er is iets misgegaan");
+            console.error(e, "er is iets misgegaan bij product maken");
         }
     }
 

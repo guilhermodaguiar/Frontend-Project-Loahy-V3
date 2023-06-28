@@ -1,13 +1,12 @@
 import './ItemOverview.css';
 
 import React from "react";
-import {CartState} from "../../../context/CartContext";
 import ItemComponent from "../itemComponent/ItemComponent";
+import {ItemsState} from "../../../context/ItemsContext";
+
 
 function ItemOverview() {
-    const {state: {items}} = CartState();
-
-    console.log(items);
+    const {state4: {items}} = ItemsState();
 
     return (
         <>

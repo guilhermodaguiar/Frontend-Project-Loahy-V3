@@ -8,7 +8,7 @@ import {SiProbot} from "react-icons/si";
 
 
 function Register() {
-    const { register, getValues, handleSubmit, formState: {errors} } = useForm(
+    const { register, getValues, handleSubmit, formState: {errors}} = useForm(
         {
             defaultValues: {
                 firstName: "",
@@ -31,7 +31,6 @@ function Register() {
                 password: data.password,
             });
             toggleSuccess(true);
-
         } catch (e) {
             console.error(e, "er is iets misgegaan met het registreren")
         }

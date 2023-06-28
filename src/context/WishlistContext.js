@@ -6,32 +6,15 @@ import {AuthContext} from "./AuthContext";
 
 export const WishlistContext = createContext({});
 
+
 const initialState = {
     initialized: false,
-    wishlistItems: [],
-    wishlist: []
+    wishlist: [],
 };
 
 export const WishlistProvider = ({children}) => {
     const {user, isAuth} = useContext(AuthContext);
     const [state2, dispatch2] = useReducer(wishlistReducer, initialState);
-
-    useEffect(() => {
-        async function fetchItemData() {
-            try {
-                const itemData = await axios.get(`http://localhost:8080/products/all`);
-                dispatch2({
-                    type: 'FETCH_DATA', payload: {
-                        ...initialState, wishlistItems: itemData.data
-                    }
-                });
-            } catch (e) {
-                console.error('er is iets misgegaan het halen van itemsdata voor wishlist-context', e);
-            }
-        }
-
-        fetchItemData();
-    }, []);
 
 
     useEffect(() => {

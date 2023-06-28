@@ -1,6 +1,6 @@
 import './Cart.css';
 
-import React, {useEffect, useMemo, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {NavLink} from "react-router-dom";
 import {FcShop} from "react-icons/fc";
 import {CartState} from "../../context/CartContext";

@@ -1,7 +1,6 @@
 import "./UserChangePassword.css";
 
 import React, {useContext, useState} from "react";
-import {useHistory} from "react-router-dom";
 import axios from "axios";
 import {AuthContext} from "../../../context/AuthContext";
 import {BsFillPencilFill} from "react-icons/bs";
@@ -10,7 +9,7 @@ import {useForm} from "react-hook-form";
 
 function UserChangePassword() {
     const {user} = useContext(AuthContext);
-    const {handleSubmit, formState: {errors}, register, getValues} = useForm({
+    const {handleSubmit, formState: {errors}, register, getValues, reset} = useForm({
         defaultValues: {
             password: "",
             confirmPassword: ""
@@ -28,6 +27,7 @@ function UserChangePassword() {
                 password: data.password
             });
             toggleSuccess(true);
+            reset();
         } catch (e) {
             console.error(e)
         }

@@ -13,7 +13,6 @@ import Cart from "../cart/Cart";
 import ClickToShop from "../../helpers/ClickComponents/ClickToShop";
 import {ItemListState} from "../../context/ItemListContext";
 import {CartState} from "../../context/CartContext";
-import {cleanup} from "@testing-library/react";
 
 
 function Checkout() {
@@ -23,7 +22,7 @@ function Checkout() {
     const [comment, setComment] = useState('');
     const {state3: {itemList}} = ItemListState();
     const {dispatch} = CartState();
-    const history = useHistory();
+
 
 
 
@@ -87,7 +86,7 @@ function Checkout() {
                                             <button
                                                 type="submit"
                                                 className="form-button"
-                                                onClick= {() => dispatch({type: "CLEAR_CART"})}>
+                                                onClick = {() => dispatch({type: "CLEAR_CART"})}>
                                                 Order
                                             </button>
                                             {addSuccess === true &&

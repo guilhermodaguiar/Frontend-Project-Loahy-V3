@@ -13,7 +13,7 @@ function ContactUs() {
     const [loading, toggleLoading] = useState(false);
     const [addSuccess, toggleAddSuccess] = useState(false);
 
-    const {register, formState: {errors}, handleSubmit} = useForm({
+    const {register, formState: {errors}, handleSubmit, reset} = useForm({
         defaultValues: {
             contact_name: '',
             contact_email: '',
@@ -34,6 +34,7 @@ function ContactUs() {
                 contactOrganisation: data.contact_org,
                 contactRemark: data.remark,
             });
+            reset();
             toggleAddSuccess(true);
             console.log(data);
 

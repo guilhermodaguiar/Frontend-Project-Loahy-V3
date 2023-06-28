@@ -2,27 +2,25 @@ import './UserUpdate.css';
 
 import React, {useContext, useState} from "react";
 import axios from "axios";
-import {useHistory} from "react-router-dom";
 import {BsFillPencilFill} from "react-icons/bs";
 import {useForm} from "react-hook-form";
 import {AuthContext} from "../../../context/AuthContext";
 
 
 function UserUpdate() {
-    const history = useHistory();
     const token = localStorage.getItem('token');
     const [addSuccess, toggleAddSuccess] = useState(false);
     const [loading, toggleLoading] = useState(false);
-    const {user:{address_id}} = useContext(AuthContext);
+    const {user: {address_id}} = useContext(AuthContext);
 
-    const {handleSubmit, formState: {errors}, register} = useForm({
+    const {handleSubmit, formState: {errors}, register, reset} = useForm({
         defaultValues: {
             street_Name: '',
             houseNumber: '',
             houseNumberAddition: '',
             zipcode: '',
             city: '',
-            phoneNumber: '',
+            phoneNumber: ''
         }
     });
 
@@ -38,23 +36,19 @@ function UserUpdate() {
                     zipcode: data.zipcode,
                     city: data.city,
                     phoneNumber: data.phoneNumber,
-                },{
+                }, {
                     headers: {
                         "Content-Type": "application/json",
                         Authorization: `Bearer ${token}`,
                     },
-                }).then(toggleAddSuccess(true)).then(updatedUser);
+                })
+            toggleAddSuccess(true);
+            reset();
         } catch (e) {
             console.error(e);
         }
         toggleLoading(false);
     }
-
-    function updatedUser(e) {
-        e.preventDefault();
-        history.push('/user/profile')
-    }
-
 
     return (
         <>

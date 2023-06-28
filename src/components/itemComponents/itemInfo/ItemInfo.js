@@ -1,6 +1,6 @@
 import './ItemInfo.css';
 
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import axios from "axios";
 import {BsFillCartDashFill, BsFillCartPlusFill} from "react-icons/bs";
@@ -10,12 +10,14 @@ import {GiHeartMinus} from "react-icons/gi";
 import {HiHeart} from "react-icons/hi";
 import {WishlistState} from "../../../context/WishlistContext";
 import ClickToShop from "../../../helpers/ClickComponents/ClickToShop";
+import {AuthContext} from "../../../context/AuthContext";
 
 
 function ItemInfo({item}) {
     const [itemInfo, setItemInfo] = useState([]);
     const {state: {cart}, dispatch} = CartState();
     const {state2: {wishlist}, dispatch2} = WishlistState();
+    const {user} = useContext(AuthContext);
 
     const {item_id} = useParams();
 
@@ -49,7 +51,7 @@ function ItemInfo({item}) {
                                                           className="add-to-list-heart"
                                                           onClick={() => dispatch2({
                                                               type: "REMOVE_FROM_WISHLIST",
-                                                              payload: itemInfo
+                                                              payload: {item: itemInfo, wishlist_id: user.wishlist_id}
                                                           })}/>
                                         </div>
                                         :
@@ -58,7 +60,8 @@ function ItemInfo({item}) {
                                                      className="remove-from-list-heart"
                                                      onClick={() => dispatch2({
                                                          type: "ADD_TO_WISHLIST",
-                                                         payload: itemInfo
+                                                         payload: {item: itemInfo, wishlist_id: user.wishlist_id,
+                                                         }
                                                      })}/>
                                         </div>
                                     }

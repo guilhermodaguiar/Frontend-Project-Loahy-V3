@@ -14,7 +14,7 @@ function UpdateProduct() {
     const [addSuccess, toggleAddSuccess] = useState(false);
 
 
-    const {register, handleSubmit, formState: {errors}} = useForm({
+    const {register, handleSubmit, formState: {errors}, reset} = useForm({
         defaultValues: {
             product_id: '',
             product_name: '',
@@ -40,6 +40,7 @@ function UpdateProduct() {
                 }
             )
             toggleAddSuccess(true);
+            reset();
         } catch (e) {
             console.error(e);
         }
