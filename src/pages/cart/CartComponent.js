@@ -29,8 +29,7 @@ function CartComponent({item}) {
                                                     <IoCloseSharp
                                                         size={20}
                                                         onClick={() => dispatch({
-                                                            type: "REMOVE_FROM_" +
-                                                                "CART",
+                                                            type: "REMOVE_FROM_CART",
                                                             payload: item
                                                         })}
                                                     />

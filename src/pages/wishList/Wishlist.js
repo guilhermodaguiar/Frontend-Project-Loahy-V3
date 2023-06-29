@@ -16,10 +16,6 @@ function Wishlist() {
 
     console.log(wishlist);
 
-    function handleSaveWishlist() {
-        return null;
-    }
-
     return (
         <>
             <div>

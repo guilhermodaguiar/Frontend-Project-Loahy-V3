@@ -37,7 +37,7 @@ function ContactUs() {
 
     async function deleteRemark(contactEmail) {
         try {
-            await axios.delete(`http://localhost:8080/contact-remarks/${contactEmail}`,
+            await axios.delete(`http://localhost:8080/contact-remarks/delete/${contactEmail}`,
                 {
                     headers: {
                         "Content-Type": "application/json",
@@ -52,6 +52,10 @@ function ContactUs() {
         }, 300);
     }
 
+    function removeRemark(contact) {
+        const newRemarks = remarks.filter((i) => i.contactEmail !== contact.contactEmail);
+        setRemarks(newRemarks);
+    }
 
     return (
         <>
@@ -83,8 +87,11 @@ function ContactUs() {
                                         <button className="delete-button">
                                             <IoCloseSharp
                                                 size={20}
-                                                onClick={() => deleteRemark(contact.contactEmail)}
-                                            />
+                                                onClick={() => {
+                                                    deleteRemark(contact.contactEmail).then();
+                                                    removeRemark(contact);
+                                                }
+                                                }/>
                                         </button>
                                     </td>
                                     <td>{contact.contactName}</td>

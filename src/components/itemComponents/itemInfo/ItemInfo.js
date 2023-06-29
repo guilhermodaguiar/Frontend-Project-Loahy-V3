@@ -17,7 +17,7 @@ function ItemInfo({item}) {
     const [itemInfo, setItemInfo] = useState([]);
     const {state: {cart}, dispatch} = CartState();
     const {state2: {wishlist}, dispatch2} = WishlistState();
-    const {user} = useContext(AuthContext);
+    const {user, isAuth} = useContext(AuthContext);
 
     const {item_id} = useParams();
 
@@ -49,20 +49,37 @@ function ItemInfo({item}) {
                                         <div className="wishlist-heart">
                                             <GiHeartMinus size={19}
                                                           className="add-to-list-heart"
-                                                          onClick={() => dispatch2({
-                                                              type: "REMOVE_FROM_WISHLIST",
-                                                              payload: {item: itemInfo, wishlist_id: user.wishlist_id}
-                                                          })}/>
+                                                          onClick={() => {
+                                                              dispatch2({
+                                                                  type: "REMOVE_FROM_WISHLIST",
+                                                                  payload: {item:itemInfo}
+                                                              });
+                                                              dispatch2({
+                                                                  type: "DELETE_FROM_WISHLIST_BACKEND",
+                                                                  payload: {
+                                                                      item: itemInfo,
+                                                                      wishlist_id: user.wishlist_id,
+                                                                      isAuth: isAuth,
+                                                                  }
+                                                              });
+                                                          }
+                                            }/>
                                         </div>
                                         :
                                         <div className="wishlist-heart">
                                             <HiHeart size={22}
                                                      className="remove-from-list-heart"
-                                                     onClick={() => dispatch2({
-                                                         type: "ADD_TO_WISHLIST",
-                                                         payload: {item: itemInfo, wishlist_id: user.wishlist_id,
-                                                         }
-                                                     })}/>
+                                                     onClick={() => {
+                                                         dispatch2({
+                                                             type: "ADD_TO_WISHLIST",
+                                                             payload: {item:itemInfo}
+                                                         })
+                                                         dispatch2({
+                                                             type: "SEND_TO_WISHLIST_BACKEND",
+                                                             payload: {item: itemInfo, wishlist_id: user.wishlist_id}
+                                                         })
+                                                     }
+                                            }/>
                                         </div>
                                     }
                                 </div>

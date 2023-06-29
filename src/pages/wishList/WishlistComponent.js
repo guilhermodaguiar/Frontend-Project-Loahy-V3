@@ -10,7 +10,7 @@ import {AuthContext} from "../../context/AuthContext";
 
 function WishlistComponent({item}) {
     const {state2: {wishlist}, dispatch2} = WishlistState();
-    const {user} = useContext(AuthContext);
+    const {user, isAuth} = useContext(AuthContext);
 
     console.log(item.productId);
 
@@ -31,10 +31,18 @@ function WishlistComponent({item}) {
                                             size={20}
                                             onClick={() => {
                                                 dispatch2({
-                                                    type: "REMOVE_FROM_WISHLIST", payload:
-                                                        {item: item, wishlist_id: user.wishlist_id}
-                                                })
-                                            }}/>
+                                                    type: "REMOVE_FROM_WISHLIST", payload: {item}
+                                                });
+                                                dispatch2({
+                                                    type: "DELETE_FROM_WISHLIST_BACKEND",
+                                                    payload: {
+                                                        item: item,
+                                                        wishlist_id: user.wishlist_id,
+                                                        isAuth: isAuth,
+                                                    }
+                                                });
+                                            }}
+                                        />
                                     </button>
                                 </div>
                             </div>

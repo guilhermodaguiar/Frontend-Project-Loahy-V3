@@ -53,6 +53,11 @@ function UserOverview() {
         }, 300);
     }
 
+    function removeUser(cuser) {
+        const newUsers = users.filter((i) => i.userEmail !== user.userEmail);
+        setUsers(newUsers);
+    }
+
 
     return (
         <>
@@ -86,7 +91,10 @@ function UserOverview() {
                                         <button className="delete-button">
                                             <IoCloseSharp
                                                 size={20}
-                                                onClick={() => deleteUser(user.userEmail)}
+                                                onClick={() => {
+                                                    deleteUser(user.userEmail).then();
+                                                    removeUser(user);
+                                                }}
                                             />
                                         </button>
                                     </td>

@@ -1,40 +1,17 @@
 import "./ProductOverview.css";
 
-import React, {useContext, useEffect, useState} from "react";
+import React, {useContext} from "react";
 import axios from "axios";
 import {AuthContext} from "../../../context/AuthContext";
-import {useHistory} from "react-router-dom";
 import {IoCloseSharp} from "react-icons/io5";
 import {FaProductHunt} from "react-icons/fa";
 import UploadImage from "../uploadImage/UploadImage";
+import {ItemsState} from "../../../context/ItemsContext";
 
 function ProductOverview() {
-    const history = useHistory();
     const {user} = useContext(AuthContext);
     const token = localStorage.getItem('token');
-    const [items, setItems] = useState([]);
-
-
-    useEffect(() => {
-            async function fetchItems() {
-                try {
-                    const response = await axios.get(`http://localhost:8080/products/all`, {
-                            headers: {
-                                "Content-Type": "application/json",
-                                "Authorization": `Bearer ${token}`,
-                            }
-                        }
-                    );
-                    setItems(response.data);
-                    console.log(response.data);
-                } catch (e) {
-                    console.error('Er is iets misgegaan!', e);
-                }
-            }
-
-            fetchItems();
-        }
-        , [token]);
+    const {state4: {items}} = ItemsState();
 
 
     async function deleteItem(productId) {
@@ -45,14 +22,10 @@ function ProductOverview() {
                         "Content-Type": "application/json",
                         "Authorization": `Bearer ${token}`,
                     }
-                }).then(deletedProduct);
+                })
         } catch (e) {
             console.error(e, 'er is iets misgegaan')
         }
-    }
-
-    function deletedProduct() {
-        history.push('/admin/profile/#admin_product_overview');
     }
 
 
@@ -84,7 +57,10 @@ function ProductOverview() {
                                         <button className="remove-from-cart-button">
                                             <IoCloseSharp
                                                 size={20}
-                                                onClick={() => deleteItem(product.productId)}/>
+                                                onClick={() => {
+                                                    deleteItem(product.productId).then();
+
+                                                }}/>
                                         </button>
                                     </td>
                                     <td>{product.productId}</td>
