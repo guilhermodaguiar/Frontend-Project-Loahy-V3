@@ -27,7 +27,7 @@ function AboutCompany() {
                                 op de website? Laat het ons weten!</p>
                         </article>
                     </div>
-                    <div className="inner-container-about-us">
+                    <div className="ic-about-us">
                         <div className="video-spaceship">
                             <Video/>
                             <p className="p2"><FaRocket size={22}/>&nbsp;Blasting off to space</p>

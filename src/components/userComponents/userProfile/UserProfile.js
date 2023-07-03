@@ -16,73 +16,56 @@ import {MdAccountCircle} from "react-icons/md";
 function UserProfile() {
     const {user, logout} = useContext(AuthContext);
 
-    return (
-        <>
-            {user.roles !== "ROLE_USER" ?
-                <h3>U moet ingelogd zijn om deze content te mogen zien..</h3>
-                :
-                <div>
-                    <section>
-                        <GreetUser/>
-                    </section>
-                    <UserNavBar/>
-                    <div className="user-outer-container">
-                        <div className="first-box-container">
-                            <section id="profile">
-                                <section className="userprofile-page">
-                                    <h1 className="profile-header-container"><MdAccountCircle size={40}/>Profiel</h1>
-                                    <div className="userprofile-container">
-                                        <UserInformation/>
-                                    </div>
-                                </section>
-                            </section>
-
-                            <section id="change_password">
-                                <div>
-                                    <h1 className="password-change-container"><RiLockPasswordFill size={40}/>Wachtwoord
-                                    </h1>
-                                    <div>
-                                        <h3 className="password-change-text">Loahy wachtwoord wijzigen
-                                        </h3>
-                                    </div>
-                                    <UserChangePassword/>
-                                </div>
-                            </section>
-
-                        </div>
-                        <div className="second-box-container">
-                            <section id="update">
-                                <div className="user-page-outer-container">
-                                    <h1 className="register-user-container"><BsFillPenFill size={30}/>Profiel
-                                        aanpassen</h1>
-                                    <div className="user-register-inner-container">
-                                        <div>
-                                            <h3 className="register-user-text">Loahy account aanpassen
-                                            </h3>
-                                        </div>
-                                        <UserUpdate/>
-                                    </div>
+    return (<>
+        {user.roles !== "ROLE_USER" ? <h3>U moet ingelogd zijn om deze content te mogen zien..</h3> :
+            <div>
+                <GreetUser/>
+                <UserNavBar/>
+                <div className="user-outer-container">
+                    <section className="first-box-container">
+                        <div id="profile">
+                            <section className="userprofile-page">
+                                <h1 className="ph-container"><MdAccountCircle size={40}/>Profiel</h1>
+                                <div className="up-container">
+                                    <UserInformation/>
                                 </div>
                             </section>
                         </div>
-                        <section id="wishlist">
+                        <div id="change_password">
                             <div>
-                                <h1 className="password-change-container"><MdAccountCircle size={40}/>Verlanglijstje</h1>
-                                <WishList/>
+                                <h1 className="pc-container"><RiLockPasswordFill size={40}/>Wachtwoord</h1>
+                                <h3 className="pc-text">Loahy wachtwoord wijzigen</h3>
+                                <UserChangePassword/>
+                            </div>
+                        </div>
+                    </section>
+                    <section className="second-box-container">
+                        <section id="update">
+                            <div className="user-page-outer-container">
+                                <h1 className="register-user-container"><BsFillPenFill size={30}/>Profiel aanpassen</h1>
+                                <div className="user-register-inner-container">
+                                    <h3 className="register-user-text">Loahy account aanpassen</h3>
+                                    <UserUpdate/>
+                                </div>
                             </div>
                         </section>
-                    </div>
-
-                    <section className="logout">
-                        <button type="button"
-                                onClick={logout}>
-                            Uitloggen
-                        </button>
                     </section>
+                    <div id="wishlist">
+                        <div>
+                            <h1 className="pc-container"><MdAccountCircle size={40}/>Verlanglijstje
+                            </h1>
+                            <WishList/>
+                        </div>
+                    </div>
                 </div>
-            }
-        </>
-    )
+                <div className="logout">
+                    <button type="button"
+                            onClick={logout}>
+                        Uitloggen
+                    </button>
+                </div>
+            </div>}
+    </>)
 }
 
 export default UserProfile;

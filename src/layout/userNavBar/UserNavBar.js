@@ -10,8 +10,8 @@ function UserNavBar() {
 
     return (
         <>
-            <section className="user-nav-bar-outer-container">
-                <div className="user-nav-bar-inner-container">
+            <section className="unbo-container">
+                <div className="unbi-container">
                     <div className="container-for-padding">
                         <Link to="/user/profile/#profile">
                             Profiel

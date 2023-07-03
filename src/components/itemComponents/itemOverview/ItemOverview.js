@@ -8,12 +8,11 @@ import {ItemsState} from "../../../context/ItemsContext";
 function ItemOverview() {
     const {state4: {items}} = ItemsState();
 
-    return (
-        <>
+    return (<>
             <main>
                 <div className="outer-container">
                     <h1 className="title-products-header" id="shop">Onze producten</h1>
-                    <div className="product-overview-inner-container">
+                    <div className="poi-container">
                         <div className="product-list">
                             <div className="photo-wrapper">
                                 {items && items.map((item) => {
@@ -26,8 +25,7 @@ function ItemOverview() {
                     </div>
                 </div>
             </main>
-        </>
-    );
+        </>);
 }
 
 export default ItemOverview;

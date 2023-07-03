@@ -8,7 +8,7 @@
     align-items: center;
 }
 
-.greet-user-container {
+.gu-container {
     color: white;
     position: relative;
     width: 100%;
@@ -22,7 +22,7 @@
     justify-content: flex-start;
 }
 
-.welcome-user-outer-container {
+.wou-container {
     display: flex;
     justify-content: space-around;
 }

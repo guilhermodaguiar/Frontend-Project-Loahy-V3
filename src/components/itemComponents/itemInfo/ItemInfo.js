@@ -11,9 +11,10 @@ import {HiHeart} from "react-icons/hi";
 import {WishlistState} from "../../../context/WishlistContext";
 import ClickToShop from "../../../helpers/ClickComponents/ClickToShop";
 import {AuthContext} from "../../../context/AuthContext";
+import NavBar from "../../../layout/navBar/NavBar";
 
 
-function ItemInfo({item}) {
+function ItemInfo() {
     const [itemInfo, setItemInfo] = useState([]);
     const {state: {cart}, dispatch} = CartState();
     const {state2: {wishlist}, dispatch2} = WishlistState();
@@ -39,6 +40,7 @@ function ItemInfo({item}) {
 
     return (
         <>
+            <NavBar/>
             <div className="background-item-info">
                 {itemInfo.image ?
                     <section>

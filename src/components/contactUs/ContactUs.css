@@ -48,7 +48,7 @@ body {
     justify-content: flex-start;
     flex-wrap: wrap;
     align-items: flex-start;
-    padding: 0px 30px;
+    padding: 0 30px;
 }
 
 .contact-map {
@@ -81,7 +81,7 @@ body {
     flex-basis: auto;
 }
 
-.contact-us-section-containers {
+.cus-containers {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -113,7 +113,7 @@ body {
     padding-top: 50px;
 }
 
-.contact-us-information {
+.cus-information {
     padding-left: 10px;
     display: flex;
     flex-wrap: wrap;
@@ -159,7 +159,7 @@ textarea {
     align-items: center;
 }
 
-.container-contact-form {
+.c-form {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;

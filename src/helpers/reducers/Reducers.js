@@ -97,8 +97,8 @@ export const ItemsReducer = (state4, action) => {
     switch (action.type) {
         case "FETCH_DATA_ITEMS":
             return {...action.payload, initialized: true};
-        // case "REMOVE_ITEMS":
-        //     return {...state4, items: state4.items.filter((c) => c.productId !== action.payload.item.productId)}
+        case "REMOVE_ITEMS":
+            return {...state4, items: state4.items.filter((c) => c.productId !== action.payload.item.productId)}
         default:
             return state4;
     }

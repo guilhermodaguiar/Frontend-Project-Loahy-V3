@@ -9,6 +9,7 @@ import {useForm} from "react-hook-form";
 
 
 function UpdateProduct() {
+    const token = localStorage.getItem('token');
     const {user} = useContext(AuthContext);
     const [loading, toggleLoading] = useState(false);
     const [addSuccess, toggleAddSuccess] = useState(false);
@@ -16,29 +17,24 @@ function UpdateProduct() {
 
     const {register, handleSubmit, formState: {errors}, reset} = useForm({
         defaultValues: {
-            product_id: '',
-            product_name: '',
-            product_description:'',
-            product_price: 10.00
+            product_id: '', product_name: '', product_description: '', product_price: 10.00
         }
     });
 
     async function updateItemData(data) {
         toggleLoading(true);
         try {
-            await axios.put(`http://localhost:8080/products/update/${data.productId}`,
-                {
-                    productId: data.product_id,
-                    productName: data.product_name,
-                    productDescription: data.product_description,
-                    productPrice: data.product_price
-                },
-                {
-                    headers: {
-                        'Content-Type': 'application/json',
-                    }
+            await axios.put(`http://localhost:8080/products/update/${data.productId}`, {
+                productId: data.product_id,
+                productName: data.product_name,
+                productDescription: data.product_description,
+                productPrice: data.product_price
+            }, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    "Authorization": `Bearer ${token}`,
                 }
-            )
+            })
             toggleAddSuccess(true);
             reset();
         } catch (e) {
@@ -47,16 +43,13 @@ function UpdateProduct() {
     }
 
 
-    return (
-        <>
-            {user.roles !== "ROLE_ADMIN" ?
-                <h3>Moet ingelogd zijn als Admin</h3>
-                :
-                <div className="item-update-container" id="update_product">
-                    <h2 className="update-item-header-container">
+    return (<>
+            {user.roles !== "ROLE_ADMIN" ? <h3>Moet ingelogd zijn als Admin</h3> :
+                <div className="iu-container" id="update_product">
+                    <h2 className="uih-container">
                         Product Aanpassen
                     </h2>
-                    <div className="update-item-container">
+                    <div className="ui-container">
                         <p>Pas hier je product</p>
                         <RiErrorWarningLine size={25}/>
                         <p>Alle velden moeten verplicht ingevuld worden!! </p>
@@ -79,8 +72,7 @@ function UpdateProduct() {
                                 id="product_name"
                                 placeholder="Product naam"
                                 {...register("product_name", {
-                                    required: "product naam is verplicht",
-                                    pattern: /^[a-z ,.'-]+$/i,
+                                    required: "product naam is verplicht", pattern: /^[a-z ,.'-]+$/i,
                                 })}
                                 autoComplete="off"
                             />
@@ -104,7 +96,7 @@ function UpdateProduct() {
                             <pre>Prijs in Euro...</pre>
                             <input
                                 {...register("product_price", {
-                                    required:"product prijs is verplicht",
+                                    required: "product prijs is verplicht",
                                 })}
                                 placeholder="Product Prijs in €"
                                 type="number"
@@ -124,16 +116,13 @@ function UpdateProduct() {
                                     Product bijwerken
                                 </button>
                             </div>
-                            {addSuccess === true &&
-                                <p>Gelukt met het creeren van een product. Ga naar mijn producten of
-                                    <NavLink to="/admin">klik hier!</NavLink>
-                                </p>}
+                            {addSuccess === true && <p>Gelukt met het creeren van een product. Ga naar mijn producten of
+                                <NavLink to="/admin">klik hier!</NavLink>
+                            </p>}
                         </form>
                     </div>
-                </div>
-            }
-        </>
-    )
+                </div>}
+        </>)
 }
 
 export default UpdateProduct;

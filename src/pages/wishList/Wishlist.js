@@ -3,7 +3,6 @@ import "./Wishlist.css";
 import React, {useContext} from "react";
 import {BiMessageError} from "react-icons/bi";
 import {NavLink} from "react-router-dom";
-import {BsBookmarkHeart} from "react-icons/bs";
 import {AuthContext} from "../../context/AuthContext";
 import {WishlistState} from "../../context/WishlistContext";
 import WishlistComponent from "./WishlistComponent";
@@ -11,7 +10,7 @@ import ClickToShop from "../../helpers/ClickComponents/ClickToShop";
 
 
 function Wishlist() {
-    const {state2: {wishlist}, dispatch2} = WishlistState();
+    const {state2: {wishlist}} = WishlistState();
     const {isAuth} = useContext(AuthContext);
 
     console.log(wishlist);

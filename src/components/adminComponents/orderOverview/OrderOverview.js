@@ -20,12 +20,10 @@ function OrderOverview() {
         async function fetchOrders() {
             try {
                 const response = await axios.get(`http://localhost:8080/orders/all`, {
-                        headers: {
-                            "Content-Type": "application/json",
-                            "Authorization": `Bearer ${token}`,
-                        }
+                    headers: {
+                        "Content-Type": "application/json", "Authorization": `Bearer ${token}`,
                     }
-                );
+                });
                 setOrders(response.data);
                 console.log(response.data);
             } catch (e) {
@@ -38,13 +36,11 @@ function OrderOverview() {
 
     async function deleteOrder(orderId) {
         try {
-            await axios.delete(`http://localhost:8080/orders/delete/${orderId}`,
-                {
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Authorization": `Bearer ${token}`,
-                    }
-                });
+            await axios.delete(`http://localhost:8080/orders/delete/${orderId}`, {
+                headers: {
+                    "Content-Type": "application/json", "Authorization": `Bearer ${token}`,
+                }
+            });
             toggleAddSuccess(true);
             history.push('/admin/profile/#admin_product_overview');
         } catch (e) {
@@ -53,56 +49,51 @@ function OrderOverview() {
     }
 
 
-    return (
-        <>
-            {user.roles !== "ROLE_ADMIN" ?
-                    <h3>Moet ingelogd zijn als Admin</h3>
-                :
-                <section className="history-orders" id="all_orders">
-                        <div>
-                            <h2>
-                                Orders&nbsp;<FaRegListAlt/>
-                            </h2>
-                        </div>
-                        <table>
-                            <thead>
-                            <tr>
-                                <th></th>
-                                <th>Email</th>
-                                <th>order#</th>
-                                <th>Order</th>
+    return (<>
+        {user.roles !== "ROLE_ADMIN" ? <h3>Moet ingelogd zijn als Admin</h3> :
+            <section id="all_orders">
+                <div>
+                    <h2>
+                        Orders&nbsp;<FaRegListAlt/>
+                    </h2>
+                </div>
+                <table>
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>Email</th>
+                        <th>order#</th>
+                        <th>Order</th>
+                        <th>Datum</th>
+                        <th>AddressId</th>
+                    </tr>
+                    </thead>
+                    <tbody>
 
-                                <th>Datum</th>
-                                <th>AddressId</th>
-                            </tr>
-                            </thead>
-                            <tbody className="order_tbody">
-
-                            {orders.map((order) => {
-                                return <tr key={order.orderId}>
-                                    <td>
-                                        <button>
-                                            <IoCloseSharp
-                                                size={20}
-                                                onClick={() => deleteOrder(order.id)}
-                                            />
-                                        </button>
-                                        {addSuccess === true &&
-                                            <p><BsFillPatchCheckFill size={25}/> Gelukt met het verwijderen, refresh
-                                                pagina</p>}
-                                    </td>
-                                    <td>{order.userEmail}</td>
-                                    <td>{order.orderId}</td>
-                                    <td>{JSON.stringify(order.productList)}</td>
-                                    <td className="order-datum">{order.orderDate}</td>
-                                    <td>{user.address_id}</td>
-                                </tr>
-                            })}
-                            </tbody>
-                        </table>
-                </section>}
-        </>
-    )
+                    {orders.map((order) => {
+                        return <tr key={order.orderId}>
+                            <td>
+                                <button>
+                                    <IoCloseSharp
+                                        size={20}
+                                        onClick={() => deleteOrder(order.id)}
+                                    />
+                                </button>
+                                {addSuccess === true &&
+                                    <p><BsFillPatchCheckFill size={25}/> Gelukt met het verwijderen, refresh
+                                        pagina</p>}
+                            </td>
+                            <td>{order.userEmail}</td>
+                            <td>{order.orderId}</td>
+                            <td>{JSON.stringify(order.productList)}</td>
+                            <td>{order.orderDate}</td>
+                            <td>{user.address_id}</td>
+                        </tr>
+                    })}
+                    </tbody>
+                </table>
+            </section>}
+    </>)
 }
 
 export default OrderOverview;

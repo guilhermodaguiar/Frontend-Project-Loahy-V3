@@ -1,4 +1,4 @@
-.user-nav-bar-outer-container {
+.unbo-container {
     width: 100%;
     height: 41px;
     padding: 5px 90px;
@@ -10,17 +10,17 @@
     background-color: #e9b716;
 }
 
-.user-nav-bar-outer-container a,
-.user-nav-bar-outer-container a:visited {
+.unbo-container a,
+.unbo-container a:visited {
     color: white;
     text-decoration: none;
 }
 
-.user-nav-bar-outer-container a:hover {
+.unbo-container a:hover {
     text-decoration: underline;
 }
 
-.user-nav-bar-inner-container {
+.unbi-container {
     width: 100%;
     display: flex;
     flex-direction: row;

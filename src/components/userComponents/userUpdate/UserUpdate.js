@@ -15,12 +15,7 @@ function UserUpdate() {
 
     const {handleSubmit, formState: {errors}, register, reset} = useForm({
         defaultValues: {
-            street_Name: '',
-            houseNumber: '',
-            houseNumberAddition: '',
-            zipcode: '',
-            city: '',
-            phoneNumber: ''
+            street_Name: '', houseNumber: '', houseNumberAddition: '', zipcode: '', city: '', phoneNumber: ''
         }
     });
 
@@ -28,20 +23,19 @@ function UserUpdate() {
     async function handleUpdateUser(data) {
         toggleLoading(true);
         try {
-            await axios.put(`http://localhost:8080/address/update/${address_id}`,
-                {
-                    streetName: data.streetName,
-                    houseNumber: data.houseNumber,
-                    houseNumberAddition: data.houseNumberAddition,
-                    zipcode: data.zipcode,
-                    city: data.city,
-                    phoneNumber: data.phoneNumber,
-                }, {
-                    headers: {
-                        "Content-Type": "application/json",
-                        Authorization: `Bearer ${token}`,
-                    },
-                })
+            await axios.put(`http://localhost:8080/address/update/${address_id}`, {
+                streetName: data.streetName,
+                houseNumber: data.houseNumber,
+                houseNumberAddition: data.houseNumberAddition,
+                zipcode: data.zipcode,
+                city: data.city,
+                phoneNumber: data.phoneNumber,
+            }, {
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`,
+                },
+            })
             toggleAddSuccess(true);
             reset();
         } catch (e) {
@@ -50,8 +44,7 @@ function UserUpdate() {
         toggleLoading(false);
     }
 
-    return (
-        <>
+    return (<>
             <div id="user_update">
                 <form
                     className="form-container-register"
@@ -76,8 +69,7 @@ function UserUpdate() {
                             id="house-number"
                             autoComplete="off"
                             {...register("houseNumber", {
-                                required: "huisnummer is verplicht",
-                                pattern: /^\d+$/,
+                                required: "huisnummer is verplicht", pattern: /^\d+$/,
                             })}
                             placeholder="Huisnr"
                         />
@@ -103,8 +95,7 @@ function UserUpdate() {
                             id="zipcode"
                             autoComplete="off"
                             {...register("zipcode", {
-                                required: "Postcode is verplicht",
-                                pattern: /^[1-9][0-9]{3} ?(?!sa|sd|ss)[a-z]{2}$/i
+                                required: "Postcode is verplicht", pattern: /^[1-9][0-9]{3} ?(?!sa|sd|ss)[a-z]{2}$/i
                             })}
                             placeholder="Postcode"
                         />
@@ -145,13 +136,10 @@ function UserUpdate() {
                     >
                         <BsFillPencilFill/> Wijzigen
                     </button>
-                    {addSuccess === true &&
-                        <p>Update is gelukt!</p>
-                    }
+                    {addSuccess === true && <p>Update is gelukt!</p>}
                 </form>
             </div>
-        </>
-    )
+        </>)
 }
 
 export default UserUpdate;

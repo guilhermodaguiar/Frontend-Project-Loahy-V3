@@ -1,4 +1,4 @@
-.admin-nav-bar-outer-container {
+.ad-navb-outer {
     width: 100%;
     height: fit-content;
     padding: 5px 90px;
@@ -10,18 +10,18 @@
     background-color: firebrick;
 }
 
-.admin-nav-bar-outer-container a,
-.admin-nav-bar-outer-container a:visited {
+.ad-navb-outer a,
+.ad-navb-outer a:visited {
     color: white;
     text-decoration: none;
     padding-right: 40px;
 }
 
-.admin-nav-bar-outer-container a:hover {
+.ad-navb-outer a:hover {
     text-decoration: underline;
 }
 
-.admin-nav-bar-inner-container {
+.ad-navb-inner {
     width: 100%;
     display: flex;
     flex-direction: row;

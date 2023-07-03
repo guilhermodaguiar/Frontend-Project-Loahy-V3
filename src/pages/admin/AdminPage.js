@@ -25,9 +25,9 @@ function AdminPage() {
     return (
         <>
             {user.roles !== "ROLE_ADMIN" ?
-                <div>
+                <h5>
                     U moet ingelogd zijn als ADMINISTRATOR om deze content te mogen zien..
-                </div>
+                </h5>
                 :
                 <>
                     <div className="admin-header">

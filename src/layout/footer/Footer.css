@@ -15,10 +15,9 @@ footer {
     flex-direction: column;
     justify-content: flex-start;
     background-color: #e9b716;
-    padding: 30px 60px;
+    padding: 30px 90px;
     height: 100px;
     color: white;
-    align-items: center;
 }
 
 

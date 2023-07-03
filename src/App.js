@@ -2,7 +2,6 @@ import './App.css';
 
 import React from "react";
 import Footer from "./layout/footer/Footer";
-import NavBar from "./layout/navBar/NavBar";
 import {Route, Switch} from "react-router-dom";
 import PrivateRoute from "./helpers/routing/PrivateRoute";
 import UserPage from "./pages/user/userPage/UserPage";
@@ -21,7 +20,6 @@ function App() {
 
     return (
         <>
-            <NavBar/>
             <div className="inner-container">
                 <Switch>
                     <Route exact path="/user">

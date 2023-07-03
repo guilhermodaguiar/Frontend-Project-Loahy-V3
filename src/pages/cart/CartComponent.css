@@ -146,6 +146,7 @@ form {
     justify-content: flex-end;
     flex-direction: column;
     flex-wrap: wrap;
+    padding: 10px;
 }
 
 .shopping-cart-new-container {
@@ -168,10 +169,6 @@ form {
     justify-content: space-around;
 }
 
-.shopping-cart-outer-container {
-    display: flex;
-    padding: 10px;
-}
 
 .cart-cartItemImg{
     border-radius: 50%;

@@ -1,4 +1,4 @@
-.userprofile-container {
+.up-container {
     display: flex;
     flex-wrap: wrap;
     background: wheat;
@@ -10,7 +10,7 @@
     background: wheat;
 }
 
-.profile-header-container {
+.ph-container {
     display: flex;
     align-items: center;
 }

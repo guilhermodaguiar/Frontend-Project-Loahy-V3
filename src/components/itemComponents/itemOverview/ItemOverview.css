@@ -46,7 +46,7 @@ h1 {
     color: black;
 }
 
-.product-overview-inner-container {
+.poi-container {
     display: flex;
     padding: 30px;
     flex-direction: column;

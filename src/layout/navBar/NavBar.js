@@ -10,8 +10,8 @@ import {CartState} from "../../context/CartContext";
 
 
 function NavBar() {
-    const {state2: { wishlist }} = WishlistState();
-    const {state: { cart }} = CartState();
+    const {state2: {wishlist}} = WishlistState();
+    const {state: {cart}} = CartState();
 
     return (
         <div className="inner-container">
@@ -42,11 +42,7 @@ function NavBar() {
                     <li>
                         <NavLink to="/shopping-cart" className="navbar-icon">
                             <div className="hover-icon">
-                                <div>
-                                    <HiOutlineShoppingCart
-                                        className="cart-icon"
-                                        size={22}/>
-                                </div>
+                                <HiOutlineShoppingCart className="cart-icon" size={22}/>
                                 <div className="dropdown-content">
                                     <div className="cart-component-background">
                                         <CartDropDown/>
@@ -62,10 +58,7 @@ function NavBar() {
                     </li>
                     <li>
                         <NavLink to="/wishlist" className="navbar-icon">
-                            <HiOutlineHeart
-                                size={22}
-                                className="wishlist-icon"
-                            />
+                            <HiOutlineHeart size={22} className="wishlist-icon"/>
                             {wishlist.length > 0 && (<div className="rounded-circle-2">
                                 {wishlist.length}
                             </div>)}
@@ -73,16 +66,12 @@ function NavBar() {
                     </li>
                     <li>
                         <NavLink to="/user" className="navbar-icon">
-                            <HiOutlineUser
-                                size={22}
-                                className="user-icon"
-                            />
+                            <HiOutlineUser size={22} className="user-icon"/>
                         </NavLink>
                     </li>
                 </ul>
             </nav>
         </div>)
-
 }
 
 export default NavBar;

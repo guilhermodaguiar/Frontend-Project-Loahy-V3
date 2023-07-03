@@ -1,4 +1,4 @@
-![LoahyTree Logo](src/assets/Loahy_logo_DEF_dark_RGB_Normaal.png)
+![LoahyTree Logo](src/assets/Loahy_logo_DEF_dark_RGB_Normaal_klein.png)
 
 # Loahy | 2023 | Novi Hogeschool | Eindopdracht Full Stack Developer
 
@@ -21,7 +21,7 @@ Voor het **clonen** van de repository voor Loahy wordt verwezen naar de links in
 | Soort | URL                                                                 |
 |-------|---------------------------------------------------------------------|
 | HTTPS | `https://github.com/guilhermodaguiar/Frontend-Project-Loahy-V3.git` |
-| SSH   | `git@github.com:guilhermodaguiar/Frontend-Project-Loahy-V1.git`     |
+| SSH   | `git@github.com:guilhermodaguiar/Frontend-Project-Loahy-V3.git`     |
 
 
 >Voordat de applicatie gebruikt kan worden dient deze eerst op een correcte manier geïnstalleerd te worden.
@@ -56,20 +56,36 @@ Hieronder staan de mappen structuur met de kort uitleg waarvoor ze gebruikt word
 ### Assets
 Deze map bevat alle gebruikte afbeeldingen zoals *logo's*, *backgrounds* en *afbeeldingen van de producten* zelf.
 
-### Pages
-Pages bevat alle webpagina's voor de applicatie.
+
 ### Context
-Er zijn vier context gemaakt. Deze kunnen hun *informatie* delen met elk component.
-> - UserAuthContext
-> - ShoppingCartContext
-> - WishlistContext
+Er zijn vijf context gemaakt. Deze kunnen hun *informatie* delen met elk child component en ook onderling met elkaar.
+> - AuthContext.js :  *bevat alle authenticatie data als een user inlogd*  
+> - CartContext.js:  *bevat alle context voor een cart van een user* 
+> - WishlistContext.js: *bevat alle cotext voor een wensenlijst van een user*
+> - ItemListContext.js: *bevat context dat data van een cart opslaat in een lijst*
+> - ItemsContext.js: *bevat context van alle gefetchte dat van producten dat beschikbaar is voor Loahy*
 
 ### Components
 
-### Helpers
-### Routing
-In de routing staan de routes met hun path.
+Bevat alle components dat gebruikt worden voor de applicatie. 
 
+### Helpers
+Er zijn enkele helpers gebruikt in de applicatie.
+> - ClickToShop.js: *om users te verwijzen naar de shop en hun producten*
+> - FormatCurrency.js: *om de gekozen valuta altijd in EUR te veranderen*
+> - Reducers.js: *bevat alle switch cases dat gebruikt wordt door useReducers van context*
+> - PrivateRoute.js: *om een prive route te maken*
+> - ScrollIndicator.js en ScrollToTop.js: *om een scroll te maken dat met een klik de user kan brengen naar een bepaald gedeelte van de applicatie*
+
+### Layout
+> - Bevat alle navbars dat gebruikt wordt: * adminNavbar, userNavbar en navbar*
+> - Header.js : *begin pagina met een button naar de producten van Loahy*
+> - Footer.js : *een footer met externe websites etc van Loahy*
+
+
+### Pages
+> - Bevat alle pages dat de user ziet: home, cart, wishlist, login/register, checkout
+> - Bevat de admin page
 
 # Gebruikers & Rollen
 De volgende gebruikers kunnen worden gebruikt om de applicatie te testen. In de database en **data.sql** bestand in de backend zijn nog andere users toegevoegd, maar één rol voor user is voor nu voldoende.
@@ -78,12 +94,12 @@ Een eigen **account** kan gemaakt worden om producten toe te voegen aan een *wis
 
 >#### ADMIN_ROLE
 > - gebruikersnaam: admin@test.nl
-> - wachtwoord: admin123
+> - wachtwoord: Admin123!
 >
 > #### USER_ROLE
 > - gebruikersnaam: user@test.nl
-> - wachtwoord: test123
+> - wachtwoord: User123!
 
 
-###### Eindopdracht Full-Stack Developer NOVI College | Guilhermo d'Aguiar | Copyright © 2022 Loahy | Alle Rechten Voorbehouden.
+###### Eindopdracht Full-Stack Developer NOVI College | Guilhermo d'Aguiar | Copyright © 2023 Loahy | Alle Rechten Voorbehouden.
  

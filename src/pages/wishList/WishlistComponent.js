@@ -12,15 +12,9 @@ function WishlistComponent({item}) {
     const {state2: {wishlist}, dispatch2} = WishlistState();
     const {user, isAuth} = useContext(AuthContext);
 
-    console.log(item.productId);
-
-
-
-
     return (<>
         <div className="wishlist-outer-outer-container">
-            <div>
-                {wishlist.length > 0 ? <div className="notice-wrapper">
+            {wishlist.length > 0 ? <div className="notice-wrapper">
                     <div className="shopping-cart-outer-container">
                         <div className="shopping-cart-new-container">
                             <div className="cart-container-outer">
@@ -59,14 +53,15 @@ function WishlistComponent({item}) {
                             </div>
                         </div>
                     </div>
-                </div> : <span>
-                            <div>
-                                <div className="warning-icon"><BiMessageError size={40}/></div>
-                                <p className="click-to-shop">Je wishlist is leeg</p>
-                                <ClickToShop/>
-                            </div>
-                    </span>}
-            </div>
+                </div> :
+                <span>
+                    <div>
+                        <div className="warning-icon"><BiMessageError size={40}/></div>
+                        <p className="click-to-shop">Je wishlist is leeg</p>
+                        <ClickToShop/>
+                    </div>
+                </span>
+            }
         </div>
     </>)
 }

@@ -5,6 +5,7 @@ import UserProfile from "../../../components/userComponents/userProfile/UserProf
 import ScrollIndicator from "../../../helpers/scrollIndicator/ScrollIndicator";
 import ScrollToTop from "../../../helpers/scrollToTop/ScrollToTop";
 import {AuthContext} from "../../../context/AuthContext";
+import NavBar from "../../../layout/navBar/NavBar";
 
 
 function UserPage() {
@@ -12,12 +13,13 @@ function UserPage() {
 
     return (
         <>
-            {(user.roles !== "ROLE_USER")  ?
+            {(user.roles !== "ROLE_USER") ?
                 <h3>
                     U moet ingelogd zijn om deze content te mogen zien..
                 </h3>
-             :
+                :
                 <>
+                    <NavBar/>
                     <ScrollIndicator/>
                     <ScrollToTop/>
                     <UserProfile/>

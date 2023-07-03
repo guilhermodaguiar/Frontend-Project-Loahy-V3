@@ -43,7 +43,7 @@ function Login() {
                 userEmail: data.userEmail, password: data.password
             });
             login(response.data.jwt);
-            setTimeout(()=> {
+            setTimeout(() => {
                 history.push("/user/profile");
             }, 500)
         } catch (e) {
@@ -58,64 +58,62 @@ function Login() {
 
     return (<>
         {!isAuth ? <div className="login-field-note">
-                <h3 className="login-field-note">
-                    Inloggen
-                </h3>
-                <form
-                    className="form-container-login"
-                    onSubmit={handleSubmit(logIn)}>
+            <h3 className="login-field-note">
+                Inloggen
+            </h3>
+            <form
+                className="form-container-login"
+                onSubmit={handleSubmit(logIn)}>
 
+                <input
+                    ref={userRef}
+                    type="email"
+                    autoComplete="off"
+                    {...register("userEmail", {
+                        required: "email is verplicht",
+                        pattern: /^(([^<>()\]\\.,;:\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+                    })}
+                    placeholder="E-mailadres"
+                />
+                <p> {errors.userEmail?.message} </p>
+
+
+                <div className="password-container">
                     <input
-                        ref={userRef}
-                        type="email"
+                        type={type}
                         autoComplete="off"
-                        {...register("userEmail", {
-                            required: "email is verplicht",
-                            pattern: /^(([^<>()\]\\.,;:\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+                        {...register("password", {
+                            required: 'wachtwoord is verplicht',
+                            minLength: {value: 8, message: 'Minimaal 8 karakters nodig'},
+                            maxLength: {value: 15, message: "Maximaal 15 karakters nodig"},
+                            pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,15}$/
                         })}
-                        placeholder="E-mailadres"
+                        placeholder="Wachtwoord"
                     />
-                    <p> {errors.userEmail?.message} </p>
+                    <p> {errors.password?.message} </p>
 
-
-                    <div className="password-container">
-                        <input
-                            type={type}
-                            autoComplete="off"
-                            {...register("password", {
-                                required: 'wachtwoord is verplicht',
-                                minLength: {value: 8, message: 'Minimaal 8 karakters nodig'},
-                                maxLength: {value: 15, message: "Maximaal 15 karakters nodig"},
-                                pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,15}$/
-                            })}
-                            placeholder="Wachtwoord"
-                        />
-                        <p> {errors.password?.message} </p>
-
-                    </div>
-                    <span className="show-hide-password" onClick={handleToggle}>
+                </div>
+                <span className="show-hide-password" onClick={handleToggle}>
                             <Icon
                                 icon={icon} size={20}/>
                             </span>
 
 
-                    <button
-                        disabled={loading}
-                        type="submit"
-                        className="form-button-login"
-                    >
-                        <RiLoginCircleFill/>&nbsp;Inloggen
-                    </button>
-                </form>
-            </div> :
-            <span>
+                <button
+                    disabled={loading}
+                    type="submit"
+                    className="form-button-login"
+                >
+                    <RiLoginCircleFill/>&nbsp;Inloggen
+                </button>
+            </form>
+        </div> : <span>
                 <h3>Inloggen succesvol!</h3>
                 <h5>Loading...<br/> U bent succesvol ingelogd<br/> en wordt automatisch doorgestuurd..</h5>
                 <p>Mocht u niet automatisch doorgestuurd worden<br/>
                     <NavLink to="/user/profile" className="active-link">klik dan hier!</NavLink>
                 </p>
-            </span>
-        }
+            </span>}
     </>)
 }
 

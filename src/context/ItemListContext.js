@@ -1,13 +1,14 @@
 import React, {createContext, useContext, useEffect, useReducer} from "react";
 import {CartState} from "./CartContext";
 import {itemListReducer} from "../helpers/reducers/Reducers";
-
 export const ItemListContext = createContext({});
 
+
+
 const initialState = {
-    initialized: false,
-    itemList: [],
+    initialized: false, itemList: [],
 }
+
 export const ItemListProvider = ({children}) => {
     const {state: {cart}} = CartState();
     const [state3, dispatch3] = useReducer(itemListReducer, initialState);
@@ -20,15 +21,14 @@ export const ItemListProvider = ({children}) => {
         dispatch3({
             type: 'FETCH_DATA', payload: {
                 ...initialState, itemList: itemListData
-            }})
+            }
+        })
     }, [cart]);
 
 
-    return (
-        <ItemListContext.Provider value={{state3, dispatch3}}>
+    return (<ItemListContext.Provider value={{state3, dispatch3}}>
             {children}
-        </ItemListContext.Provider>
-    )
+        </ItemListContext.Provider>)
 }
 
 export const ItemListState = () => {

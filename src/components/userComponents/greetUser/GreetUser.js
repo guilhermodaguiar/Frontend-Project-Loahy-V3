@@ -8,9 +8,9 @@ function GreetUser() {
 
     return (
         <>
-            <section className="greet-user-container">
+            <section className="gu-container">
                 <div className="welcome-user">
-                    <div className="welcome-user-outer-container">
+                    <div className="wou-container">
                         <h1 className="greet-email">Welkom</h1>
                     </div>
                     <div>

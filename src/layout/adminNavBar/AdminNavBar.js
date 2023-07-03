@@ -7,10 +7,10 @@ import {AuthContext} from "../../context/AuthContext";
 function AdminNavBar() {
     const {logout} = useContext(AuthContext);
 
-    return(
+    return (
         <>
-            <section className="admin-nav-bar-outer-container">
-                <div className="admin-nav-bar-inner-container">
+            <section className="ad-navb-outer">
+                <div className="ad-navb-inner">
                     <Link to="/admin/profile/#product_overview">
                         Mijn producten
                     </Link>
@@ -37,7 +37,7 @@ function AdminNavBar() {
                 <div className="container-for-button">
                     <button className="logout-button"
                             type="button"
-                            onClick={logout} >
+                            onClick={logout}>
                         Uitloggen
                     </button>
                 </div>
