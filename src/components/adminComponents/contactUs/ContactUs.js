@@ -15,8 +15,9 @@ function ContactUs() {
     const [remarks, setRemarks] = useState([]);
 
     useEffect(() => {
-        async function fetchContactUsData() {
+        const controller = new AbortController();
 
+        async function fetchContactUsData() {
             try {
                 const response = await axios.get(`http://localhost:8080/contact-remarks`, {
                     headers: {
@@ -29,8 +30,10 @@ function ContactUs() {
                 console.error('Er is iets misgegaan met het ophalen van remarks!', e);
             }
         }
-
         fetchContactUsData();
+        return function cleanup() {
+            controller.abort();
+        }
     }, [token]);
 
 

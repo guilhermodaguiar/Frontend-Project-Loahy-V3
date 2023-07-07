@@ -15,6 +15,8 @@ function UserOverview() {
 
 
     useEffect(() => {
+        const controller = new AbortController();
+
         async function fetchUsers() {
             try {
                 const response = await axios.get(`http://localhost:8080/users`,
@@ -33,6 +35,10 @@ function UserOverview() {
         }
 
         fetchUsers();
+        return function cleanup() {
+            controller.abort();
+        }
+
     }, [token]);
 
     async function deleteUser(userEmail) {

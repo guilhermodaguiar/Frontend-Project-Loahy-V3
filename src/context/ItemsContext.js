@@ -14,6 +14,8 @@ export const ItemsProvider = ({children}) => {
     const [state4, dispatch4] = useReducer(ItemsReducer, initialState);
 
     useEffect(() => {
+        const controller = new AbortController();
+        
         async function getItemData() {
             try {
                 const itemData = await axios.get(`http://localhost:8080/products`);
@@ -27,7 +29,10 @@ export const ItemsProvider = ({children}) => {
             }
         }
 
-        getItemData()
+        getItemData();
+        return function cleanup() {
+            controller.abort();
+        }
     }, []);
 
 

@@ -15,6 +15,8 @@ function AuthContextProvider({children}) {
 
     useEffect(() => {
         const token = localStorage.getItem('token');
+        const controller = new AbortController();
+
         if (token) {
             const decoded = jwt_decode(token);
             fetchUserData(decoded.sub, token);
@@ -24,6 +26,10 @@ function AuthContextProvider({children}) {
                 user: {},
                 status: 'done',
             });
+        }
+
+        return function cleanup() {
+            controller.abort();
         }
     }, []);
 

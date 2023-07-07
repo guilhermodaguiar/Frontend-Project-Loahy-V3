@@ -25,6 +25,8 @@ function ItemInfo() {
     const {item_id} = useParams();
 
     useEffect(() => {
+        const controller = new AbortController();
+
         async function fetchItemInfo() {
             try {
                 const itemData = await axios.get(`http://localhost:8080/products/${item_id}`);
@@ -37,6 +39,10 @@ function ItemInfo() {
         }
 
         fetchItemInfo();
+        return function cleanup() {
+            controller.abort();
+        }
+
     }, [item_id]);
 
 
@@ -75,8 +81,8 @@ function ItemInfo() {
                     </section>
                     <section>
                         <GetImage alt={itemInfo.image.fileName}
-                             src={itemInfo.image.url}
-                             className="item-image"
+                                  src={itemInfo.image.url}
+                                  className="item-image"
                         />
                     </section>
                     <div className="item-details">

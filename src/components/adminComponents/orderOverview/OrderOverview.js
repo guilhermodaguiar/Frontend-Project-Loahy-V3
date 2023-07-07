@@ -17,6 +17,8 @@ function OrderOverview() {
 
 
     useEffect(() => {
+        const controller = new AbortController();
+
         async function fetchOrders() {
             try {
                 const response = await axios.get(`http://localhost:8080/orders`, {
@@ -32,6 +34,10 @@ function OrderOverview() {
         }
 
         fetchOrders();
+        return function cleanup() {
+            controller.abort();
+        }
+
     }, [token]);
 
     async function deleteOrder(orderId) {

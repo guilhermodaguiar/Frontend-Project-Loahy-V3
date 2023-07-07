@@ -16,6 +16,8 @@ export const WishlistProvider = ({children}) => {
 
 
     useEffect(() => {
+        const controller = new AbortController();
+
         if (!isAuth) {
             console.log("hallo user");
             dispatch2({type: "CLEAR_WISHLIST"});
@@ -35,6 +37,10 @@ export const WishlistProvider = ({children}) => {
             }
 
             fetchWishlistData();
+            return function cleanup() {
+                controller.abort();
+            }
+
         }
     }, [isAuth, user.wishlist_id]);
 

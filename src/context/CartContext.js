@@ -8,7 +8,6 @@ const initialState = {
     initialized: false, cart: []
 };
 
-
 export const CartProvider = ({children}) => {
     const [state, dispatch] = useReducer(cartReducer, initialState);
 
