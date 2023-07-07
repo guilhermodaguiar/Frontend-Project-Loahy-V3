@@ -52,8 +52,8 @@ function Checkout() {
                 <h1 className="co-h1">Checkout</h1>
             </div>
             <div className="coo-container">
-                <div className="uc-box">
-                    <div className="left-box">
+                <article className="uc-box">
+                    <section className="left-box">
                         <h3><MdLocalShipping size={25}/>
                             &nbsp;Verzendgegevens
                         </h3>
@@ -93,15 +93,14 @@ function Checkout() {
                                 </form>
                             </div>
                         </div>
-                    </div>
-                    <div className="right-box">
+                    </section>
+                    <section className="right-box">
                         <h3 className="order-header"><IoListCircle size={25}/>&nbsp;Bestelling</h3>
                         <Cart/>
-                    </div>
-                </div>
-                <div>
-                    <div className="go-to-container">
-                        <ClickToShop/>
+                    </section>
+                </article>
+                <article>
+                    <section className="go-to-container">
                         <div className="to-shop-link-container">
                             <p className="click-to-shop">
                                 Klik&nbsp;<span>
@@ -111,8 +110,8 @@ function Checkout() {
                                         </span>&nbsp;om naar winkelwagen te gaan
                             </p>
                         </div>
-                    </div>
-                </div>
+                    </section>
+                </article>
             </div>
         </>}
     </>)

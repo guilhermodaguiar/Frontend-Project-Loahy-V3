@@ -18,7 +18,6 @@ function Login() {
             userEmail: '', password: ''
         }
     });
-    const [loading, toggleLoading] = useState(false);
     const [type, setType] = useState('password');
     const [error, toggleError] = useState(false);
     const [error2, toggleError2] = useState(false);
@@ -38,22 +37,21 @@ function Login() {
 
     async function logIn(data, e) {
         e.preventDefault();
-        toggleLoading(false);
-
         try {
             const response = await axios.post('http://localhost:8080/authenticate', {
                 userEmail: data.userEmail, password: data.password
             });
             login(response.data.jwt);
+
             setTimeout(() => {
                 history.push("/user/profile");
             }, 500)
+
         } catch (e) {
             if (e.response?.status === 403) {
                 console.error("Er is iets misgegaan met inloggen van user!!", e);
                 toggleError(true);
-            } else if
-            (e.response?.status === 404) {
+            } else if (e.response?.status === 404) {
                 console.error("Email bestaat niet!!", e);
                 toggleError2(true);
             }
@@ -66,7 +64,7 @@ function Login() {
 
 
     return (<>
-        {!isAuth ? <div className="login-field-note">
+        {!isAuth ? <span className="login-field-note">
             <h3 className="login-field-note">
                 Inloggen
             </h3>
@@ -106,20 +104,20 @@ function Login() {
                             <Icon
                                 icon={icon} size={20}/>
                             </span>
-                {error &&
-                    <p className="error-admin-login"> Combinatie van email-adres en wachtwoord is
-                        onjuist</p>}
-                {error2 &&
-                    <p className="error-admin-login"> email-adres is onjuist</p>}
-                <SubmitButton disabled={loading}/>
+                {error && <p className="error-admin-login"> Combinatie van email-adres en wachtwoord is
+                    onjuist</p>}
+                {error2 && <p className="error-admin-login"> email-adres is onjuist</p>}
+                <SubmitButton/>
             </form>
-        </div> : <span>
-                <h3>Inloggen succesvol!</h3>
-                <h5>Loading...<br/> U bent succesvol ingelogd<br/> en wordt automatisch doorgestuurd..</h5>
+        </span> :
+            <span>
+                <h4>Inloggen succesvol!</h4>
+                <p>Loading...<br/> U bent succesvol ingelogd<br/> en wordt automatisch doorgestuurd..</p>
                 <p>Mocht u niet automatisch doorgestuurd worden<br/>
                     <NavLink to="/user/profile" className="active-link">klik dan hier!</NavLink>
                 </p>
-            </span>}
+            </span>
+        }
     </>)
 }
 

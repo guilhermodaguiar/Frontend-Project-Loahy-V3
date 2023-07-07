@@ -10,11 +10,11 @@ function UserNavBar() {
         <>
             <section className="unbo-container">
                 <div className="unbi-container">
-                    <sectiom className="container-for-padding">
+                    <section className="container-for-padding">
                         <Link to="/user/profile/#profile">
                             Profiel
                         </Link>
-                    </sectiom>
+                    </section>
                     <section className="container-for-padding">
                         <Link to="/user/profile/#change_password">
                             Wachtwoord

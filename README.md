@@ -25,7 +25,10 @@ Voor het **clonen** van de repository voor Loahy wordt verwezen naar de links in
 
 
 >Voordat de applicatie gebruikt kan worden dient deze eerst op een correcte manier geïnstalleerd te worden.
->Volg de stappen en run daarna de applicatie.
+>Volg de stappen en run daarna de applicatie. Voordat de applicatie gestart wordt moet de backend ook van git worden
+> geïnstalleerd. Voor een complete handleiding van de gehele applicatie wordt verwezen naar de installatiehandleiding:
+> Deze kan gevraagd worden door te mailen naar: [Contact Me](mailto:dguilhermo@gmail.com)
+> 
 
 Als je het project gecloned hebt naar jouw locale machine, installeer je eerst de node_modules door het volgende commando in de terminal te runnen:
 
