@@ -22,7 +22,7 @@ function CreateProduct() {
     async function sendItemData(data) {
         toggleLoading(true);
         try {
-            const response = await axios.post(`http://localhost:8080/products/create`, {
+            const response = await axios.post(`http://localhost:8080/products`, {
                 productName: data.product_name,
                 productDescription: data.product_description,
                 productPrice: data.product_price,
@@ -39,13 +39,13 @@ function CreateProduct() {
         {user.roles !== "ROLE_ADMIN" ? <h3>Moet ingelogd zijn als Admin</h3> :
             <div className="ia-container" id="add_new_product">
                 <h2>Product Toevoegen<MdAddCircle size={25}/></h2>
-                <div className="add-item-container">
+                <section className="add-item-container">
                     <p>Voeg hier je product:</p>
                     <p>Een product Id wordt automatisch gegenereerd, deze is terug te vinden in: Mijn producten
                     </p>
                     <p> Een afbeelding kan geupload worden in Mijn producten</p>
-                </div>
-                <div className="form-container">
+                </section>
+                <section className="form-container">
 
                     <form
                         onSubmit={handleSubmit(sendItemData)}>
@@ -104,7 +104,7 @@ function CreateProduct() {
                                 </p>}
                         </div>
                     </form>
-                </div>
+                </section>
             </div>}
     </>)
 }

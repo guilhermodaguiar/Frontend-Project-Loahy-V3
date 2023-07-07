@@ -23,7 +23,7 @@ function ContactUs() {
 
         toggleLoading(true);
         try {
-            await axios.post('http://localhost:8080/contact-remarks/create', {
+            await axios.post('http://localhost:8080/contact-remarks', {
                 contactName: data.contact_name,
                 contactEmail: data.contact_email,
                 contactPhone: data.contact_phone,
@@ -44,11 +44,11 @@ function ContactUs() {
         <main>
             <div className="outer-container">
                 <h1 id="contact-us">Contact ons</h1>
-                <div className="contact-us-feedback">
+                <section className="contact-us-feedback">
                     <p>Wij houden van vragen en feedback - en we helpen iedereen zo graag! Hier zijn een aantal
                         manieren om ons te bereiken.</p>
-                </div>
-                <div className="contact-container">
+                </section>
+                <section className="contact-container">
                     <div className="remark-container">
                         <div>
                             <h3>Stuur ons een bericht</h3>
@@ -164,7 +164,7 @@ function ContactUs() {
                             </iframe>
                         </div>
                     </div>
-                </div>
+                </section>
             </div>
         </main>
     </>)

@@ -4,17 +4,19 @@ import React, {useContext, useEffect, useRef, useState} from 'react';
 import axios from 'axios';
 import {AuthContext} from "../../context/AuthContext";
 import {NavLink, useHistory} from "react-router-dom";
-import {RiLoginCircleFill} from "react-icons/ri";
 import {eye} from 'react-icons-kit/feather/eye';
 import {eyeOff} from 'react-icons-kit/feather/eyeOff';
 import {useForm} from "react-hook-form";
 import {Icon} from "react-icons-kit";
+import SubmitButton from "../../components/buttonComponents/submitButton/SubmitButton";
 
 
 function AdminLogIn() {
     const {login, isAuth} = useContext(AuthContext);
     const history = useHistory();
     const [loading, toggleLoading] = useState(false);
+    const [error, toggleError] = useState(false);
+    const [error2, toggleError2] = useState(false);
     const [type, setType] = useState('password');
     const [icon, setIcon] = useState(eyeOff);
     const userRef = useRef();
@@ -50,7 +52,14 @@ function AdminLogIn() {
             }, 500)
 
         } catch (e) {
-            console.error("Er is iets misgegaan met het inloggen van Admin!!", e);
+            if (e.response?.status === 403) {
+                console.error("Er is iets misgegaan met het inloggen van Admin!!", e);
+                toggleError(true);
+            } else if
+            (e.response?.status === 404) {
+                console.error("Email bestaat niet!!", e);
+                toggleError2(true);
+            }
         }
     }
 
@@ -105,13 +114,12 @@ function AdminLogIn() {
                                 icon={icon} size={20}/>
                             </span>
 
-                            <button
-                                disabled={loading}
-                                type="submit"
-                                className="form-button-login"
-                            >
-                                <RiLoginCircleFill/>&nbsp;Inloggen
-                            </button>
+                            {error &&
+                                <p className="error-admin-login"> Combinatie van email-adres en wachtwoord is
+                                    onjuist</p>}
+                            {error2 &&
+                                <p className="error-admin-login"> email-adres is onjuist</p>}
+                            <SubmitButton disabled={loading} text="Inloggen"></SubmitButton>
                         </form>
                     </div>
                 </div>

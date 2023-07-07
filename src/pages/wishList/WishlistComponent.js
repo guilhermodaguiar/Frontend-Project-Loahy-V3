@@ -2,10 +2,10 @@ import "./WishlistComponent.css"
 
 import React, {useContext} from "react";
 import {BiMessageError} from "react-icons/bi";
-import {IoCloseSharp} from "react-icons/io5";
 import {WishlistState} from "../../context/WishlistContext";
 import ClickToShop from "../../helpers/ClickComponents/ClickToShop";
 import {AuthContext} from "../../context/AuthContext";
+import RemoveButton from "../../components/buttonComponents/removeButton/RemoveButton";
 
 
 function WishlistComponent({item}) {
@@ -13,31 +13,26 @@ function WishlistComponent({item}) {
     const {user, isAuth} = useContext(AuthContext);
 
     return (<>
-        <div className="wishlist-outer-outer-container">
+        <div className="woo-container">
             {wishlist.length > 0 ? <div className="notice-wrapper">
                     <div className="shopping-cart-outer-container">
                         <div className="shopping-cart-new-container">
                             <div className="cart-container-outer">
                                 <div className="list-container-inner"
                                 >
-                                    <button className="remove-from-cart-button">
-                                        <IoCloseSharp
-                                            size={20}
-                                            onClick={() => {
-                                                dispatch2({
-                                                    type: "REMOVE_FROM_WISHLIST", payload: {item}
-                                                });
-                                                dispatch2({
-                                                    type: "DELETE_FROM_WISHLIST_BACKEND",
-                                                    payload: {
-                                                        item: item,
-                                                        wishlist_id: user.wishlist_id,
-                                                        isAuth: isAuth,
-                                                    }
-                                                });
-                                            }}
-                                        />
-                                    </button>
+                                    <RemoveButton onClick={() => {
+                                        dispatch2({
+                                            type: "REMOVE_FROM_WISHLIST", payload: {item}
+                                        });
+                                        dispatch2({
+                                            type: "DELETE_FROM_WISHLIST_BACKEND",
+                                            payload: {
+                                                item: item,
+                                                wishlist_id: user.wishlist_id,
+                                                isAuth: isAuth,
+                                            }
+                                        });
+                                    }}/>
                                 </div>
                             </div>
                             <div className="cart-container-outer">

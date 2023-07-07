@@ -3,10 +3,11 @@ import "./ProductOverview.css";
 import React, {useContext} from "react";
 import axios from "axios";
 import {AuthContext} from "../../../context/AuthContext";
-import {IoCloseSharp} from "react-icons/io5";
 import {FaProductHunt} from "react-icons/fa";
 import UploadImage from "../uploadImage/UploadImage";
 import {ItemsState} from "../../../context/ItemsContext";
+import RemoveButton from "../../buttonComponents/removeButton/RemoveButton";
+import GetImage from "../../imageComponent/GetImage";
 
 function ProductOverview() {
     const {user} = useContext(AuthContext);
@@ -16,7 +17,7 @@ function ProductOverview() {
 
     async function deleteItem(product) {
         try {
-            await axios.delete(`http://localhost:8080/products/delete/${product.productId}`, {
+            await axios.delete(`http://localhost:8080/products/${product.productId}`, {
                 headers: {
                     "Content-Type": "application/json", "Authorization": `Bearer ${token}`,
                 }
@@ -48,21 +49,17 @@ function ProductOverview() {
                         {items.map((product) => {
                             return <tr key={product.productId}>
                                 <td>
-                                    <button className="remove-from-cart-button">
-                                        <IoCloseSharp
-                                            size={20}
-                                            onClick={() => {
-                                                deleteItem(product).then();
-                                                dispatch4({
-                                                    type: "REMOVE_ITEMS",
-                                                    payload: {item: product}
-                                                })
-                                            }}/>
-                                    </button>
+                                    <RemoveButton onClick={() => {
+                                        deleteItem(product).then();
+                                        dispatch4({
+                                            type: "REMOVE_ITEMS",
+                                            payload: {item: product}
+                                        })
+                                    }}/>
                                 </td>
                                 <td>{product.productId}</td>
                                 <td>
-                                    {product.image ? <img className="admin-item-image"
+                                    {product.image ? <GetImage className="admin-item-image"
                                                           src={product.image.url}
                                                           alt={product.fileName}/> : <div>
                                         <UploadImage

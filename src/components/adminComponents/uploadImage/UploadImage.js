@@ -5,6 +5,7 @@ import axios from "axios";
 import {AuthContext} from "../../../context/AuthContext";
 import {FaFileUpload} from "react-icons/fa";
 import {useHistory} from "react-router-dom";
+import GetImage from "../../imageComponent/GetImage";
 
 
 function UploadImage({product}) {
@@ -60,7 +61,7 @@ function UploadImage({product}) {
                     </label>
                     {previewUrl && <label className="label-container">
                         Preview:
-                        <img src={previewUrl}
+                        <GetImage src={previewUrl}
                              alt="Voorbeeld van de afbeelding die zojuist gekozen is"
                              className="image-preview"/>
                     </label>}

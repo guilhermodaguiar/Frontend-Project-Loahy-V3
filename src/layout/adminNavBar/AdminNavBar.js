@@ -1,11 +1,10 @@
 import './AdminNavBar.css';
 
-import React, {useContext} from "react";
+import React from "react";
 import {HashLink as Link} from "react-router-hash-link";
-import {AuthContext} from "../../context/AuthContext";
+import LogoutButton from "../../components/buttonComponents/logoutButon/LogoutButton";
 
 function AdminNavBar() {
-    const {logout} = useContext(AuthContext);
 
     return (
         <>
@@ -27,19 +26,15 @@ function AdminNavBar() {
                         Klanten
                     </Link>
 
-                    <Link to="/admin/profile/#orders">
+                    <Link to="/admin/profile/#all_orders">
                         Orders
                     </Link>
                     <Link to="/admin/profile/#contact_remarks">
-                        Contact
+                        Opmerkingen
                     </Link>
                 </div>
                 <div className="container-for-button">
-                    <button className="logout-button"
-                            type="button"
-                            onClick={logout}>
-                        Uitloggen
-                    </button>
+                    <LogoutButton/>
                 </div>
             </section>
         </>

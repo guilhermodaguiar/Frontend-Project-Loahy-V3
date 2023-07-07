@@ -2,8 +2,7 @@ import "./CartBackground.css";
 
 import React, {useContext} from "react";
 import Cart from "./Cart";
-import {BiMessageError} from "react-icons/bi";
-import {NavLink, useHistory} from "react-router-dom";
+import {useHistory} from "react-router-dom";
 import {IoBagCheckOutline} from "react-icons/io5";
 import {AuthContext} from "../../context/AuthContext";
 import ClickToShop from "../../helpers/ClickComponents/ClickToShop";
@@ -31,20 +30,11 @@ function CartBackground() {
             </div>
             <div className="ref-container">
                 {!isAuth ?
-                    <div>
-                        <BiMessageError size={40}/>
-                        <div> Je moet ingelogd zijn om bestellen</div>
-                        <div> Klik&nbsp;
-                            <NavLink to="/user">
-                                hier
-                            </NavLink>
-                            &nbsp;om in te loggen of om te registreren
-                        </div>
-                        <ClickToShop/>
-                    </div> :
+                    <ClickToShop/>
+                    :
                     <>
                         {cart.length > 0 && <div className="button-size">
-                            <button className="cart-checkout-button"
+                            <button className="cc-button"
                                     onClick={checkout}>
                                 <IoBagCheckOutline size={22}/>&nbsp;Bestellen
                             </button>

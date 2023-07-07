@@ -4,7 +4,8 @@ import React, {useContext, useEffect, useState} from "react";
 import {AuthContext} from "../../../context/AuthContext";
 import axios from "axios";
 import {useHistory} from "react-router-dom";
-import {IoCloseSharp, IoListCircleSharp} from "react-icons/io5";
+import {IoListCircleSharp} from "react-icons/io5";
+import RemoveButton from "../../buttonComponents/removeButton/RemoveButton";
 
 
 function ContactUs() {
@@ -17,7 +18,7 @@ function ContactUs() {
         async function fetchContactUsData() {
 
             try {
-                const response = await axios.get(`http://localhost:8080/contact-remarks/all`, {
+                const response = await axios.get(`http://localhost:8080/contact-remarks`, {
                     headers: {
                         "Content-Type": "application/json", "Authorization": `Bearer ${token}`,
                     }
@@ -35,7 +36,7 @@ function ContactUs() {
 
     async function deleteRemark(contactEmail) {
         try {
-            await axios.delete(`http://localhost:8080/contact-remarks/delete/${contactEmail}`, {
+            await axios.delete(`http://localhost:8080/contact-remarks/${contactEmail}`, {
                 headers: {
                     "Content-Type": "application/json", "Authorization": `Bearer ${token}`,
                 }
@@ -56,8 +57,8 @@ function ContactUs() {
 
     return (<>
         {user.roles !== "ROLE_ADMIN" ? <h3>Moet ingelogd zijn als Admin</h3> : <>
-            <h2 className="contact-us-header-container">
-                Contact&nbsp;<IoListCircleSharp size={30}/>
+            <h2 className="contact-us-header-container" id="contact_remarks">
+                Opmerkingen&nbsp;<IoListCircleSharp size={30}/>
             </h2>
             <section>
                 <table>
@@ -75,14 +76,10 @@ function ContactUs() {
                     {remarks.map((contact) => {
                         return <tr key={contact.contactEmail}>
                             <td>
-                                <button className="delete-button">
-                                    <IoCloseSharp
-                                        size={20}
-                                        onClick={() => {
-                                            deleteRemark(contact.contactEmail).then();
-                                            removeRemark(contact);
-                                        }}/>
-                                </button>
+                                <RemoveButton onClick={() => {
+                                    deleteRemark(contact.contactEmail).then();
+                                    removeRemark(contact);
+                                }}/>
                             </td>
                             <td>{contact.contactName}</td>
                             <td>{contact.contactEmail}</td>

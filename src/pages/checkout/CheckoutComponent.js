@@ -2,6 +2,7 @@ import "./CheckoutComponent.css";
 
 import React from "react";
 import {formatCurrency} from "../../helpers/formatCurrency/FormatCurrency";
+import GetImage from "../../components/imageComponent/GetImage";
 
 
 function CheckoutComponent({item}) {
@@ -13,7 +14,7 @@ function CheckoutComponent({item}) {
                     <div className="shopping-cart-new-container">
                         <div className="cart-container-outer">
                             <div className="cart-container-inner">
-                                <img alt={item.image.fileName}
+                                <GetImage alt={item.image.fileName}
                                      className="cart-cartItemImg"
                                      src={item.image.url}
                                 />

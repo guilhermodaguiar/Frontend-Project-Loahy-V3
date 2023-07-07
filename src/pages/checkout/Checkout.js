@@ -13,6 +13,7 @@ import Cart from "../cart/Cart";
 import ClickToShop from "../../helpers/ClickComponents/ClickToShop";
 import {ItemListState} from "../../context/ItemListContext";
 import {CartState} from "../../context/CartContext";
+import NavBar from "../../layout/navBar/NavBar";
 
 
 function Checkout() {
@@ -27,7 +28,7 @@ function Checkout() {
     async function sendOrder(e) {
         e.preventDefault();
         try {
-            await axios.post(`http://localhost:8080/orders/create`, {
+            await axios.post(`http://localhost:8080/orders`, {
                 productList: itemList,
                 comment: comment,
                 userEmail: user.user_email,
@@ -45,6 +46,7 @@ function Checkout() {
     }
 
     return (<>
+        <NavBar/>
         {user.roles !== "ROLE_USER" ? <h3> U moet ingelogd zijn om dit content te mogen zien..</h3> : <>
             <div className="check-out-page">
                 <h1 className="co-h1">Checkout</h1>

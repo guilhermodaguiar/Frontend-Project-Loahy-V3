@@ -3,10 +3,10 @@ import './OrderOverview.css';
 import React, {useContext, useEffect, useState} from "react";
 import axios from "axios";
 import {AuthContext} from "../../../context/AuthContext";
-import {IoCloseSharp} from "react-icons/io5";
 import {FaRegListAlt} from "react-icons/fa";
 import {useHistory} from "react-router-dom";
 import {BsFillPatchCheckFill} from "react-icons/bs";
+import RemoveButton from "../../buttonComponents/removeButton/RemoveButton";
 
 function OrderOverview() {
     const history = useHistory();
@@ -19,7 +19,7 @@ function OrderOverview() {
     useEffect(() => {
         async function fetchOrders() {
             try {
-                const response = await axios.get(`http://localhost:8080/orders/all`, {
+                const response = await axios.get(`http://localhost:8080/orders`, {
                     headers: {
                         "Content-Type": "application/json", "Authorization": `Bearer ${token}`,
                     }
@@ -36,7 +36,7 @@ function OrderOverview() {
 
     async function deleteOrder(orderId) {
         try {
-            await axios.delete(`http://localhost:8080/orders/delete/${orderId}`, {
+            await axios.delete(`http://localhost:8080/orders/${orderId}`, {
                 headers: {
                     "Content-Type": "application/json", "Authorization": `Bearer ${token}`,
                 }
@@ -48,51 +48,60 @@ function OrderOverview() {
         }
     }
 
+    function removeOrder(order) {
+        const newOrders = orders.filter((i) => i.orderId !== order.orderId);
+        setOrders(newOrders);
+    }
+
 
     return (<>
-        {user.roles !== "ROLE_ADMIN" ? <h3>Moet ingelogd zijn als Admin</h3> :
-            <section id="all_orders">
-                <div>
-                    <h2>
-                        Orders&nbsp;<FaRegListAlt/>
-                    </h2>
-                </div>
-                <table>
-                    <thead>
-                    <tr>
-                        <th></th>
-                        <th>Email</th>
-                        <th>order#</th>
-                        <th>Order</th>
-                        <th>Datum</th>
-                        <th>AddressId</th>
-                    </tr>
-                    </thead>
-                    <tbody>
+        {user.roles !== "ROLE_ADMIN" ? <h3>Moet ingelogd zijn als Admin</h3> : <section id="all_orders">
+            <div>
+                <h2>
+                    Orders&nbsp;<FaRegListAlt/>
+                </h2>
+            </div>
+            <table>
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>Email</th>
+                    <th>order#</th>
+                    <th>Order</th>
+                    <th>Datum</th>
+                    <th>Comment</th>
+                    <th>Verzend adres</th>
+                </tr>
+                </thead>
+                <tbody>
 
-                    {orders.map((order) => {
-                        return <tr key={order.orderId}>
-                            <td>
-                                <button>
-                                    <IoCloseSharp
-                                        size={20}
-                                        onClick={() => deleteOrder(order.id)}
-                                    />
-                                </button>
-                                {addSuccess === true &&
-                                    <p><BsFillPatchCheckFill size={25}/> Gelukt met het verwijderen, refresh
-                                        pagina</p>}
-                            </td>
-                            <td>{order.userEmail}</td>
-                            <td>{order.orderId}</td>
-                            <td>{JSON.stringify(order.productList)}</td>
-                            <td>{order.orderDate}</td>
-                            <td>{user.address_id}</td>
-                        </tr>
-                    })}
-                    </tbody>
-                </table>
-            </section>}
+                {orders.map((order) => {
+                    return <tr key={order.orderId}>
+                        <td>
+                            <RemoveButton onClick={() => {
+                                deleteOrder(order.orderId).then();
+                                removeOrder(order)
+                            }}/>
+                            {addSuccess === true &&
+                                <p><BsFillPatchCheckFill size={25}/> Gelukt met het verwijderen, refresh
+                                    pagina</p>}
+                        </td>
+                        <td>{order.userEmail.userEmail}</td>
+                        <td>{order.orderId}</td>
+                        <td>{JSON.stringify(order.productList)}</td>
+                        <td>{order.orderDate}</td>
+                        <td>{order.comment}</td>
+                        <td>{order.userEmail.address.streetName + ", "}
+                            {order.userEmail.address.houseNumber + ", "}
+                            {order.userEmail.address.houseNumberAddition + ", "}
+                            {order.userEmail.address.city + ", "}
+                            {order.userEmail.address.zipcode}
+                        </td>
+                    </tr>
+                })}
+                </tbody>
+            </table>
+        </section>}
     </>)
 }
 

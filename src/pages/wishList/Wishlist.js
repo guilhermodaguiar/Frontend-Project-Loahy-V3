@@ -1,8 +1,6 @@
 import "./Wishlist.css";
 
 import React, {useContext} from "react";
-import {BiMessageError} from "react-icons/bi";
-import {NavLink} from "react-router-dom";
 import {AuthContext} from "../../context/AuthContext";
 import {WishlistState} from "../../context/WishlistContext";
 import WishlistComponent from "./WishlistComponent";
@@ -19,27 +17,15 @@ function Wishlist() {
         <>
             <div>
                 {!isAuth ?
-                    <div>
-                        <div><BiMessageError size={40}/></div>
-                        <div> Je moet ingelogd zijn om bestellen</div>
-                        <div> Klik&nbsp;
-                            <NavLink to="/user">
-                                hier
-                            </NavLink>
-                            &nbsp;om in te loggen of om te registreren
-                        </div>
-                        <ClickToShop/>
-                    </div>
+                    <ClickToShop/>
                     :
-                    <div className="wishlist-outer-outer-container">
-                        <div className="wishlist-outer-outer-container">
+                    <div className="woo-container">
                             {wishlist.map((item) => {
                                 return <WishlistComponent
                                     key={item.productId}
                                     item={item}
                                 />
                             })}
-                        </div>
                     </div>
                 }
             </div>

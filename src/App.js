@@ -34,9 +34,9 @@ function App() {
                     <Route path="/shopping-cart">
                         <CartBackground/>
                     </Route>
-                    <Route exact path="/user/checkout">
+                    <PrivateRoute exact path="/user/checkout">
                         <Checkout/>
-                    </Route>
+                    </PrivateRoute>
                     <Route exact path="/admin">
                         <AdminLogIn/>
                     </Route>

@@ -23,7 +23,7 @@ function UserUpdate() {
     async function handleUpdateUser(data) {
         toggleLoading(true);
         try {
-            await axios.put(`http://localhost:8080/address/update/${address_id}`, {
+            await axios.put(`http://localhost:8080/address/${address_id}`, {
                 streetName: data.streetName,
                 houseNumber: data.houseNumber,
                 houseNumberAddition: data.houseNumberAddition,

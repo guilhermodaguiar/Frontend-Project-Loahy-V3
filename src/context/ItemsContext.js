@@ -16,7 +16,7 @@ export const ItemsProvider = ({children}) => {
     useEffect(() => {
         async function getItemData() {
             try {
-                const itemData = await axios.get(`http://localhost:8080/products/all`);
+                const itemData = await axios.get(`http://localhost:8080/products`);
                 dispatch4({
                     type: 'FETCH_DATA_ITEMS', payload: {
                         ...initialState, items: itemData.data

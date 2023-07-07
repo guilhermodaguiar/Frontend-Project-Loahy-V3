@@ -7,8 +7,8 @@ import axios from "axios";
 import {eye} from 'react-icons-kit/feather/eye';
 import {eyeOff} from 'react-icons-kit/feather/eyeOff';
 import {useForm} from "react-hook-form";
-import {RiLoginCircleFill} from "react-icons/ri";
 import {Icon} from "react-icons-kit";
+import SubmitButton from "../../../components/buttonComponents/submitButton/SubmitButton";
 
 function Login() {
     const history = useHistory();
@@ -20,6 +20,8 @@ function Login() {
     });
     const [loading, toggleLoading] = useState(false);
     const [type, setType] = useState('password');
+    const [error, toggleError] = useState(false);
+    const [error2, toggleError2] = useState(false);
     const [icon, setIcon] = useState(eyeOff);
     const userRef = useRef();
 
@@ -47,7 +49,14 @@ function Login() {
                 history.push("/user/profile");
             }, 500)
         } catch (e) {
-            console.error("Er is iets misgegaan met inloggen van user!!", e);
+            if (e.response?.status === 403) {
+                console.error("Er is iets misgegaan met inloggen van user!!", e);
+                toggleError(true);
+            } else if
+            (e.response?.status === 404) {
+                console.error("Email bestaat niet!!", e);
+                toggleError2(true);
+            }
         }
     }
 
@@ -97,15 +106,12 @@ function Login() {
                             <Icon
                                 icon={icon} size={20}/>
                             </span>
-
-
-                <button
-                    disabled={loading}
-                    type="submit"
-                    className="form-button-login"
-                >
-                    <RiLoginCircleFill/>&nbsp;Inloggen
-                </button>
+                {error &&
+                    <p className="error-admin-login"> Combinatie van email-adres en wachtwoord is
+                        onjuist</p>}
+                {error2 &&
+                    <p className="error-admin-login"> email-adres is onjuist</p>}
+                <SubmitButton disabled={loading}/>
             </form>
         </div> : <span>
                 <h3>Inloggen succesvol!</h3>

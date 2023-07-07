@@ -11,6 +11,7 @@ import UserOverview from "../../components/adminComponents/userOverview/UserOver
 import ContactUs from "../../components/adminComponents/contactUs/ContactUs";
 import CreateProduct from "../../components/adminComponents/createProduct/CreateProduct";
 import OrderOverview from "../../components/adminComponents/orderOverview/OrderOverview";
+import LogoutButton from "../../components/buttonComponents/logoutButon/LogoutButton";
 
 
 function AdminPage() {
@@ -58,12 +59,7 @@ function AdminPage() {
                             <ContactUs/>
                         </section>
                         <div>
-                            <button
-                                className="logout-button"
-                                type="button"
-                                onClick={logout}>
-                                Uitloggen
-                            </button>
+                            <LogoutButton classname = "logout-button" type = "button" onClick={logout}/>
                         </div>
                     </div>
                 </>

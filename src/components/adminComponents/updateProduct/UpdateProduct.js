@@ -24,7 +24,7 @@ function UpdateProduct() {
     async function updateItemData(data) {
         toggleLoading(true);
         try {
-            await axios.put(`http://localhost:8080/products/update/${data.productId}`, {
+            await axios.put(`http://localhost:8080/products/${data.productId}`, {
                 productId: data.product_id,
                 productName: data.product_name,
                 productDescription: data.product_description,
@@ -49,12 +49,12 @@ function UpdateProduct() {
                     <h2 className="uih-container">
                         Product Aanpassen
                     </h2>
-                    <div className="ui-container">
+                    <section className="ui-container">
                         <p>Pas hier je product</p>
                         <RiErrorWarningLine size={25}/>
                         <p>Alle velden moeten verplicht ingevuld worden!! </p>
-                    </div>
-                    <div>
+                    </section>
+                    <section>
                         <form
                             onSubmit={handleSubmit(updateItemData)}>
                             <input
@@ -120,7 +120,7 @@ function UpdateProduct() {
                                 <NavLink to="/admin">klik hier!</NavLink>
                             </p>}
                         </form>
-                    </div>
+                    </section>
                 </div>}
         </>)
 }

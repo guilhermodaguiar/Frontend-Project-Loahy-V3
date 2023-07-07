@@ -19,7 +19,7 @@ function Register() {
 
     async function submitForm(data) {
         try {
-            await axios.post(`http://localhost:8080/users/create`, {
+            await axios.post(`http://localhost:8080/users`, {
                 firstName: data.firstName, lastName: data.lastName, userEmail: data.userEmail, password: data.password,
             });
             toggleSuccess(true);

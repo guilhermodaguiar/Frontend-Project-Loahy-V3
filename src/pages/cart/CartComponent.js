@@ -1,10 +1,11 @@
 import './CartComponent.css';
 
 import React from "react";
-import {IoCloseSharp} from "react-icons/io5";
 import {formatCurrency} from "../../helpers/formatCurrency/FormatCurrency";
 import {CartState} from "../../context/CartContext";
 import {BiMessageError} from "react-icons/bi";
+import RemoveButton from "../../components/buttonComponents/removeButton/RemoveButton";
+import GetImage from "../../components/imageComponent/GetImage";
 
 function CartComponent({item}) {
     const {state: {cart}, dispatch} = CartState();
@@ -25,23 +26,17 @@ function CartComponent({item}) {
                                     <div className="shopping-cart-new-container">
                                         <div className="cart-container-outer">
                                             <div className="cart-container-inner-x">
-                                                <button className="remove-from-cart-button">
-                                                    <IoCloseSharp
-                                                        size={20}
-                                                        onClick={() => dispatch({
-                                                            type: "REMOVE_FROM_CART",
-                                                            payload: item
-                                                        })}
-                                                    />
-                                                </button>
+                                                <RemoveButton onClick = {() => dispatch({
+                                                    type: "REMOVE_FROM_CART",
+                                                    payload: item
+                                                })}/>
                                             </div>
                                         </div>
                                         <div className="cart-container-outer">
                                             <div className="cart-container-inner">
-                                                <img alt={item.image.fileName}
-                                                     className="cart-cartItemImg"
-                                                     src={item.image.url}
-                                                />
+                                                <GetImage alt={item.image.fileName}
+                                                          className="cart-cartItemImg"
+                                                          src={item.image.url}/>
                                             </div>
                                         </div>
                                         <div className="cart-container-outer">

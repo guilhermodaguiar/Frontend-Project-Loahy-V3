@@ -4,7 +4,7 @@ body {
     font-family: "Poppins", sans-serif;
 }
 
-.wishlist-outer-outer-container{
+.woo-container{
     display: flex;
     flex-direction: row;
     justify-content: flex-start;

@@ -17,7 +17,7 @@ function WishlistBackground() {
                     <h1 className="wishlist-h1"> {user.user_first_name}'s Verlanglijst</h1>
                 }
             </div>
-            <div className="wishlist-outer-outer-container">
+            <div className="woo-container">
                 <Wishlist/>
             </div>
 

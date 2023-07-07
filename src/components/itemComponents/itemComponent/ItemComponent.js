@@ -1,15 +1,17 @@
 import './ItemComponent.css';
 
 import React, {useContext} from "react";
-import {BsFillCartDashFill, BsFillCartPlusFill} from "react-icons/bs";
 import {useHistory} from "react-router-dom";
 import {FaInfoCircle} from "react-icons/fa";
 import {CartState} from "../../../context/CartContext";
 import {formatCurrency} from "../../../helpers/formatCurrency/FormatCurrency";
 import {WishlistState} from "../../../context/WishlistContext";
-import {GiHeartMinus} from "react-icons/gi";
-import {HiHeart} from "react-icons/hi";
 import {AuthContext} from "../../../context/AuthContext";
+import ToCartButton from "../../buttonComponents/cartButton/ToCartButton";
+import FromCartButton from "../../buttonComponents/cartButton/FromCartButton";
+import ToWishlistButton from "../../buttonComponents/wishlistButton/ToWishlistButton";
+import FromWishlistButton from "../../buttonComponents/wishlistButton/FromWishlistButton";
+import GetImage from "../../imageComponent/GetImage";
 
 
 function ItemComponent({item}) {
@@ -30,41 +32,35 @@ function ItemComponent({item}) {
                 </div>
                 <div className="hearts-container">
                     <div>
-                        {wishlist.some((p) => p.productId === item.productId) ? <div className="wishlist-heart">
-                            <GiHeartMinus size={19}
-                                          className="add-to-list-heart"
-                                          onClick={() => {
-                                              dispatch2({
-                                                  type: "REMOVE_FROM_WISHLIST", payload: {item}
-                                              });
-                                              dispatch2({
-                                                  type: "DELETE_FROM_WISHLIST_BACKEND",
-                                                  payload: {
-                                                      item: item,
-                                                      wishlist_id: user.wishlist_id,
-                                                      isAuth: isAuth
-                                                  }
-                                              });
-                                          }}/>
-                        </div> : <div className="wishlist-heart">
-                            <HiHeart size={22}
-                                     className="remove-from-list-heart"
-                                     onClick={() => {
-                                         dispatch2({
-                                             type: "ADD_TO_WISHLIST", payload: {item}
-                                         })
-                                         dispatch2({
-                                             type: "SEND_TO_WISHLIST_BACKEND",
-                                             payload: {item: item, wishlist_id: user.wishlist_id}
-                                         })
-                                     }}
-                            />
-                        </div>}
+                        {wishlist.some((p) => p.productId === item.productId) ?
+                            <ToWishlistButton onClick={() => {
+                                dispatch2({
+                                    type: "REMOVE_FROM_WISHLIST", payload: {item}});
+                                dispatch2({
+                                    type: "DELETE_FROM_WISHLIST_BACKEND",
+                                    payload: {
+                                        item: item,
+                                        wishlist_id: user.wishlist_id,
+                                        isAuth: isAuth
+                                    }
+                                });
+                            }}/>
+                            :
+                            <FromWishlistButton onClick={() => {
+                                dispatch2({
+                                    type: "ADD_TO_WISHLIST", payload: {item}
+                                })
+                                dispatch2({
+                                    type: "SEND_TO_WISHLIST_BACKEND",
+                                    payload: {item: item, wishlist_id: user.wishlist_id}
+                                })
+                            }}/>
+                        }
                     </div>
                 </div>
 
                 <div>
-                    <img alt={item.image.fileName}
+                    <GetImage alt={item.image.fileName}
                          src={item.image.url}
                     />
                 </div>
@@ -80,21 +76,15 @@ function ItemComponent({item}) {
                     <p>{formatCurrency(item.productPrice)}</p>
                 </div>
                 <div>
-                    {cart.some((p) => p.productId === item.productId) ? <button className="click-from-cart"
-                                                                                onClick={() => dispatch({
-                                                                                    type: "REMOVE_FROM_CART",
-                                                                                    payload: item
-                                                                                })}
-                        >
-                            <p><BsFillCartDashFill/> &nbsp;Uit winkelwagen</p>
-                        </button> : // Hier wil ik een DEL naar backend endpoint:
-                        // wishlists/wishlistId/productId
-                        <button className="click-to-cart"
-                                onClick={() => dispatch({
-                                    type: "ADD_TO_CART", payload: item
-                                })}>
-                            <p><BsFillCartPlusFill/> &nbsp;In winkelwagen</p>
-                        </button>}
+                    {cart.some((p) => p.productId === item.productId) ?
+                        <FromCartButton onClick={() => dispatch({
+                            type: "REMOVE_FROM_CART",
+                            payload: item
+                        })}/>
+                        :
+                        <ToCartButton onClick={() => dispatch({
+                            type: "ADD_TO_CART", payload: item
+                        })}/>}
                 </div>
             </div>
         </div>

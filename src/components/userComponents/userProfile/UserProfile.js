@@ -11,10 +11,11 @@ import UserChangePassword from "../changePassword/UserChangePassword";
 import {BsFillPenFill} from "react-icons/bs";
 import {RiLockPasswordFill} from "react-icons/ri";
 import {MdAccountCircle} from "react-icons/md";
+import LogoutButton from "../../buttonComponents/logoutButon/LogoutButton";
 
 
 function UserProfile() {
-    const {user, logout} = useContext(AuthContext);
+    const {user} = useContext(AuthContext);
 
     return (<>
         {user.roles !== "ROLE_USER" ? <h3>U moet ingelogd zijn om deze content te mogen zien..</h3> :
@@ -50,19 +51,16 @@ function UserProfile() {
                             </div>
                         </section>
                     </section>
-                    <div id="wishlist">
+                    <section id="wishlist">
                         <div>
                             <h1 className="pc-container"><MdAccountCircle size={40}/>Verlanglijstje
                             </h1>
                             <WishList/>
                         </div>
-                    </div>
+                    </section>
                 </div>
                 <div className="logout">
-                    <button type="button"
-                            onClick={logout}>
-                        Uitloggen
-                    </button>
+                    <LogoutButton/>
                 </div>
             </div>}
     </>)

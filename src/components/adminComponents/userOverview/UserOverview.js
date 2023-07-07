@@ -4,8 +4,8 @@ import React, {useContext, useEffect, useState} from "react";
 import axios from "axios";
 import {AuthContext} from "../../../context/AuthContext";
 import {FaUserCircle} from "react-icons/fa";
-import {IoCloseSharp} from "react-icons/io5";
 import {GiCrownedSkull} from "react-icons/gi";
+import RemoveButton from "../../buttonComponents/removeButton/RemoveButton";
 
 
 function UserOverview() {
@@ -17,7 +17,7 @@ function UserOverview() {
     useEffect(() => {
         async function fetchUsers() {
             try {
-                const response = await axios.get(`http://localhost:8080/users/all`,
+                const response = await axios.get(`http://localhost:8080/users`,
                     {
                         headers: {
                             "Content-Type": "application/json",
@@ -37,7 +37,7 @@ function UserOverview() {
 
     async function deleteUser(userEmail) {
         try {
-            await axios.delete(`http://localhost:8080/users/delete/${userEmail}`,
+            await axios.delete(`http://localhost:8080/users/${userEmail}`,
                 {
                     headers: {
                         "Content-Type": "application/json",
@@ -87,15 +87,10 @@ function UserOverview() {
                                         {user.userEmail === 'admin@test.nl' ?
                                             <GiCrownedSkull size={30}/>
                                             :
-                                            <button className="delete-button">
-                                                <IoCloseSharp
-                                                    size={20}
-                                                    onClick={() => {
-                                                        deleteUser(user.userEmail).then();
-                                                        removeUser(user);
-                                                    }}
-                                                />
-                                            </button>
+                                            <RemoveButton onClick={() => {
+                                                deleteUser(user.userEmail).then();
+                                                removeUser(user);
+                                            }}/>
                                         }
                                     </td>
                                     <td>{user.userEmail}</td>
