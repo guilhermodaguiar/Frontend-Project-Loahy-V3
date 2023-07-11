@@ -2,7 +2,6 @@ import "./UpdateProduct.css"
 
 import React, {useContext, useState} from "react";
 import {AuthContext} from "../../../context/AuthContext";
-import {NavLink} from "react-router-dom";
 import axios from "axios";
 import {RiErrorWarningLine} from "react-icons/ri";
 import {useForm} from "react-hook-form";
@@ -15,7 +14,7 @@ function UpdateProduct() {
     const [addSuccess, toggleAddSuccess] = useState(false);
 
 
-    const {register, handleSubmit, formState: {errors}, reset} = useForm({
+    const {register, handleSubmit, formState: {errors}} = useForm({
         defaultValues: {
             product_id: '', product_name: '', product_description: '', product_price: 10.00
         }
