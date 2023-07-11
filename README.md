@@ -2,9 +2,9 @@
 
 # Loahy | 2023 | Novi Hogeschool | Eindopdracht Full Stack Developer
 
-|                                               |                                      |
-|-----------------------------------------------|--------------------------------------|
-| ![Novi-Hogeschool](src/assets/logo_novi2.png) | ![React](src/assets/react_klein.png) |
+|                                               |                                     |
+|-----------------------------------------------|-------------------------------------|
+| ![Novi-Hogeschool](src/assets/logo_novi2.png) | ![React](src/assets/logo_klein.png) |
 
 > Dit is de Frontend voor mijn webapplicatie **Loahy**. Loahy zal als een begin versie zijn voor een hobby/project [LoahyTree](https://www.instagram.com/loahytree/).
 > De bedoeling is deze in de toekomst uit te breiden tot een daadwerkelijke running applicatie.
