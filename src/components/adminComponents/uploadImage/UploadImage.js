@@ -47,7 +47,7 @@ function UploadImage({product}) {
         {user.roles !== "ROLE_ADMIN" ?
             <h3>Moet ingelogd zijn als Admin</h3> :
             <div>
-                <form onSubmit={sendUpdatedImageData(product.productId)}>
+                <form onSubmit={() => sendUpdatedImageData(product.productId)}>
                     <label htmlFor="itemImage-field">
                         <input
                             className="input-container-all"
