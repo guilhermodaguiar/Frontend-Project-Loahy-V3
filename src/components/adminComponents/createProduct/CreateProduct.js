@@ -9,6 +9,7 @@ import {useForm} from "react-hook-form";
 
 
 function CreateProduct() {
+    const token = localStorage.getItem('token');
     const {user} = useContext(AuthContext);
     const [loading, toggleLoading] = useState(false);
     const [addSuccess, toggleAddSuccess] = useState(false);
@@ -22,11 +23,16 @@ function CreateProduct() {
     async function sendItemData(data) {
         toggleLoading(true);
         try {
-            const response = await axios.post(`http://localhost:8080/products`, {
+            const response = await axios.post(`http://localhost:8080/products`,
+                {
                 productName: data.product_name,
                 productDescription: data.product_description,
                 productPrice: data.product_price,
-            })
+            },
+                {
+                    headers: {
+                        'Content-Type': 'application/json', "Authorization": `Bearer ${token}`
+                    }})
             console.log(response.data);
             toggleAddSuccess(true);
         } catch (e) {

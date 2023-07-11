@@ -59,7 +59,6 @@ function CartComponent({item}) {
                                                     })}
                                                     type="number"
                                                     min="1"
-                                                    max="10"
                                                     id="item-quantity"
                                                     name="items"
                                                 />

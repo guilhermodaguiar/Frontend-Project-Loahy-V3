@@ -48,7 +48,7 @@ function Login() {
             }, 500)
 
         } catch (e) {
-            if (e.response?.status === 403) {
+            if (e.response.status === 403) {
                 console.error("Er is iets misgegaan met inloggen van user!!", e);
                 toggleError(true);
             } else if (e.response?.status === 404) {
