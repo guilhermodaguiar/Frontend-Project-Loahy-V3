@@ -7,6 +7,7 @@ import {ReactComponent as KvK} from "../../assets/icons/kvk-logo.svg";
 import {HiLocationMarker, HiOutlineMail, HiOutlinePhone} from "react-icons/hi";
 import {FiSend} from "react-icons/fi";
 import {useForm} from "react-hook-form";
+import {AiFillRocket} from "react-icons/ai";
 
 
 function ContactUs() {
@@ -98,7 +99,7 @@ function ContactUs() {
                                             type="text"
                                             autoComplete="off"
                                             id="contact-fullName"
-                                            placeholder="Optioneel"
+                                            placeholder="Bedrijf: Optioneel"
                                             {...register("contact_org", {
                                                 required: false, pattern: /^[a-z ,.'-]+$/i,
                                             })}
@@ -123,7 +124,7 @@ function ContactUs() {
                                     disabled={loading}
                                 ><FiSend/>&nbsp;verzend
                                 </button>
-                                {addSuccess === true && <p>Bedankt voor je bericht! Wij reageren binnen 24 uur </p>}
+                                {addSuccess === true && <p> <AiFillRocket size={25}/>Bedankt voor je bericht! Wij reageren binnen 24 uur </p>}
                             </form>
                         </div>
                     </div>

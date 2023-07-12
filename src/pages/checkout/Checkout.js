@@ -10,7 +10,6 @@ import {IoListCircle} from "react-icons/io5";
 import {HiEmojiHappy} from "react-icons/hi";
 import UserInformation from "../../components/userComponents/userInformation/UserInformation";
 import Cart from "../cart/Cart";
-import ClickToShop from "../../helpers/ClickComponents/ClickToShop";
 import {ItemListState} from "../../context/ItemListContext";
 import {CartState} from "../../context/CartContext";
 import NavBar from "../../layout/navBar/NavBar";
