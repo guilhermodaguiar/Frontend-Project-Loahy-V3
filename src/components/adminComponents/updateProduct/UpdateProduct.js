@@ -38,7 +38,7 @@ function UpdateProduct() {
             setTimeout(() => {
                     refreshPage()
                 },
-                1000);
+                1500);
         } catch (e) {
             console.error(e);
         }
@@ -61,7 +61,7 @@ function UpdateProduct() {
                 </section>
                 <section>
                     <form
-                        onSubmit={handleSubmit(updateItemData)}>
+                        onSubmit={() => handleSubmit(updateItemData)}>
                         <input
                             type="text"
                             id="product_id"

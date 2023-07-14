@@ -3,7 +3,6 @@ import "./CreateProduct.css"
 import React, {useContext, useState} from "react";
 import axios from "axios";
 import {AuthContext} from "../../../context/AuthContext";
-import {NavLink, useHistory} from "react-router-dom";
 import {MdAddCircle} from "react-icons/md";
 import {useForm} from "react-hook-form";
 
@@ -34,7 +33,7 @@ function CreateProduct() {
                         'Content-Type': 'application/json', "Authorization": `Bearer ${token}`
                     }})
             console.log(response.data);
-            toggleAddSuccess(true)
+            toggleAddSuccess(true);
             setTimeout(() => {refreshPage()},
                 1000);
         } catch (e) {

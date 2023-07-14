@@ -13,16 +13,17 @@ import SubmitButton from "../../../components/buttonComponents/submitButton/Subm
 function Login() {
     const history = useHistory();
     const {login, isAuth} = useContext(AuthContext);
+    const userRef = useRef();
+    const [type, setType] = useState('password');
+    const [error, toggleError] = useState(false);
+    const [error2, toggleError2] = useState(false);
+    const [icon, setIcon] = useState(eyeOff);
     const {handleSubmit, formState: {errors}, register, setFocus} = useForm({
         defaultValues: {
             userEmail: '', password: ''
         }
     });
-    const [type, setType] = useState('password');
-    const [error, toggleError] = useState(false);
-    const [error2, toggleError2] = useState(false);
-    const [icon, setIcon] = useState(eyeOff);
-    const userRef = useRef();
+
 
     const handleToggle = () => {
         if (type === 'password') {
