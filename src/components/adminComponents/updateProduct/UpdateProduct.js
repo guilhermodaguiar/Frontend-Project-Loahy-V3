@@ -21,7 +21,8 @@ function UpdateProduct() {
     });
 
     async function updateItemData(data) {
-        toggleLoading(true);
+        toggleLoading(false);
+
         try {
             await axios.put(`http://localhost:8080/products/${data.product_id}`, {
                 productId: data.product_id,
@@ -61,7 +62,7 @@ function UpdateProduct() {
                 </section>
                 <section>
                     <form
-                        onSubmit={() => handleSubmit(updateItemData)}>
+                        onSubmit={handleSubmit(updateItemData)}>
                         <input
                             type="text"
                             id="product_id"
@@ -115,8 +116,9 @@ function UpdateProduct() {
                         <p>{errors.product_price?.message}</p>
 
                         <div className="button-container">
-                            <button type="submit"
-                                    disabled={loading}
+                            <button
+                                type="submit"
+                                disabled={loading}
                             >
                                 Product bijwerken
                             </button>

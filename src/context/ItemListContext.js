@@ -4,7 +4,6 @@ import {itemListReducer} from "../helpers/reducers/Reducers";
 export const ItemListContext = createContext({});
 
 
-
 const initialState = {
     initialized: false, itemList: [],
 }
@@ -16,8 +15,7 @@ export const ItemListProvider = ({children}) => {
     useEffect(() => {
         const itemListData = cart.map(item => {
             return ["id: " + (item.productId), item.productName, "€ " + (item.productPrice), "qty: " + parseInt(item.qty)]
-        })
-        console.log(itemListData);
+        });
         dispatch3({
             type: 'FETCH_DATA', payload: {
                 ...initialState, itemList: itemListData
@@ -34,4 +32,3 @@ export const ItemListProvider = ({children}) => {
 export const ItemListState = () => {
     return useContext(ItemListContext);
 }
-

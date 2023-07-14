@@ -15,7 +15,6 @@ import ToWishlistButton from "../../buttonComponents/wishlistButton/ToWishlistBu
 import FromWishlistButton from "../../buttonComponents/wishlistButton/FromWishlistButton";
 import GetImage from "../../imageComponent/GetImage";
 
-
 function ItemInfo() {
     const [itemInfo, setItemInfo] = useState([]);
     const {state: {cart}, dispatch} = CartState();
@@ -47,7 +46,9 @@ function ItemInfo() {
 
 
     return (<>
-        <NavBar/>
+        <div>
+            <NavBar/>
+        </div>
         <div className="background-item-info">
             {itemInfo.image ? <section>
                 <div className="item-info-container">
@@ -109,7 +110,9 @@ function ItemInfo() {
 
                     </div>
                 </div>
-                <ClickToShop/>
+                <div className="c2s-container">
+                    <ClickToShop/>
+                </div>
             </section> : <section className="product-info-container">
                 <div className="main-container-product">
                     <div className="border-effect-container">

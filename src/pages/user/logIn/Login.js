@@ -101,10 +101,8 @@ function Login() {
                     <p> {errors.password?.message} </p>
 
                 </div>
-                <span className="show-hide-password" onClick={handleToggle}>
-                            <Icon
-                                icon={icon} size={20}/>
-                            </span>
+                <span className="show-hide-password" onClick={handleToggle}><Icon icon={icon} size={20}/></span>
+
                 {error && <p className="error-admin-login"> Combinatie van email-adres en wachtwoord is
                     onjuist</p>}
                 {error2 && <p className="error-admin-login"> email-adres is onjuist</p>}
