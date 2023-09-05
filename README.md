@@ -6,7 +6,7 @@
 |-----------------------------------------------|-------------------------------------|
 | ![Novi-Hogeschool](src/assets/logo_novi2.png) | ![React](src/assets/logo_klein.png) |
 
-> Dit is de Frontend voor mijn webapplicatie **Loahy**. Loahy zal als een begin versie zijn voor een hobby/project [LoahyTree](https://www.instagram.com/loahytree/).
+> Dit is de Frontend voor mijn future webapplicatie **Loahy**. Loahy zal als een begin versie zijn voor een hobby/project [LoahyTree](https://www.instagram.com/loahytree/).
 > De bedoeling is deze in de toekomst uit te breiden tot een daadwerkelijke running applicatie.
 >
 [Github voor de FRONT-END van Loahy vind je hier]( https://github.com/guilhermodaguiar/Frontend-Project-Loahy-V3)
