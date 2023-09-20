@@ -52,9 +52,9 @@ function AuthContextProvider({children}) {
     }
 
 
-    async function fetchUserData(user_email, token) {
+    async function fetchUserData(email, token) {
         try {
-            const response = await axios.get(`http://localhost:8080/users/${user_email}`, {
+            const response = await axios.get(`http://localhost:8080/users/${email}`, {
                 headers: {
                     "Content-Type": "application/json",
                     Authorization: `Bearer ${token}`,
@@ -66,8 +66,8 @@ function AuthContextProvider({children}) {
                 ...isAuth,
                 isAuth: true,
                 user: {
-                    user_email: response.data.userEmail,
-                    user_password: response.data.password,
+                    email: response.data.email,
+                    password: response.data.password,
                     user_id: response.data.userId,
                     user_first_name: response.data.firstName,
                     user_last_name: response.data.lastName,

@@ -11,7 +11,7 @@ function Register() {
     const {register, getValues,
         handleSubmit, formState: {errors}} = useForm({
         defaultValues: {
-            firstName: "", lastName: "", userEmail: "", password: "", confirmPassword: "",
+            firstName: "", lastName: "", email: "", password: "", confirmPassword: "",
         }
     });
 
@@ -20,7 +20,7 @@ function Register() {
     async function submitForm(data) {
         try {
             await axios.post(`http://localhost:8080/users`, {
-                firstName: data.firstName, lastName: data.lastName, userEmail: data.userEmail, password: data.password,
+                firstName: data.firstName, lastName: data.lastName, email: data.email, password: data.password,
             });
             toggleSuccess(true);
         } catch (e) {
@@ -67,13 +67,13 @@ function Register() {
                         name="email"
                         type="email"
                         autoComplete="off"
-                        {...register("userEmail", {
+                        {...register("email", {
                             required: "email is verplicht",
                             pattern: /^(([^<>()\]\\.,;:\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
                         })}
                         placeholder="E-mailadres"
                     />
-                    <p> {errors.userEmail?.message} </p>
+                    <p> {errors.email?.message} </p>
 
                     <input
                         name="password"

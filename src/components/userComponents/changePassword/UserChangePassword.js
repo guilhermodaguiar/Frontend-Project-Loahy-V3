@@ -21,7 +21,7 @@ function UserChangePassword() {
         toggleLoading(false);
 
         try {
-            await axios.patch(`http://localhost:8080/users/${user.user_email}`, {
+            await axios.patch(`http://localhost:8080/users/${user.email}`, {
                 password: data.password
             });
             toggleSuccess(true);

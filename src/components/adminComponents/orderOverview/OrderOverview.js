@@ -92,16 +92,16 @@ function OrderOverview() {
                                 <p><BsFillPatchCheckFill size={25}/> Gelukt met het verwijderen, refresh
                                     pagina</p>}
                         </td>
-                        <td>{order.userEmail.userEmail}</td>
+                        <td>{order.email.email}</td>
                         <td>{order.orderId}</td>
                         <td>{JSON.stringify(order.productList)}</td>
                         <td>{order.orderDate}</td>
                         <td>{order.comment}</td>
-                        <td>{order.userEmail.address.streetName + ", "}
-                            {order.userEmail.address.houseNumber + ", "}
-                            {order.userEmail.address.houseNumberAddition + ", "}
-                            {order.userEmail.address.city + ", "}
-                            {order.userEmail.address.zipcode}
+                        <td>{order.email.address.streetName + ", "}
+                            {order.email.address.houseNumber + ", "}
+                            {order.email.address.houseNumberAddition + ", "}
+                            {order.email.address.city + ", "}
+                            {order.email.address.zipcode}
                         </td>
                     </tr>
                 })}

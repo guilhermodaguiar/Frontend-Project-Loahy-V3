@@ -41,9 +41,9 @@ function UserOverview() {
 
     }, [token]);
 
-    async function deleteUser(userEmail) {
+    async function deleteUser(email) {
         try {
-            await axios.delete(`http://localhost:8080/users/${userEmail}`,
+            await axios.delete(`http://localhost:8080/users/${email}`,
                 {
                     headers: {
                         "Content-Type": "application/json",
@@ -56,7 +56,7 @@ function UserOverview() {
     }
 
     function removeUser(user) {
-        const newUsers = users.filter((i) => i.userEmail !== user.userEmail);
+        const newUsers = users.filter((i) => i.email !== user.email);
         setUsers(newUsers);
     }
 
@@ -88,18 +88,18 @@ function UserOverview() {
                             </thead>
                             <tbody className="admin_tbody">
                             {users.map((user) => {
-                                return <tr key={user.userEmail}>
+                                return <tr key={user.email}>
                                     <td>
-                                        {user.userEmail === 'admin@test.nl' ?
+                                        {user.email === 'admin@test.nl' ?
                                             <GiCrownedSkull size={30}/>
                                             :
                                             <RemoveButton onClick={() => {
-                                                deleteUser(user.userEmail).then();
+                                                deleteUser(user.email).then();
                                                 removeUser(user);
                                             }}/>
                                         }
                                     </td>
-                                    <td>{user.userEmail}</td>
+                                    <td>{user.email}</td>
                                     <td>{user.firstName}</td>
                                     <td>{user.lastName}</td>
                                     <td>{user.address.streetName}</td>

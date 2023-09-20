@@ -20,7 +20,7 @@ function Login() {
     const [icon, setIcon] = useState(eyeOff);
     const {handleSubmit, formState: {errors}, register, setFocus} = useForm({
         defaultValues: {
-            userEmail: '', password: ''
+            email: '', password: ''
         }
     });
 
@@ -40,7 +40,7 @@ function Login() {
         e.preventDefault();
         try {
             const response = await axios.post('http://localhost:8080/authenticate', {
-                userEmail: data.userEmail, password: data.password
+                email: data.email, password: data.password
             });
             login(response.data.jwt);
 
@@ -77,13 +77,13 @@ function Login() {
                     ref={userRef}
                     type="email"
                     autoComplete="off"
-                    {...register("userEmail", {
+                    {...register("email", {
                         required: "email is verplicht",
                         pattern: /^(([^<>()\]\\.,;:\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
                     })}
                     placeholder="E-mailadres"
                 />
-                <p> {errors.userEmail?.message} </p>
+                <p> {errors.email?.message} </p>
 
 
                 <div className="password-container">

@@ -30,7 +30,7 @@ function Checkout() {
             await axios.post(`http://localhost:8080/orders`, {
                 productList: itemList,
                 comment: comment,
-                userEmail: user.user_email,
+                email: user.email,
                 addressId: user.address_id,
                 orderDate: Date().toLocaleString(),
             }, {
