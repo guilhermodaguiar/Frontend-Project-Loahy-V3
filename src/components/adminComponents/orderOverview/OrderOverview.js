@@ -89,12 +89,11 @@ function OrderOverview() {
                                 removeOrder(order)
                             }}/>
                             {addSuccess === true &&
-                                <p><BsFillPatchCheckFill size={25}/> Gelukt met het verwijderen, refresh
-                                    pagina</p>}
+                                <p><BsFillPatchCheckFill size={25}/> Gelukt met het verwijderen</p>}
                         </td>
                         <td>{order.email.email}</td>
                         <td>{order.orderId}</td>
-                        <td>{JSON.stringify(order.productList)}</td>
+                        <td>{order.productList}</td>
                         <td>{order.orderDate}</td>
                         <td>{order.comment}</td>
                         <td>{order.email.address.streetName + ", "}

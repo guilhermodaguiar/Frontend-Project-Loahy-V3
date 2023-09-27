@@ -32,7 +32,7 @@ function Checkout() {
                 comment: comment,
                 email: user.email,
                 addressId: user.address_id,
-                orderDate: Date().toLocaleString(),
+                orderDate: orderDate,
             }, {
                 headers: {
                     'Content-Type': 'application/json', "Authorization": `Bearer ${token}`
@@ -43,6 +43,10 @@ function Checkout() {
             console.error(e, 'er is iets misgegaan met het verzenden van je order');
         }
     }
+
+    const orderDate = new Date().toLocaleDateString(undefined, {year: 'numeric', month: '2-digit',
+        day: '2-digit', weekday:"long", hour: '2-digit', hour12: false, minute:'2-digit', second:'2-digit'});
+
 
     return (<>
         <NavBar/>
