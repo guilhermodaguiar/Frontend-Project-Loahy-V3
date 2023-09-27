@@ -93,7 +93,12 @@ function OrderOverview() {
                         </td>
                         <td>{order.email.email}</td>
                         <td>{order.orderId}</td>
-                        <td>{order.productList}</td>
+                        <td>
+                            {order.productList.map((productList) => {
+                            return <li className="x1" key={productList[1]}>
+                                {productList[1]}{productList[2]}{productList[3]}
+                            </li>
+                        })}</td>
                         <td>{order.orderDate}</td>
                         <td>{order.comment}</td>
                         <td>{order.email.address.streetName + ", "}
