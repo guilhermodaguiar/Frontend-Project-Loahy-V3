@@ -14,8 +14,6 @@ function ProductOverview() {
     const {user} = useContext(AuthContext);
     const token = localStorage.getItem('token');
     const {state4: {items}, dispatch4} = ItemsState();
-    const controller = new AbortController();
-
 
     async function deleteItem(product) {
         try {
