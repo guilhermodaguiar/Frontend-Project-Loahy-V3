@@ -2,3 +2,8 @@
     padding: 10px;
     border: ridge;
 }
+
+.download-pdf {
+    font-size: smaller;
+    font-weight: 400;
+}

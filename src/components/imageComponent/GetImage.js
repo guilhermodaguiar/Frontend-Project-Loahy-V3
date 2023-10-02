@@ -1,10 +1,10 @@
 import React from "react";
 
 function GetImage(props) {
-    return(
+    return (
         <>
             <img alt={props.alt}
-                 className= {props.className}
+                 className={props.className}
                  src={props.src}
             />
         </>

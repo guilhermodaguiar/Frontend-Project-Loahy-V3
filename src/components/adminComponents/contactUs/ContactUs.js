@@ -21,7 +21,8 @@ function ContactUs() {
             try {
                 const response = await axios.get(`http://localhost:8080/contact-remarks`, {
                     headers: {
-                        "Content-Type": "application/json", "Authorization": `Bearer ${token}`,
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${token}`,
                     }
                 });
                 setRemarks(response.data);

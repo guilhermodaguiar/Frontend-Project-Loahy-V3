@@ -4,7 +4,6 @@ import {ItemsReducer} from "../helpers/reducers/Reducers";
 export const ItemsContext = createContext({});
 
 
-
 const initialState = {
     initialized: false, items: []
 };

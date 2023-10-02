@@ -51,8 +51,8 @@
 }
 
 .admin-item-image {
-    width: 75px;
-    height: 75px;
+    width: 145px;
+    height: 145px;
     object-fit: cover;
 }
 
@@ -84,4 +84,9 @@ td {
 table {
     flex-wrap: wrap;
     padding-bottom: 20px;
+}
+
+.download-image {
+    font-size: smaller;
+    font-weight: 400;
 }

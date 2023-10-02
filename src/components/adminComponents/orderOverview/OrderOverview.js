@@ -23,7 +23,8 @@ function OrderOverview() {
             try {
                 const response = await axios.get(`http://localhost:8080/orders`, {
                     headers: {
-                        "Content-Type": "application/json", "Authorization": `Bearer ${token}`,
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${token}`,
                     }
                 });
                 setOrders(response.data);
@@ -95,10 +96,18 @@ function OrderOverview() {
                         <td>{order.orderId}</td>
                         <td>
                             {order.productList.map((productList) => {
-                            return <li className="x1" key={productList[1]}>
-                                {productList[1]}{productList[2]}{productList[3]}
-                            </li>
-                        })}</td>
+                                return <li className="x1" key={productList[1]}>
+                                    {productList[1]}{productList[2]}{productList[3]}
+                                </li>
+                            })}
+                            {/*<button*/}
+                            {/*    onClick={() => {*/}
+                            {/*        downloadOrder(order)*/}
+                            {/*    }}*/}
+                            {/*    className="download-pdf">*/}
+                            {/*    download pdf*/}
+                            {/*</button>*/}
+                        </td>
                         <td>{order.orderDate}</td>
                         <td>{order.comment}</td>
                         <td>{order.email.address.streetName + ", "}
