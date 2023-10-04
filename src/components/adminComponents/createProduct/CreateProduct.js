@@ -73,7 +73,6 @@ function CreateProduct() {
 
 
                         <textarea
-                            type="text"
                             className="text-area-product"
                             id="product_description"
                             {...register("product_description", {
