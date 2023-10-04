@@ -10,7 +10,6 @@ import {GiPirateFlag} from "react-icons/gi";
 import {MdOutlineToys} from 'react-icons/md'
 import GetImage from "../imageComponent/GetImage";
 
-
 function AboutCompany() {
 
     return (

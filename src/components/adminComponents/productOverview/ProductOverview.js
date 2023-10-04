@@ -9,7 +9,6 @@ import {ItemsState} from "../../../context/ItemsContext";
 import RemoveButton from "../../buttonComponents/removeButton/RemoveButton";
 import GetImage from "../../imageComponent/GetImage";
 
-
 function ProductOverview() {
     const {user} = useContext(AuthContext);
     const token = localStorage.getItem('token');
@@ -57,64 +56,60 @@ function ProductOverview() {
 
     return (<>
         {user.roles !== "ROLE_ADMIN" ? <h3>Moet ingelogd zijn als Admin</h3> : <>
-            <div id="product_overview">
-                <h2 className="products-container">
-                    Mijn Producten&nbsp;<FaProductHunt/>
-                </h2>
-                <table>
-                    <thead>
-                    <tr>
-                        <th></th>
-                        <th>Productnummer</th>
-                        <th>Afbeelding</th>
-                        <th>Naam</th>
-                        <th>Informatie</th>
-                        <th>Prijs in €</th>
+            <h2 className="products-container" id="product_overview">
+                Mijn Producten&nbsp;<FaProductHunt/>
+            </h2>
+            <table>
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>Productnummer</th>
+                    <th>Afbeelding</th>
+                    <th>Naam</th>
+                    <th>Informatie</th>
+                    <th>Prijs in €</th>
+                </tr>
+                </thead>
+                <tbody>
+                {items.map((product) => {
+                    return <tr key={product.productId}>
+                        <td>
+                            <RemoveButton onClick={() => {
+                                deleteItem(product).then();
+                                dispatch4({
+                                    type: "REMOVE_ITEMS",
+                                    payload: {item: product}
+                                })
+                            }}/>
+                        </td>
+                        <td>{product.productId}</td>
+                        <td>
+                            {product.image ?
+                                <GetImage className="admin-item-image"
+                                          src={product.image.url}
+                                          alt={product.fileName}
+                                />
+                                :
+                                <UploadImage
+                                    key={product.productId}
+                                    product={product}
+                                />
+                            }
+                            <button
+                                className="download-image"
+                                onClick={() => {
+                                    downloadImage(product).then();
+                                }}>
+                                download image
+                            </button>
+                        </td>
+                        <td>{product.productName}</td>
+                        <td>{product.productDescription}</td>
+                        <td>{product.productPrice}</td>
                     </tr>
-                    </thead>
-                    <tbody>
-                    {items.map((product) => {
-                        return <tr key={product.productId}>
-                            <td>
-                                <RemoveButton onClick={() => {
-                                    deleteItem(product).then();
-                                    dispatch4({
-                                        type: "REMOVE_ITEMS",
-                                        payload: {item: product}
-                                    })
-                                }}/>
-                            </td>
-                            <td>{product.productId}</td>
-                            <td>
-                                {product.image ?
-                                    <div>
-                                        <GetImage className="admin-item-image"
-                                                  src={product.image.url}
-                                                  alt={product.fileName}
-                                        />
-                                    </div> :
-                                    <div>
-                                        <UploadImage
-                                            key={product.productId}
-                                            product={product}
-                                        />
-                                    </div>}
-                                <button
-                                    className="download-image"
-                                    onClick={() => {
-                                        downloadImage(product).then();
-                                    }}>
-                                    download image
-                                </button>
-                            </td>
-                            <td>{product.productName}</td>
-                            <td>{product.productDescription}</td>
-                            <td>{product.productPrice}</td>
-                        </tr>
-                    })}
-                    </tbody>
-                </table>
-            </div>
+                })}
+                </tbody>
+            </table>
         </>}
     </>)
 }

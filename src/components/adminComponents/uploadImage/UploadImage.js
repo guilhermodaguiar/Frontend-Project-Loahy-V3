@@ -7,12 +7,10 @@ import {FaFileUpload} from "react-icons/fa";
 import {useHistory} from "react-router-dom";
 import GetImage from "../../imageComponent/GetImage";
 
-
 function UploadImage({product}) {
     const token = localStorage.getItem('token');
     const {user} = useContext(AuthContext);
     const history = useHistory();
-
     const [file, setFile] = useState([]);
     const [previewUrl, setPreviewUrl] = useState('');
 
@@ -46,34 +44,33 @@ function UploadImage({product}) {
     return (<>
         {user.roles !== "ROLE_ADMIN" ?
             <h3>Moet ingelogd zijn als Admin</h3> :
-            <div>
-                <form onSubmit={() => sendUpdatedImageData(product.productId)}>
-                    <label htmlFor="itemImage-field">
-                        <input
-                            className="input-container-all"
-                            type="file"
-                            id="itemImage-field"
-                            name="image"
-                            onChange={handleImageChange}
-                            required
-                            placeholder="Kies Afbeelding"
-                        />
-                    </label>
-                    {previewUrl && <label className="label-container">
-                        Preview:
-                        <GetImage src={previewUrl}
-                             alt="Voorbeeld van de afbeelding die zojuist gekozen is"
-                             className="image-preview"/>
-                    </label>}
-                    <button
-                        type="submit"
-                        className="form-submit-image-button"
-                    >
-                        <FaFileUpload size={22}/>
-                        Upload Image
-                    </button>
-                </form>
-            </div>}
+            <form onSubmit={() => sendUpdatedImageData(product.productId)}>
+                <label htmlFor="itemImage-field">
+                    <input
+                        className="input-container-all"
+                        type="file"
+                        id="itemImage-field"
+                        name="image"
+                        onChange={handleImageChange}
+                        required
+                        placeholder="Kies Afbeelding"
+                    />
+                </label>
+                {previewUrl && <label className="label-container">
+                    Preview:
+                    <GetImage src={previewUrl}
+                              alt="Voorbeeld van de afbeelding die zojuist gekozen is"
+                              className="image-preview"/>
+                </label>}
+                <button
+                    type="submit"
+                    className="form-submit-image-button"
+                >
+                    <FaFileUpload size={22}/>
+                    Upload Image
+                </button>
+            </form>
+        }
     </>)
 }
 

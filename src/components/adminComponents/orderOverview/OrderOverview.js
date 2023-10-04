@@ -18,7 +18,6 @@ function OrderOverview() {
 
     useEffect(() => {
         const controller = new AbortController();
-
         async function fetchOrders() {
             try {
                 const response = await axios.get(`http://localhost:8080/orders`, {
@@ -60,14 +59,11 @@ function OrderOverview() {
         setOrders(newOrders);
     }
 
-
     return (<>
         {user.roles !== "ROLE_ADMIN" ? <h3>Moet ingelogd zijn als Admin</h3> : <section id="all_orders">
-            <div>
                 <h2>
-                    Orders&nbsp;<FaRegListAlt/>
+                    Orders <FaRegListAlt/>
                 </h2>
-            </div>
             <table>
                 <thead>
                 <tr>
@@ -100,13 +96,6 @@ function OrderOverview() {
                                     {productList[1]}{productList[2]}{productList[3]}
                                 </li>
                             })}
-                            {/*<button*/}
-                            {/*    onClick={() => {*/}
-                            {/*        downloadOrder(order)*/}
-                            {/*    }}*/}
-                            {/*    className="download-pdf">*/}
-                            {/*    download pdf*/}
-                            {/*</button>*/}
                         </td>
                         <td>{order.orderDate}</td>
                         <td>{order.comment}</td>

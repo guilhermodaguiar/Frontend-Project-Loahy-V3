@@ -7,7 +7,6 @@ import {useHistory} from "react-router-dom";
 import {IoListCircleSharp} from "react-icons/io5";
 import RemoveButton from "../../buttonComponents/removeButton/RemoveButton";
 
-
 function ContactUs() {
     const history = useHistory();
     const token = localStorage.getItem('token');

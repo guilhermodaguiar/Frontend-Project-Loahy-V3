@@ -9,7 +9,6 @@ import {FiSend} from "react-icons/fi";
 import {useForm} from "react-hook-form";
 import {AiFillRocket} from "react-icons/ai";
 
-
 function ContactUs() {
     const [loading, toggleLoading] = useState(false);
     const [addSuccess, toggleAddSuccess] = useState(false);

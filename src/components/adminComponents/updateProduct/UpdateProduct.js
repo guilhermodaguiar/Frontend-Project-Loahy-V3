@@ -51,7 +51,7 @@ function UpdateProduct() {
 
     return (<>
         {user.roles !== "ROLE_ADMIN" ? <h3>Moet ingelogd zijn als Admin</h3> :
-            <div className="iu-container" id="update_product">
+            <article className="iu-container" id="update_product">
                 <h2 className="uih-container">
                     Product Aanpassen
                 </h2>
@@ -86,7 +86,6 @@ function UpdateProduct() {
 
 
                         <textarea
-                            type="text"
                             className="text-area-product"
                             id="product_description"
                             {...register("product_description", {
@@ -127,7 +126,7 @@ function UpdateProduct() {
                         </p>}
                     </form>
                 </section>
-            </div>}
+            </article>}
     </>)
 }
 

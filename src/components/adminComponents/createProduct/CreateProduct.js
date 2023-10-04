@@ -24,10 +24,10 @@ function CreateProduct() {
         try {
             const response = await axios.post(`http://localhost:8080/products`,
                 {
-                productName: data.product_name,
-                productDescription: data.product_description,
-                productPrice: data.product_price,
-            },
+                    productName: data.product_name,
+                    productDescription: data.product_description,
+                    productPrice: data.product_price,
+                },
                 {
                     headers: {
                         'Content-Type': 'application/json', "Authorization": `Bearer ${token}`
