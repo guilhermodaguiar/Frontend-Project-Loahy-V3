@@ -13,6 +13,7 @@ const initialState = {
 export const WishlistProvider = ({children}) => {
     const {user, isAuth} = useContext(AuthContext);
     const [state2, dispatch2] = useReducer(wishlistReducer, initialState);
+    const token = localStorage.getItem('token');
 
 
     useEffect(() => {
@@ -24,7 +25,12 @@ export const WishlistProvider = ({children}) => {
         } else {
             async function fetchWishlistData() {
                 try {
-                    const fetchWishlistData = await axios.get(`http://localhost:8080/wishlists/products/${user.wishlist_id}`, {});
+                    const fetchWishlistData = await axios.get(`http://localhost:8080/wishlists/${user.wishlist_id}`, {
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Authorization": `Bearer ${token}`,
+                        }
+                    });
                     console.log(fetchWishlistData);
                     dispatch2({
                         type: 'FETCH_WISHLIST_DATA', payload: {

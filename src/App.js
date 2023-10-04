@@ -3,7 +3,7 @@ import './App.css';
 import React from "react";
 import Footer from "./layout/footer/Footer";
 import {Route, Switch} from "react-router-dom";
-import PrivateRoute from "./helpers/routing/PrivateRoute";
+import PrivateRoute from "./components/routing/PrivateRoute";
 import UserPage from "./pages/user/userPage/UserPage";
 import Checkout from "./pages/checkout/Checkout";
 import AdminLogIn from "./pages/admin/AdminLogIn";

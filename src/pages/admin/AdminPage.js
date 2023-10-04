@@ -2,8 +2,8 @@ import './AdminPage.css';
 
 import React, {useContext} from "react";
 import UpdateProduct from "../../components/adminComponents/updateProduct/UpdateProduct";
-import ScrollIndicator from "../../helpers/scrollIndicator/ScrollIndicator";
-import ScrollToTop from "../../helpers/scrollToTop/ScrollToTop";
+import ScrollIndicator from "../../components/scrollIndicator/ScrollIndicator";
+import ScrollToTop from "../../components/scrollToTop/ScrollToTop";
 import {AuthContext} from "../../context/AuthContext";
 import AdminNavBar from "../../layout/adminNavBar/AdminNavBar";
 import ProductOverview from "../../components/adminComponents/productOverview/ProductOverview";

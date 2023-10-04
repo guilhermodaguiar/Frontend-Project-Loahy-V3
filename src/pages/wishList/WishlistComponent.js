@@ -3,7 +3,7 @@ import "./WishlistComponent.css"
 import React, {useContext} from "react";
 import {BiMessageError} from "react-icons/bi";
 import {WishlistState} from "../../context/WishlistContext";
-import ClickToShop from "../../helpers/ClickComponents/ClickToShop";
+import ClickToShop from "../../components/ClickComponents/ClickToShop";
 import {AuthContext} from "../../context/AuthContext";
 import RemoveButton from "../../components/buttonComponents/removeButton/RemoveButton";
 

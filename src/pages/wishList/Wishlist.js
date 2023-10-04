@@ -4,7 +4,7 @@ import React, {useContext} from "react";
 import {AuthContext} from "../../context/AuthContext";
 import {WishlistState} from "../../context/WishlistContext";
 import WishlistComponent from "./WishlistComponent";
-import ClickToShop from "../../helpers/ClickComponents/ClickToShop";
+import ClickToShop from "../../components/ClickComponents/ClickToShop";
 
 
 function Wishlist() {

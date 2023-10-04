@@ -5,7 +5,7 @@ import Cart from "./Cart";
 import {useHistory} from "react-router-dom";
 import {IoBagCheckOutline} from "react-icons/io5";
 import {AuthContext} from "../../context/AuthContext";
-import ClickToShop from "../../helpers/ClickComponents/ClickToShop";
+import ClickToShop from "../../components/ClickComponents/ClickToShop";
 import {CartState} from "../../context/CartContext";
 import NavBar from "../../layout/navBar/NavBar";
 

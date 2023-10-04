@@ -4,8 +4,8 @@ import './Home.css';
 import ItemOverview from "../../components/itemComponents/itemOverview/ItemOverview";
 import AboutCompany from "../../components/aboutCompany/AboutCompany";
 import ContactUsComponent from "../../components/contactUs/ContactUs";
-import ScrollIndicator from "../../helpers/scrollIndicator/ScrollIndicator";
-import ScrollToTop from "../../helpers/scrollToTop/ScrollToTop";
+import ScrollIndicator from "../../components/scrollIndicator/ScrollIndicator";
+import ScrollToTop from "../../components/scrollToTop/ScrollToTop";
 import Header from "../../layout/header/Header";
 import NavBar from "../../layout/navBar/NavBar";
 

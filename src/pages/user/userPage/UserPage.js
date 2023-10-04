@@ -2,8 +2,8 @@ import React, {useContext} from "react";
 
 import './UserPage.css';
 import UserProfile from "../../../components/userComponents/userProfile/UserProfile";
-import ScrollIndicator from "../../../helpers/scrollIndicator/ScrollIndicator";
-import ScrollToTop from "../../../helpers/scrollToTop/ScrollToTop";
+import ScrollIndicator from "../../../components/scrollIndicator/ScrollIndicator";
+import ScrollToTop from "../../../components/scrollToTop/ScrollToTop";
 import {AuthContext} from "../../../context/AuthContext";
 import NavBar from "../../../layout/navBar/NavBar";
 

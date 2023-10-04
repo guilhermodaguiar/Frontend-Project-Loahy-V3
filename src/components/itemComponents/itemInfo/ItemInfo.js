@@ -6,7 +6,7 @@ import axios from "axios";
 import {CartState} from "../../../context/CartContext";
 import {formatCurrency} from "../../../helpers/formatCurrency/FormatCurrency";
 import {WishlistState} from "../../../context/WishlistContext";
-import ClickToShop from "../../../helpers/ClickComponents/ClickToShop";
+import ClickToShop from "../../ClickComponents/ClickToShop";
 import {AuthContext} from "../../../context/AuthContext";
 import NavBar from "../../../layout/navBar/NavBar";
 import FromCartButton from "../../buttonComponents/cartButton/FromCartButton";
