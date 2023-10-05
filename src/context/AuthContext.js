@@ -61,7 +61,6 @@ function AuthContextProvider({children}) {
                 },
             });
 
-            console.log(response);
             toggleIsAuth({
                 ...isAuth,
                 isAuth: true,

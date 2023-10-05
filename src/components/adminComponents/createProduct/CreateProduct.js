@@ -32,7 +32,6 @@ function CreateProduct() {
                     headers: {
                         'Content-Type': 'application/json', "Authorization": `Bearer ${token}`
                     }})
-            console.log(response.data);
             toggleAddSuccess(true);
             setTimeout(() => {refreshPage()},
                 1000);

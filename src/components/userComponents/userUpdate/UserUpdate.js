@@ -37,7 +37,9 @@ function UserUpdate() {
                 },
             })
             toggleAddSuccess(true);
-            setTimeout(() => {refreshPage()}
+            setTimeout(() => {
+                    refreshPage()
+                }
                 , 1500);
         } catch (e) {
             console.error(e);
@@ -49,89 +51,78 @@ function UserUpdate() {
     }
 
     return (<>
-        <div id="user_update">
+        <article id="user_update">
             <form
                 className="form-container-register"
                 onSubmit={handleSubmit(handleUpdateUser)}>
 
-                <section className="street-name">
-                    <input
-                        type="text"
-                        id="street-name"
-                        {...register("streetName", {
-                            required: "straat is verplicht"
-                        })}
-                        autoComplete="off"
-                        placeholder="Straatnaam"
-                    />
-                    <p>{errors.streetName?.message}</p>
-                </section>
+                <input
+                    type="text"
+                    id="street-name"
+                    {...register("streetName", {
+                        required: "straat is verplicht"
+                    })}
+                    autoComplete="off"
+                    placeholder="Straatnaam"
+                />
+                <p>{errors.streetName?.message}</p>
 
-                <section className="house-number">
-                    <input
-                        type="text"
-                        id="house-number"
-                        autoComplete="off"
-                        {...register("houseNumber", {
-                            required: "huisnummer is verplicht", pattern: /^\d+$/,
-                        })}
-                        placeholder="Huisnr"
-                    />
-                    <p>{errors.houseNumber?.message}</p>
-                </section>
+                <input
+                    type="text"
+                    id="house-number"
+                    autoComplete="off"
+                    {...register("houseNumber", {
+                        required: "huisnummer is verplicht", pattern: /^\d+$/,
+                    })}
+                    placeholder="Huisnr"
+                />
+                <p>{errors.houseNumber?.message}</p>
 
-                <section className="additional">
-                    <input
-                        type="text"
-                        id="house-number-add"
-                        autoComplete="off"
-                        {...register("houseNumberAddition", {
-                            required: false,
-                        })}
-                        placeholder="Toevoeging"
-                    />
-                    <p>{errors.houseNumberAddition?.message}</p>
-                </section>
+                <input
+                    type="text"
+                    id="house-number-add"
+                    autoComplete="off"
+                    {...register("houseNumberAddition", {
+                        required: false,
+                    })}
+                    placeholder="Toevoeging"
+                />
+                <p>{errors.houseNumberAddition?.message}</p>
 
-                <section className="zipcode">
-                    <input
-                        type="text"
-                        id="zipcode"
-                        autoComplete="off"
-                        {...register("zipcode", {
-                            required: "Postcode is verplicht", pattern: /^[1-9][0-9]{3} ?(?!sa|sd|ss)[a-z]{2}$/i
-                        })}
-                        placeholder="Postcode"
-                    />
-                    <p>{errors.zipcode?.message}</p>
-                </section>
+                <input
+                    type="text"
+                    id="zipcode"
+                    autoComplete="off"
+                    {...register("zipcode", {
+                        required: "Postcode is verplicht", pattern: /^[1-9][0-9]{3} ?(?!sa|sd|ss)[a-z]{2}$/i
+                    })}
+                    placeholder="Postcode"
+                />
+                <p>{errors.zipcode?.message}</p>
 
-                <section className="city">
-                    <input
-                        type="text"
-                        id="city"
-                        autoComplete="off"
-                        {...register("city", {
-                            required: "stad is verplicht"
-                        })}
-                        placeholder="Stad"
-                    />
-                    <p>{errors.city?.message}</p>
-                </section>
+                <input
+                    type="text"
+                    id="city"
+                    autoComplete="off"
+                    {...register("city", {
+                        required: "stad is verplicht"
+                    })}
+                    placeholder="Stad"
+                />
+                <p>{errors.city?.message}</p>
 
-                <section className="phoneNumber">
-                    <input
-                        type="tel"
-                        id="phone-number"
-                        autoComplete="off"
-                        {...register("phoneNumber", {
-                            required: "mobiel nummer is verplicht",
-                            pattern: /^\(?([+]31|0031|0)-?6(\s?|-)([0-9]\s{0,3}){8}$/
-                        })}
-                        placeholder="mobiel"
-                    />
-                    <p>{errors.phoneNumber?.message}</p>
-                </section>
+                <input
+                    type="tel"
+                    id="phone-number"
+                    autoComplete="off"
+                    {...register("phoneNumber", {
+                        required: "mobiel nummer is verplicht",
+                        pattern: /^\(?([+]31|0031|0)-?6(\s?|-)([0-9]\s{0,3}){8}$/
+                    })}
+                    placeholder="mobiel"
+                />
+                <p>{errors.phoneNumber?.message}</p>
+
 
                 <button
                     type="submit"
@@ -142,7 +133,7 @@ function UserUpdate() {
                 </button>
                 {addSuccess === true && <p>Update is gelukt!</p>}
             </form>
-        </div>
+        </article>
     </>)
 }
 

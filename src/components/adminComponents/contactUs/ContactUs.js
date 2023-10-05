@@ -25,7 +25,6 @@ function ContactUs() {
                     }
                 });
                 setRemarks(response.data);
-                console.log(response.data);
             } catch (e) {
                 console.error('Er is iets misgegaan met het ophalen van remarks!', e);
             }

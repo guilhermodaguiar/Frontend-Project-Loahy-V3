@@ -8,8 +8,10 @@ import {SiProbot} from "react-icons/si";
 
 
 function Register() {
-    const {register, getValues,
-        handleSubmit, formState: {errors}} = useForm({
+    const {
+        register, getValues,
+        handleSubmit, formState: {errors}
+    } = useForm({
         defaultValues: {
             firstName: "", lastName: "", email: "", password: "", confirmPassword: "",
         }
@@ -30,12 +32,13 @@ function Register() {
 
 
     return (<>
-        {success ? <section className="register-success">
-            <h3>
-                <SiProbot size={25}/> gelukt! je kan nu inloggen
-            </h3>
-        </section> : <>
-            <div>
+        {success ?
+            <section className="register-success">
+                <h3>
+                    <SiProbot size={25}/> gelukt! je kan nu inloggen
+                </h3>
+            </section> :
+            <section>
                 <h3 className="register-field-note">
                     Registreren
                 </h3>
@@ -113,8 +116,7 @@ function Register() {
                         <RiLoginCircleFill/>&nbsp;Registreren
                     </button>
                 </form>
-            </div>
-        </>}
+            </section>}
     </>)
 }
 

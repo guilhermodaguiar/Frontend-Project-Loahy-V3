@@ -32,7 +32,6 @@ function ContactUs() {
             });
             reset();
             toggleAddSuccess(true);
-            console.log(data);
 
         } catch (e) {
             console.error(e, "er is iets misgegaan");

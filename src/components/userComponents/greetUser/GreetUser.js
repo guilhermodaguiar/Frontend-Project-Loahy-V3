@@ -8,18 +8,14 @@ function GreetUser() {
 
     return (
         <>
-            <section className="gu-container">
-                <div className="welcome-user">
-                    <div className="wou-container">
-                        <h1 className="greet-email">Welkom</h1>
-                    </div>
-                    <div>
-                        <h1 className="greet-email">
-                            &nbsp; {user.user_first_name}&nbsp;{user.user_last_name}
-                        </h1><
-                    /div>
-                </div>
-            </section>
+            <article className="gu-container">
+                <section className="welcome-user">
+                    <h1 className="greet-email">Welkom</h1>
+                    <h1 className="greet-email">
+                        &nbsp; {user.user_first_name}&nbsp;{user.user_last_name}
+                    </h1>
+                </section>
+            </article>
         </>
     )
 }

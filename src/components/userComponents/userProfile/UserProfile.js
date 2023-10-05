@@ -18,51 +18,40 @@ function UserProfile() {
     const {user} = useContext(AuthContext);
 
     return (<>
-        {user.roles !== "ROLE_USER" ? <h3>U moet ingelogd zijn om deze content te mogen zien..</h3> :
-            <div>
+        {user.roles !== "ROLE_USER" ?
+            <h3>U moet ingelogd zijn om deze content te mogen zien..</h3> :
+            <>
                 <GreetUser/>
                 <UserNavBar/>
-                <div className="user-outer-container">
+                <article className="user-outer-container">
                     <section className="first-box-container">
-                        <div id="profile">
-                            <section className="userprofile-page">
-                                <h1 className="ph-container"><MdAccountCircle size={40}/>Profiel</h1>
-                                <div className="up-container">
-                                    <UserInformation/>
-                                </div>
-                            </section>
+                        <div className="userprofile-page" id="profile">
+                            <h1 className="ph-container"><MdAccountCircle size={40}/>Profiel</h1>
+                            <UserInformation/>
                         </div>
                         <div id="change_password">
-                            <div>
-                                <h1 className="pc-container"><RiLockPasswordFill size={40}/>Wachtwoord</h1>
-                                <h3 className="pc-text">Loahy wachtwoord wijzigen</h3>
-                                <UserChangePassword/>
-                            </div>
+                            <h1 className="pc-container"><RiLockPasswordFill size={40}/>Wachtwoord</h1>
+                            <h3 className="pc-text">Loahy wachtwoord wijzigen</h3>
+                            <UserChangePassword/>
                         </div>
                     </section>
-                    <section className="second-box-container">
-                        <section id="update">
-                            <div className="user-page-outer-container">
-                                <h1 className="register-user-container"><BsFillPenFill size={30}/>Profiel aanpassen</h1>
-                                <div className="user-register-inner-container">
-                                    <h3 className="register-user-text">Loahy account aanpassen</h3>
-                                    <UserUpdate/>
-                                </div>
-                            </div>
-                        </section>
+                    <section className="second-box-container" id="update">
+                        <div className="user-page-outer-container">
+                            <h1 className="register-user-container"><BsFillPenFill size={30}/>Profiel aanpassen</h1>
+                            <h3 className="register-user-text">Loahy account aanpassen</h3>
+                            <UserUpdate/>
+                        </div>
                     </section>
                     <section id="wishlist">
-                        <div>
-                            <h1 className="pc-container"><MdAccountCircle size={40}/>Verlanglijstje
-                            </h1>
-                            <WishList/>
-                        </div>
+                        <h1 className="pc-container"><MdAccountCircle size={40}/>Verlanglijstje
+                        </h1>
+                        <WishList/>
                     </section>
-                </div>
-                <div className="logout">
-                    <LogoutButton/>
-                </div>
-            </div>}
+                    <section className="logout">
+                        <LogoutButton/>
+                    </section>
+                </article>
+            </>}
     </>)
 }
 

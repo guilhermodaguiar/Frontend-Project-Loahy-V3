@@ -8,7 +8,7 @@ import NavBar from "../../layout/navBar/NavBar";
 function WishlistBackground() {
     const {isAuth, user} = useContext(AuthContext);
 
-    return(
+    return (
         <>
             <NavBar/>
             <div className="wishlist-page">
@@ -17,10 +17,7 @@ function WishlistBackground() {
                     <h1 className="wishlist-h1"> {user.user_first_name}'s Verlanglijst</h1>
                 }
             </div>
-            <div className="woo-container">
-                <Wishlist/>
-            </div>
-
+            <Wishlist/>
         </>
     )
 

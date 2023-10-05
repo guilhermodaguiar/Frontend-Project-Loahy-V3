@@ -41,14 +41,14 @@ function NavBar() {
                 <ul className="navbar-list-icons">
                     <li>
                         <NavLink to="/shopping-cart" className="navbar-icon">
-                            <div className="hover-icon">
+                            <section className="hover-icon">
                                 <HiOutlineShoppingCart className="cart-icon" size={22}/>
                                 <div className="dropdown-content">
                                     <div className="cart-component-background">
                                         <CartDropDown/>
                                     </div>
                                 </div>
-                            </div>
+                            </section>
                             <div>
                                 {cart.length > 0 && <div className="rounded-circle">
                                     {cart.length}

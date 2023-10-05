@@ -27,7 +27,6 @@ function OrderOverview() {
                     }
                 });
                 setOrders(response.data);
-                console.log(response.data);
             } catch (e) {
                 console.error('Error: Er is iets misgegaan met het ophalen van order data!', e);
             }

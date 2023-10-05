@@ -93,6 +93,8 @@ body {
     height: fit-content;
     width: 60%;
     flex-direction: row;
+    padding: 30px 0;
+    background-color: wheat;
 }
 
 .order-cart-summary {

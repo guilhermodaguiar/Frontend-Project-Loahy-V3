@@ -16,7 +16,6 @@ function UploadImage({product}) {
 
     function handleImageChange(e) {
         const uploadedFile = e.target.files[0];
-        console.log(uploadedFile);
         setFile(uploadedFile);
         setPreviewUrl(URL.createObjectURL(uploadedFile));
     }

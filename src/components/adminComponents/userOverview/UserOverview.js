@@ -26,7 +26,6 @@ function UserOverview() {
                     }
                 );
                 setUsers(response.data);
-                console.log(response.data);
             } catch (e) {
                 console.error('Er is iets misgegaan!', e);
             }

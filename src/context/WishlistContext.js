@@ -31,7 +31,6 @@ export const WishlistProvider = ({children}) => {
                             "Authorization": `Bearer ${token}`,
                         }
                     });
-                    console.log(fetchWishlistData);
                     dispatch2({
                         type: 'FETCH_WISHLIST_DATA', payload: {
                             ...initialState, wishlist: fetchWishlistData.data.products

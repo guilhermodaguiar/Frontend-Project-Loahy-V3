@@ -11,8 +11,6 @@ function Wishlist() {
     const {state2: {wishlist}} = WishlistState();
     const {isAuth} = useContext(AuthContext);
 
-    console.log(wishlist);
-
     return (
         <>
             <div>

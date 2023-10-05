@@ -4,11 +4,6 @@
 }
 
 
-.user-page-outer-container {
-    padding: 30px 0;
-    background-color: wheat;
-}
-
 .user-outer-container {
     display: flex;
     flex-direction: row;
@@ -20,7 +15,7 @@
 }
 
 .logout {
-    padding: 0 90px;
+    padding: 0 0 0 915px;
     display: flex;
     justify-content: flex-end;
 }

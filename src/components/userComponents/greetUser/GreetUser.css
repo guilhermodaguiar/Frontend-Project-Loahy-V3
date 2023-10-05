@@ -4,8 +4,8 @@
     flex-direction: row;
     height: inherit;
     flex-wrap: wrap;
-    justify-content: center;
     align-items: center;
+    justify-content: space-around;
 }
 
 .gu-container {
@@ -20,11 +20,6 @@
     background-size: cover;
     padding: 10px 60px 30px 60px;
     justify-content: flex-start;
-}
-
-.wou-container {
-    display: flex;
-    justify-content: space-around;
 }
 
 .greet-email {

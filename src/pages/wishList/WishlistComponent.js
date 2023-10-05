@@ -13,51 +13,49 @@ function WishlistComponent({item}) {
     const {user, isAuth} = useContext(AuthContext);
 
     return (<>
-        <div className="woo-container">
-            {wishlist.length > 0 ? <div className="notice-wrapper">
-                    <div className="shopping-cart-outer-container">
-                        <div className="shopping-cart-new-container">
-                            <div className="cart-container-outer">
-                                <div className="list-container-inner"
-                                >
-                                    <RemoveButton onClick={() => {
-                                        dispatch2({
-                                            type: "REMOVE_FROM_WISHLIST", payload: {item}
-                                        });
-                                        dispatch2({
-                                            type: "DELETE_FROM_WISHLIST_BACKEND",
-                                            payload: {
-                                                item: item,
-                                                wishlist_id: user.wishlist_id,
-                                                isAuth: isAuth,
-                                            }
-                                        });
-                                    }}/>
-                                </div>
-                            </div>
-                            <div className="cart-container-outer">
-                                <div className="list-container-inner">
-                                    <img alt={item.image.fileName}
-                                         className="cart-cartItemImg"
-                                         src={item.image.url}
-                                    />
-                                </div>
-                            </div>
-                            <div className="cart-container-outer">
-                                <div className="list-container-inner">{item.productName}</div>
+        {wishlist.length > 0 ? <div className="notice-wrapper">
+                <div className="shopping-cart-outer-container">
+                    <div className="shopping-cart-new-container">
+                        <div className="cart-container-outer">
+                            <div className="list-container-inner"
+                            >
+                                <RemoveButton onClick={() => {
+                                    dispatch2({
+                                        type: "REMOVE_FROM_WISHLIST", payload: {item}
+                                    });
+                                    dispatch2({
+                                        type: "DELETE_FROM_WISHLIST_BACKEND",
+                                        payload: {
+                                            item: item,
+                                            wishlist_id: user.wishlist_id,
+                                            isAuth: isAuth,
+                                        }
+                                    });
+                                }}/>
                             </div>
                         </div>
+                        <div className="cart-container-outer">
+                            <div className="list-container-inner">
+                                <img alt={item.image.fileName}
+                                     className="cart-cartItemImg"
+                                     src={item.image.url}
+                                />
+                            </div>
+                        </div>
+                        <div className="cart-container-outer">
+                            <div className="list-container-inner">{item.productName}</div>
+                        </div>
                     </div>
-                </div> :
-                <span>
+                </div>
+            </div> :
+            <span>
                     <div>
                         <div className="warning-icon"><BiMessageError size={40}/></div>
                         <p className="click-to-shop">Je wishlist is leeg</p>
                         <ClickToShop/>
                     </div>
                 </span>
-            }
-        </div>
+        }
     </>)
 }
 
