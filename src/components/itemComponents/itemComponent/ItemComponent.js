@@ -24,58 +24,57 @@ function ItemComponent({item}) {
         history.push(`items/${item.productId}`)
     }
 
-    return (<div className="main-container-product">
-        <div className="border-effect-container">
-            <div className="random-robot-container">
-                <div className="info-item-marker" onClick={() => redirectToItemInform(item)}>
+    return (
+        <main className="border-container">
+            <article className="r-container">
+                <section className="info-item-marker" onClick={() => redirectToItemInform(item)}>
                     <FaInfoCircle/>
-                </div>
-                <div className="hearts-container">
-                    <div>
-                        {wishlist.some((p) => p.productId === item.productId) ?
-                            <ToWishlistButton onClick={() => {
-                                dispatch2({
-                                    type: "REMOVE_FROM_WISHLIST", payload: {item}});
-                                dispatch2({
-                                    type: "DELETE_FROM_WISHLIST_BACKEND",
-                                    payload: {
-                                        item: item,
-                                        wishlist_id: user.wishlist_id,
-                                        isAuth: isAuth
-                                    }
-                                });
-                            }}/>
-                            :
-                            <FromWishlistButton onClick={() => {
-                                dispatch2({
-                                    type: "ADD_TO_WISHLIST", payload: {item}
-                                })
-                                dispatch2({
-                                    type: "SEND_TO_WISHLIST_BACKEND",
-                                    payload: {item: item, wishlist_id: user.wishlist_id}
-                                })
-                            }}/>
-                        }
-                    </div>
-                </div>
-
-                <div>
+                </section>
+                <section className="hearts-container">
+                    {wishlist.some((p) => p.productId === item.productId) ?
+                        <ToWishlistButton onClick={() => {
+                            dispatch2({
+                                type: "REMOVE_FROM_WISHLIST", payload: {item}
+                            });
+                            dispatch2({
+                                type: "DELETE_FROM_WISHLIST_BACKEND",
+                                payload: {
+                                    item: item,
+                                    wishlist_id: user.wishlist_id,
+                                    isAuth: isAuth
+                                }
+                            });
+                        }}/>
+                        :
+                        <FromWishlistButton onClick={() => {
+                            dispatch2({
+                                type: "ADD_TO_WISHLIST", payload: {item}
+                            })
+                            dispatch2({
+                                type: "SEND_TO_WISHLIST_BACKEND",
+                                payload: {item: item, wishlist_id: user.wishlist_id}
+                            })
+                        }}/>
+                    }
+                </section>
+                <section>
                     <GetImage alt={item.image.fileName}
-                         src={item.image.url}
+                              src={item.image.url}
                     />
-                </div>
-            </div>
-            <div className="product-details">
+                </section>
+            </article>
+
+            <article className="product-details">
                 <strong className="product-name">
                     {item.productName}
                 </strong>
-                <div className="product-information">
+                <section className="product-information">
                     {item.productDescription}
-                </div>
-                <div>
+                </section>
+                <section>
                     <p>{formatCurrency(item.productPrice)}</p>
-                </div>
-                <div>
+                </section>
+                <section>
                     {cart.some((p) => p.productId === item.productId) ?
                         <FromCartButton onClick={() => dispatch({
                             type: "REMOVE_FROM_CART",
@@ -85,10 +84,10 @@ function ItemComponent({item}) {
                         <ToCartButton onClick={() => dispatch({
                             type: "ADD_TO_CART", payload: item
                         })}/>}
-                </div>
-            </div>
-        </div>
-    </div>)
+                </section>
+            </article>
+        </main>
+    )
 }
 
 export default ItemComponent;

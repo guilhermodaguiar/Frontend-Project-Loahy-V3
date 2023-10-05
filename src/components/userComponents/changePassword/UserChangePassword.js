@@ -39,25 +39,22 @@ function UserChangePassword() {
 
 
     return (<>
-        {success ? <p>gelukt met het veranderen van je wachtwoord!</p> : <div className="cpi-container">
-            <form
-                className="fc-update"
-                onSubmit={handleSubmit(updatePassword)}>
-                <div className="password-container">
-                    <input
-                        type="password"
-                        autoComplete="off"
-                        {...register("password", {
-                            required: 'wachtwoord is verplicht',
-                            minLength: {value: 8, message: 'Minimaal 8 karakters nodig'},
-                            maxLength: {value: 15, message: "Maximaal 15 karakters nodig"},
-                            pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,15}$/
-                        })}
-                        placeholder="Wachtwoord"
-                    />
-                    <p> {errors.password?.message} </p>
-
-                </div>
+        {success ?
+            <p>gelukt met het veranderen van je wachtwoord!</p>
+            :
+            <form className="fc-update" onSubmit={handleSubmit(updatePassword)}>
+                <input
+                    type="password"
+                    autoComplete="off"
+                    {...register("password", {
+                        required: 'wachtwoord is verplicht',
+                        minLength: {value: 8, message: 'Minimaal 8 karakters nodig'},
+                        maxLength: {value: 15, message: "Maximaal 15 karakters nodig"},
+                        pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,15}$/
+                    })}
+                    placeholder="Wachtwoord"
+                />
+                <p> {errors.password?.message} </p>
 
                 <input
                     type="password"
@@ -74,16 +71,11 @@ function UserChangePassword() {
                 />
                 <p> {errors.confirmPassword?.message} </p>
 
-                <button
-                    type="submit"
-                    className="form-button"
-                    disabled={loading}
-                >
-                    <BsFillPencilFill/>&nbsp; Wijzigen
+                <button type="submit" disabled={loading}>
+                    <BsFillPencilFill/> Wijzigen
                 </button>
             </form>
-        </div>}
-
+        }
     </>)
 }
 

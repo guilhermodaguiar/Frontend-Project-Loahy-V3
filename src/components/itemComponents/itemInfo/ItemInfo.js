@@ -20,7 +20,6 @@ function ItemInfo() {
     const {state: {cart}, dispatch} = CartState();
     const {state2: {wishlist}, dispatch2} = WishlistState();
     const {user, isAuth} = useContext(AuthContext);
-
     const {item_id} = useParams();
 
     useEffect(() => {
@@ -29,9 +28,7 @@ function ItemInfo() {
         async function fetchItemInfo() {
             try {
                 const itemData = await axios.get(`http://localhost:8080/products/${item_id}`);
-                console.log(itemData.data);
                 setItemInfo(itemData.data);
-
             } catch (e) {
                 console.error('er is iets misgegaan met het ophalen van item data', e);
             }
@@ -45,93 +42,80 @@ function ItemInfo() {
     }, [item_id]);
 
 
-    return (<>
-        <div>
+    return (
+        <>
             <NavBar/>
-        </div>
-        <div className="background-item-info">
-            {itemInfo.image ? <section>
-                <div className="item-info-container">
-                    <section className="hearts-container">
-                        <div>
-                            {wishlist.some((p) => p.productId === itemInfo.productId) ?
-                                <ToWishlistButton onClick={() => {
-                                    dispatch2({
-                                        type: "REMOVE_FROM_WISHLIST", payload: {item: itemInfo}
-                                    });
-                                    dispatch2({
-                                        type: "DELETE_FROM_WISHLIST_BACKEND", payload: {
-                                            item: itemInfo,
-                                            wishlist_id: user.wishlist_id,
-                                            isAuth: isAuth,
-                                        }
-                                    });
-                                }}/>
-                                :
-                                <FromWishlistButton onClick={() => {
-                                    dispatch2({
-                                        type: "ADD_TO_WISHLIST", payload: {item: itemInfo}
-                                    })
-                                    dispatch2({
-                                        type: "SEND_TO_WISHLIST_BACKEND",
-                                        payload: {item: itemInfo, wishlist_id: user.wishlist_id}
-                                    })
-                                }}/>
-                            }
-                        </div>
-                    </section>
-                    <section>
-                        <GetImage alt={itemInfo.image.fileName}
-                                  src={itemInfo.image.url}
-                                  className="item-image"
-                        />
-                    </section>
-                    <div className="item-details">
-                        <strong className="product-name">
-                            {itemInfo.productName}
-                        </strong>
-                        <div className="product-information">
-                            {itemInfo.productDescription}
-                        </div>
-                        <div>
-                            <p>{formatCurrency(itemInfo.productPrice)}</p>
-                        </div>
-                        {cart.some((p) => p.productId === itemInfo.productId) ?
-
-                            <FromCartButton onClick={() => dispatch({
-                                type: "REMOVE_FROM_CART", payload: itemInfo
-                            })}/>
-
-                            :
-
-                            <ToCartButton onClick={() => dispatch({
-                                type: "ADD_TO_CART", payload: itemInfo
-                            })}/>}
-
-                    </div>
-                </div>
-                <div className="c2s-container">
-                    <ClickToShop/>
-                </div>
-            </section> : <section className="product-info-container">
-                <div className="main-container-product">
-                    <div className="border-effect-container">
-                        <div className="product-details">
-                            <strong className="product-name">
-                                {itemInfo.productName}
-                            </strong>
-                            <div className="product-information">
-                                {itemInfo.productDescription}
+            <main className="background-item-info">
+                {itemInfo.image ?
+                    <article>
+                        <section className="item-info-container">
+                            <div className="hearts-container">
+                                <div>
+                                    {wishlist.some((p) => p.productId === itemInfo.productId) ?
+                                        <ToWishlistButton onClick={() => {
+                                            dispatch2({
+                                                type: "REMOVE_FROM_WISHLIST", payload: {item: itemInfo}
+                                            });
+                                            dispatch2({
+                                                type: "DELETE_FROM_WISHLIST_BACKEND", payload: {
+                                                    item: itemInfo,
+                                                    wishlist_id: user.wishlist_id,
+                                                    isAuth: isAuth,
+                                                }
+                                            });
+                                        }}/>
+                                        :
+                                        <FromWishlistButton onClick={() => {
+                                            dispatch2({
+                                                type: "ADD_TO_WISHLIST", payload: {item: itemInfo}
+                                            })
+                                            dispatch2({
+                                                type: "SEND_TO_WISHLIST_BACKEND",
+                                                payload: {item: itemInfo, wishlist_id: user.wishlist_id}
+                                            })
+                                        }}/>
+                                    }
+                                </div>
                             </div>
                             <div>
-                                <p>{formatCurrency(itemInfo.productPrice)}</p>
+                                <GetImage alt={itemInfo.image.fileName}
+                                          src={itemInfo.image.url}
+                                          className="item-image"
+                                />
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </section>}
-        </div>
-    </>);
+                            <div className="item-details">
+                                <strong className="product-name">
+                                    {itemInfo.productName}
+                                </strong>
+                                <div className="product-information">
+                                    {itemInfo.productDescription}
+                                </div>
+                                <div>
+                                    <p>{formatCurrency(itemInfo.productPrice)}</p>
+                                </div>
+                                {cart.some((p) => p.productId === itemInfo.productId) ?
+
+                                    <FromCartButton onClick={() => dispatch({
+                                        type: "REMOVE_FROM_CART", payload: itemInfo
+                                    })}/>
+
+                                    :
+
+                                    <ToCartButton onClick={() => dispatch({
+                                        type: "ADD_TO_CART", payload: itemInfo
+                                    })}/>}
+
+                            </div>
+                        </section>
+                        <ClickToShop/>
+                    </article> :
+                    <article className="product-info-container">
+                        {itemInfo.productName}
+                        {itemInfo.productDescription}
+                        {formatCurrency(itemInfo.productPrice)}
+                    </article>}
+            </main>
+        </>);
 }
 
 export default ItemInfo;

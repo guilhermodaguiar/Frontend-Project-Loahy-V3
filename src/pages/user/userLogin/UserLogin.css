@@ -16,7 +16,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: url('../../../assets/gieter_top_background.jpg') no-repeat center center fixed;
+    background: url('../../../assets/gieter_top_background.jpeg') no-repeat center center fixed;
     background-size: cover;
     padding: 250px 60px 30px 60px;
     justify-content: flex-start;

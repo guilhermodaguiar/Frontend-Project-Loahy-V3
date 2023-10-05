@@ -20,7 +20,7 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    background: url('../../assets/winkel_wagen_background.jpg') no-repeat center center fixed;
+    background: url('../../assets/winkel_wagen_background.jpeg') no-repeat center center fixed;
     background-size: cover;
 }
 

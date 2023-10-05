@@ -20,7 +20,7 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    background: url('../../assets/home_background.jpg') no-repeat center center fixed;
+    background: url('../../assets/home_background.jpeg') no-repeat center center fixed;
     background-size: cover;
 }
 
@@ -46,6 +46,12 @@ body {
     justify-content: space-between;
     align-items: center;
     height: 34px;
+}
+
+.to-shop-link-container {
+    /*background-color: #df7c6d;*/
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .shipping-form {

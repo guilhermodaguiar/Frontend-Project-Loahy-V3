@@ -21,7 +21,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: url('../../assets/winkel_wagen_background.jpg') no-repeat center center fixed;
+    background: url('../../assets/winkel_wagen_background.jpeg') no-repeat center center fixed;
     background-size: cover;
     padding: 250px 60px 30px 60px;
     color: white;

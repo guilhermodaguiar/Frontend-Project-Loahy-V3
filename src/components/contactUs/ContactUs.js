@@ -42,7 +42,7 @@ function ContactUs() {
 
     return (<>
         <main>
-            <div className="outer-container">
+            <article className="outer-container">
                 <h1 id="contact-us">Contact ons</h1>
                 <section className="contact-us-feedback">
                     <p>Wij houden van vragen en feedback - en we helpen iedereen zo graag! Hier zijn een aantal
@@ -57,7 +57,7 @@ function ContactUs() {
                             <form
                                 className="c-form"
                                 onSubmit={handleSubmit(handleContactSubmit)}>
-                                <div>
+                                <section>
                                     <div className="cus-containers">
                                         <input
                                             type="text"
@@ -105,8 +105,8 @@ function ContactUs() {
                                         />
                                         <p> {errors.contact_org?.message} </p>
                                     </div>
-                                </div>
-                                <div className="cus-containers">
+                                </section>
+                                <section className="cus-containers">
                                             <textarea
                                                 id="remark-field"
                                                 placeholder="Type hier je bericht"
@@ -117,13 +117,15 @@ function ContactUs() {
                                                 cols={50}
                                             />
                                     <p> {errors.remark?.message} </p>
-                                </div>
+                                </section>
+
                                 <button
                                     type="submit"
                                     disabled={loading}
                                 ><FiSend/>&nbsp;verzend
                                 </button>
                                 {addSuccess === true && <p> <AiFillRocket size={25}/>Bedankt voor je bericht! Wij reageren binnen 24 uur </p>}
+
                             </form>
                         </div>
                     </div>
@@ -165,7 +167,7 @@ function ContactUs() {
                         </div>
                     </div>
                 </section>
-            </div>
+            </article>
         </main>
     </>)
 }
