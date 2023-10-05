@@ -22,7 +22,7 @@ function CreateProduct() {
     async function sendItemData(data) {
         toggleLoading(true);
         try {
-            const response = await axios.post(`http://localhost:8080/products`,
+            await axios.post(`http://localhost:8080/products`,
                 {
                     productName: data.product_name,
                     productDescription: data.product_description,
