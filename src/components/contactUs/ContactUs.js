@@ -23,7 +23,7 @@ function ContactUs() {
 
         toggleLoading(true);
         try {
-            await axios.post('http://localhost:8080/contact-remarks', {
+            await axios.post('http://localhost:8080/contact-remarks/', {
                 contactName: data.contact_name,
                 contactEmail: data.contact_email,
                 contactPhone: data.contact_phone,
@@ -89,7 +89,7 @@ function ContactUs() {
                                             {...register("contact_phone", {
                                                 required: "mobiel nummer is verplicht",
                                             })}
-                                            placeholder="mobiel"
+                                            placeholder="mobiel: vermeld +31"
                                         />
                                         <p> {errors.contact_phone?.message} </p>
 

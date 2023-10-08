@@ -86,7 +86,11 @@ table {
     padding-bottom: 20px;
 }
 
-.download-image {
+.d-image {
     font-size: smaller;
     font-weight: 400;
+}
+
+.x2 {
+    border: ridge;
 }

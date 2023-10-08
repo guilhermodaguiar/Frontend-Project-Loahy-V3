@@ -3,7 +3,6 @@ import "./UploadImage.css"
 import React, {useContext, useState} from "react";
 import axios from "axios";
 import {AuthContext} from "../../../context/AuthContext";
-import {FaFileUpload} from "react-icons/fa";
 import {useHistory} from "react-router-dom";
 import GetImage from "../../imageComponent/GetImage";
 
@@ -43,7 +42,8 @@ function UploadImage({product}) {
     return (<>
         {user.roles !== "ROLE_ADMIN" ?
             <h3>Moet ingelogd zijn als Admin</h3> :
-            <form onSubmit={() => sendUpdatedImageData(product.productId)}>
+            <form
+                onSubmit={() => sendUpdatedImageData(product.productId)}>
                 <label htmlFor="itemImage-field">
                     <input
                         className="input-container-all"
@@ -63,9 +63,8 @@ function UploadImage({product}) {
                 </label>}
                 <button
                     type="submit"
-                    className="form-submit-image-button"
+                    className="d-image"
                 >
-                    <FaFileUpload size={22}/>
                     Upload Image
                 </button>
             </form>

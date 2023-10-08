@@ -20,9 +20,9 @@ function ProductOverview() {
                 headers: {
                     "Content-Type": "application/json", "Authorization": `Bearer ${token}`,
                 }
-            })
+            });
         } catch (e) {
-            console.error(e, 'er is iets misgegaan met het verwijderen')
+            console.error(e, 'er is iets misgegaan met het verwijderen van item')
         }
     }
 
@@ -85,23 +85,37 @@ function ProductOverview() {
                         <td>{product.productId}</td>
                         <td>
                             {product.image ?
-                                <GetImage className="admin-item-image"
-                                          src={product.image.url}
-                                          alt={product.fileName}
-                                />
+                                <section className="x1">
+                                    <div>
+                                        <GetImage className="admin-item-image"
+                                                  src={product.image.url}
+                                                  alt={product.fileName}
+                                        />
+                                    </div>
+
+                                    <div className="x2">
+                                        upload opnieuw
+                                        <UploadImage key={product.productId}
+                                                     product={product}
+                                        />
+                                    </div>
+                                </section>
                                 :
                                 <UploadImage
                                     key={product.productId}
                                     product={product}
                                 />
                             }
-                            <button
-                                className="download-image"
-                                onClick={() => {
-                                    downloadImage(product).then();
-                                }}>
-                                download image
-                            </button>
+                            <section className="x1">
+                                download afbeelding
+                                <button
+                                    className="d-image"
+                                    onClick={() => {
+                                        downloadImage(product).then();
+                                    }}>
+                                    download image
+                                </button>
+                            </section>
                         </td>
                         <td>{product.productName}</td>
                         <td>{product.productDescription}</td>
@@ -110,7 +124,8 @@ function ProductOverview() {
                 })}
                 </tbody>
             </table>
-        </>}
+        </>
+        }
     </>)
 }
 
